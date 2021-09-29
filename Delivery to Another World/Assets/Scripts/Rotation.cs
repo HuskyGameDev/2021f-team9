@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
-    private bool dimensionActive;
+    public bool dimensionActive;
     private bool canTurn;
     // Start is called before the first frame update
     void Start()
