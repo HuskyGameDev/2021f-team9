@@ -6,11 +6,15 @@ public class Rotation : MonoBehaviour
 {
     public bool dimensionActive;
     private bool canTurn;
+    private float angleToRotate = 90f;
+    private float timeToRotate = 0.5f;
+    private float stepAngle;
     // Start is called before the first frame update
     void Start()
     {
         dimensionActive = false;
         canTurn = true;
+        stepAngle = angleToRotate / (timeToRotate / 100f);
     }
 
     // Update is called once per frame
@@ -21,20 +25,31 @@ public class Rotation : MonoBehaviour
         {
             StartCoroutine(flip());
         }
+    }
 
-        
+    void FixedUpdate()
+    {
+        if (canTurn == false)
+        {
+            if (dimensionActive)
+            {
+                transform.Rotate(Vector3.up, 90f * Time.fixedDeltaTime);
+            }
+            else
+            {
+                transform.Rotate(Vector3.up, -90f * Time.fixedDeltaTime);
+            }
+        }
     }
 
     private IEnumerator flip()
     {
         if (dimensionActive)
         {
-            transform.Rotate(0, 90, 0);
             dimensionActive = false;
         }
         else
         {
-            transform.Rotate(0, -90, 0);
             dimensionActive = true;
         }
         canTurn = false;
