@@ -7,11 +7,12 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
+    private float playerSpeed;
 
     private bool dimension;
     Rotation rotation;
     float y;
+    public Sprite[] imageList;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,29 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dimension = rotation.dimensionActive;
+        //Change the speed of the player
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerSpeed = 10.0f;
+        }
+        else if (Input.GetKey(KeyCode.J))
+        {
+            playerSpeed = 200.0f;
+        }
+        else
+        {
+            playerSpeed = 2.0f;
+        }
+
+        //Change the direction of the player sprite
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = imageList[0];
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = imageList[1];
+        }
         
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -34,8 +57,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move;
 
-       
-
+        //Fixes the keys to move the players in the correct dimension based on how they are turned
+        dimension = rotation.dimensionActive;
         if (dimension)
         {
             move = new Vector3(-Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
@@ -47,8 +70,8 @@ public class PlayerMovement : MonoBehaviour
             y = 0;
         }
         
+        //Move the player
         controller.Move(move * Time.deltaTime * playerSpeed);
-
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
