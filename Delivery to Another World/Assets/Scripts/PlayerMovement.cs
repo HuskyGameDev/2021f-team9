@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* To set up player movement
+ * 1. Make sure the player rotation is 0, 0, 0
+ * 2. Put two sprites in the image list
+ * 3. Tag the object as Player
+ */
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
@@ -11,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool dimension;
     Rotation rotation;
-    float y;
     public Sprite[] imageList;
 
     // Start is called before the first frame update
@@ -61,23 +65,14 @@ public class PlayerMovement : MonoBehaviour
         dimension = rotation.dimensionActive;
         if (dimension)
         {
-            move = new Vector3(-Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
-            y = -90;
+            move = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal"));
         }
         else
         {
             move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            y = 0;
         }
         
         //Move the player
         controller.Move(move * Time.deltaTime * playerSpeed);
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, y, transform.rotation.eulerAngles.z);
-        }
-
-        controller.Move(playerVelocity * Time.deltaTime);
     }
 }
