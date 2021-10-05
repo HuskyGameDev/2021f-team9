@@ -54,9 +54,11 @@ public class PlayerMovement : MonoBehaviour
         }
         
         groundedPlayer = controller.isGrounded;
+        playerVelocity = this.GetComponent<Rigidbody>().velocity; // might have modified your code a little to get gravity working
         if (groundedPlayer && playerVelocity.y < 0)
         {
-            playerVelocity.y = 0f;
+            //playerVelocity.y = 0f;
+            this.GetComponent<Rigidbody>().velocity = new Vector3(this.GetComponent<Rigidbody>().velocity.x, 0f, this.GetComponent<Rigidbody>().velocity.z);
         }
 
         Vector3 move;
@@ -65,11 +67,11 @@ public class PlayerMovement : MonoBehaviour
         dimension = rotation.dimensionActive;
         if (dimension)
         {
-            move = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal"));
+            move = new Vector3(Input.GetAxis("Vertical"), this.GetComponent<Rigidbody>().velocity.y, -Input.GetAxis("Horizontal"));
         }
         else
         {
-            move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            move = new Vector3(Input.GetAxis("Horizontal"), this.GetComponent<Rigidbody>().velocity.y, Input.GetAxis("Vertical"));
         }
         
         //Move the player

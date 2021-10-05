@@ -6,15 +6,12 @@ public class Rotation : MonoBehaviour
 {
     public bool dimensionActive;
     private bool canTurn;
-    private float angleToRotate = 90f;
-    private float timeToRotate = 0.5f;
-    private float stepAngle;
+
     // Start is called before the first frame update
     void Start()
     {
         dimensionActive = false;
         canTurn = true;
-        stepAngle = angleToRotate / (timeToRotate / 100f);
     }
 
     // Update is called once per frame
@@ -23,7 +20,8 @@ public class Rotation : MonoBehaviour
         // Swaps orientation
         if(Input.GetKey(KeyCode.R) && canTurn)
         {
-            StartCoroutine(flip());
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+             StartCoroutine(flip());
         }
     }
 
@@ -53,9 +51,10 @@ public class Rotation : MonoBehaviour
             dimensionActive = true;
         }
         canTurn = false;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+        this.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(1f);
         canTurn = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+        this.GetComponent<PlayerMovement>().enabled = true;
+        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 }
