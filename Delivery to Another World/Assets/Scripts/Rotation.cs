@@ -53,7 +53,9 @@ public class Rotation : MonoBehaviour
             dimensionActive = true;
         }
         canTurn = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(1f);
         canTurn = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
     }
 }
