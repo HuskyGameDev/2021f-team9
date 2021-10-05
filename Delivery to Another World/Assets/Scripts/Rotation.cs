@@ -20,8 +20,9 @@ public class Rotation : MonoBehaviour
         // Swaps orientation
         if(Input.GetKey(KeyCode.R) && canTurn)
         {
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
-             StartCoroutine(flip());
+            // uncomment these 2 lines of code only if you have a rigidbody attached to your player object
+            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+            StartCoroutine(flip());
         }
     }
 
@@ -55,6 +56,6 @@ public class Rotation : MonoBehaviour
         yield return new WaitForSeconds(1f);
         canTurn = true;
         this.GetComponent<PlayerMovement>().enabled = true;
-        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 }
