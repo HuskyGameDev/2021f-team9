@@ -10,7 +10,7 @@ public class PlayerMovementGravity : MonoBehaviour
     private float playerSpeed;
 
     private bool dimension;
-    Rotation rotation;
+    RotationGravity rotation;
     public Sprite[] imageList;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class PlayerMovementGravity : MonoBehaviour
     {
         controller = gameObject.AddComponent<CharacterController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        rotation = player.GetComponent<Rotation>();
+        rotation = player.GetComponent<RotationGravity>();
     }
 
     // Update is called once per frame
