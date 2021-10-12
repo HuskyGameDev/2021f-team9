@@ -25,6 +25,7 @@ public class ProceduralGeneration : MonoBehaviour
             spawnRandomPrefab();
             spawn--;
         }
+        FindObjectOfType<Rigidbody>().useGravity = true;
     }
 
     void spawnRandomPrefab()

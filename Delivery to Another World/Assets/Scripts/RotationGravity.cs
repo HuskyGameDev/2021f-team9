@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotation : MonoBehaviour
+public class RotationGravity : MonoBehaviour
 {
     public bool dimensionActive;
     private bool canTurn;
-    //private Rigidbody body;
+    private Rigidbody body;
 
     // Start is called before the first frame update
     void Start()
     {
         dimensionActive = false;
         canTurn = true;
-        //body = GetComponent<Rigidbody>();
+        body = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
         // Swaps orientation
-        if(Input.GetKey(KeyCode.R) && canTurn)
+        if (Input.GetKey(KeyCode.R) && canTurn)
         {
             // uncomment these 2 lines of code only if you have a rigidbody attached to your player object
-            //body.constraints = RigidbodyConstraints.FreezePositionY;
+            body.constraints = RigidbodyConstraints.FreezePositionY;
             StartCoroutine(Flip());
         }
     }
@@ -54,10 +54,10 @@ public class Rotation : MonoBehaviour
             dimensionActive = true;
         }
         canTurn = false;
-        this.GetComponent<PlayerMovement>().enabled = false;
+        this.GetComponent<PlayerMovementGravity>().enabled = false;
         yield return new WaitForSeconds(1f);
         canTurn = true;
-        this.GetComponent<PlayerMovement>().enabled = true;
-        //body.constraints = RigidbodyConstraints.None;
+        this.GetComponent<PlayerMovementGravity>().enabled = true;
+        body.constraints = RigidbodyConstraints.None;
     }
 }
