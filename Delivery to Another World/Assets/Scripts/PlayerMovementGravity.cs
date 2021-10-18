@@ -19,6 +19,7 @@ public class PlayerMovementGravity : MonoBehaviour
         controller = gameObject.AddComponent<CharacterController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         rotation = player.GetComponent<RotationGravity>();
+        this.GetComponent<CharacterController>().radius = 0.38f;
     }
 
     // Update is called once per frame
