@@ -6,10 +6,7 @@ TagManager:
   tags:
   - NPC
   - Text
-  - NorthDoor
-  - EastDoor
-  - SouthDoor
-  - WestDoor
+  - Map
   layers:
   - Default
   - TransparentFX
