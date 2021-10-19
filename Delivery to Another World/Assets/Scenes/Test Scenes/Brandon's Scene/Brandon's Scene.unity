@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &274151735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8833129366926981517, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+  m_PrefabInstance: {fileID: 8833129366655844538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589307699
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomCoordinate: 
-  numberOfDifferentRooms: 0
+  numberOfDifferentRooms: 1
+  player: {fileID: 274151735}
   prefabs:
   - {fileID: 1948306432764027035, guid: 4198bc0bdba6a6140a8a0d20fbe840c3, type: 3}
   - {fileID: 6034343256050893142, guid: eae16a371e2db694d8b859d8c2146c9a, type: 3}
