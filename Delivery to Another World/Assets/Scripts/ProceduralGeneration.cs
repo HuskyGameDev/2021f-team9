@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProceduralGeneration : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ProceduralGeneration : MonoBehaviour
     public int[] roomCoordinate;
     public int numberOfDifferentRooms;
     public GameObject player;
+    private Transition transitionSquare;
 
     public GameObject[] prefabs;
     public int difficulty;
@@ -22,7 +24,9 @@ public class ProceduralGeneration : MonoBehaviour
         roomCoordinate = new int[2];
         roomCoordinate[0] = Random.Range(0, numberOfDifferentRooms);
         roomCoordinate[1] = Random.Range(0, numberOfDifferentRooms);
+        transitionSquare = FindObjectOfType<Transition>();
         prefabAlgorithm = 0;
+
         spawnPrefab(algorithm(roomCoordinate));
     }
 
@@ -57,6 +61,7 @@ public class ProceduralGeneration : MonoBehaviour
     // activates when player moves through north door
     public void moveNorth()
     {
+        transitionSquare.transition();
         roomCoordinate[1] += 1;
         prefabAlgorithm = algorithm(roomCoordinate);
         GameObject newRoom = spawnPrefab(prefabAlgorithm);
@@ -77,6 +82,7 @@ public class ProceduralGeneration : MonoBehaviour
     // activates when player moves through east door
     public void moveEast()
     {
+        transitionSquare.transition();
         roomCoordinate[0] += 1;
         prefabAlgorithm = algorithm(roomCoordinate);
         GameObject newRoom = spawnPrefab(prefabAlgorithm);
@@ -97,6 +103,7 @@ public class ProceduralGeneration : MonoBehaviour
     // activates when player moves through south door
     public void moveSouth()
     {
+        transitionSquare.transition();
         roomCoordinate[1] -= 1;
         prefabAlgorithm = algorithm(roomCoordinate);
         GameObject newRoom = spawnPrefab(prefabAlgorithm);
@@ -117,6 +124,7 @@ public class ProceduralGeneration : MonoBehaviour
     // activates when player moves through west door
     public void moveWest()
     {
+        transitionSquare.transition();
         roomCoordinate[0] -= 1;
         prefabAlgorithm = algorithm(roomCoordinate);
         GameObject newRoom = spawnPrefab(prefabAlgorithm);
