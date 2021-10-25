@@ -53,7 +53,7 @@ public class ProceduralGeneration : MonoBehaviour
     int algorithm(int[] newCoords)
     {
         //do math
-        int answer = newCoords[0] ^ newCoords[1];
+        int answer = Mathf.Abs(newCoords[0]) ^ Mathf.Abs(newCoords[1]);
         answer %= numberOfDifferentRooms;
         return answer;
     }
