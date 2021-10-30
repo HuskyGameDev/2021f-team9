@@ -11,8 +11,9 @@ public class RotationForObjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dimensionActive = false;
+        dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
         canTurn = true;
+        transform.rotation = FindObjectOfType<RotationGravity>().transform.rotation;
         //body = GetComponent<Rigidbody>();
     }
 
