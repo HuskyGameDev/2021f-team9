@@ -27,7 +27,7 @@ public class ProceduralGeneration : MonoBehaviour
         transitionSquare = FindObjectOfType<Transition>();
         prefabAlgorithm = 0;
 
-        spawnPrefab(algorithm(roomCoordinate));
+        moveEast();
     }
 
     // Update is called once per frame

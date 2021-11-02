@@ -16,10 +16,9 @@ public class PlayerMovementGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
+        controller = this.GetComponent<CharacterController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         rotation = player.GetComponent<RotationGravity>();
-        this.GetComponent<CharacterController>().radius = 0.38f;
     }
 
     // Update is called once per frame
