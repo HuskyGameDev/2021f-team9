@@ -1,11 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotationForObjects : MonoBehaviour
 {
     public bool dimensionActive;
     private bool canTurn;
+    private RotationGravity rotGrav;
+
     //private Rigidbody body;
 
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class RotationForObjects : MonoBehaviour
         dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
         canTurn = true;
         transform.rotation = FindObjectOfType<RotationGravity>().transform.rotation;
+        rotGrav = FindObjectOfType<RotationGravity>();
         //body = GetComponent<Rigidbody>();
     }
 
@@ -21,7 +23,7 @@ public class RotationForObjects : MonoBehaviour
     void Update()
     {
         // Swaps orientation
-        if (Input.GetKey(KeyCode.R) && canTurn)
+        if (Input.GetKey(KeyCode.R) && canTurn && rotGrav.enabled)
         {
             // uncomment these 2 lines of code only if you have a rigidbody attached to your player object
             //body.constraints = RigidbodyConstraints.FreezePositionY;
