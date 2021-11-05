@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovementGravity : MonoBehaviour
 {
@@ -8,6 +9,14 @@ public class PlayerMovementGravity : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private float playerSpeed;
+    private bool canSprint;
+    public float maxStamina;
+    private float stamina;
+    public float exhaustionRate;
+    private bool canRegenerate;
+    public GameObject staminaUI;
+    private Slider staminaSlider;
+    public GameObject staminaBar;
 
     private bool dimension;
     RotationGravity rotation;
@@ -19,13 +28,59 @@ public class PlayerMovementGravity : MonoBehaviour
         controller = this.GetComponent<CharacterController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         rotation = player.GetComponent<RotationGravity>();
+        stamina = maxStamina;
+        canSprint = true;
+        canRegenerate = true;
+        staminaSlider = staminaUI.GetComponent<Slider>();
+        staminaSlider.maxValue = maxStamina;
+        staminaSlider.value = maxStamina;
+    }
+
+    // Controls stamina
+    private void FixedUpdate()
+    {
+        if(stamina <= 0f && canRegenerate)
+        {
+            canSprint = false;
+            staminaBar.GetComponent<Image>().color = Color.red;
+            StartCoroutine(waitToRegenerate(1f));
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift) && canSprint && canRegenerate)
+        {
+            canRegenerate = false;
+            StartCoroutine(waitToRegenerate(0.5f));
+        }
+        
+        if(Input.GetKey(KeyCode.LeftShift) && (Input.GetAxis("Horizontal") > 0f || Input.GetAxis("Vertical") > 0f) && stamina > 0f && canSprint)
+        {
+            staminaBar.GetComponent<Image>().enabled = true;
+            stamina -= exhaustionRate * Time.deltaTime;
+        }
+        else if (stamina < maxStamina && canRegenerate)
+        {
+            stamina += exhaustionRate * Time.deltaTime/2;
+        }
+
+        if(stamina > maxStamina)
+        {
+            stamina = maxStamina;
+        }
+
+        if (stamina == maxStamina)
+        {
+            canSprint = true;
+            staminaBar.GetComponent<Image>().color = Color.green;
+            staminaBar.GetComponent<Image>().enabled = false;
+        }
+
+        staminaSlider.value = stamina;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Change the speed of the player
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && canSprint)
         {
             playerSpeed = 10.0f;
         }
@@ -74,5 +129,13 @@ public class PlayerMovementGravity : MonoBehaviour
 
         //Move the player
         controller.Move(move * Time.deltaTime * playerSpeed);
+    }
+
+    IEnumerator waitToRegenerate(float wait)
+    {
+        canRegenerate = false;
+        yield return new WaitForSeconds(wait);
+        canRegenerate = true;
+        stamina = Mathf.Abs(stamina);
     }
 }

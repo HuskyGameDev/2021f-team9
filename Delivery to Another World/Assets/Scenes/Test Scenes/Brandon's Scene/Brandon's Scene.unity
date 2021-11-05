@@ -212,10 +212,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2332290834734913856, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2332290835164980744, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
       propertyPath: m_Name
       value: UI
@@ -304,8 +300,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6212367305057355063, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212367305057355063, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125693957260736745, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+--- !u!1 &2332290833978264951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6660865642409539712, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+  m_PrefabInstance: {fileID: 2332290833978264950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2332290833978264952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8508127197167944073, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+  m_PrefabInstance: {fileID: 2332290833978264950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8658396496464792267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394,6 +412,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: staminaUI
+      value: 
+      objectReference: {fileID: 2332290833978264952}
+    - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: staminaBar
+      value: 
+      objectReference: {fileID: 2332290833978264951}
     - target: {fileID: 8833129366926981505, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: m_RootOrder
       value: 3

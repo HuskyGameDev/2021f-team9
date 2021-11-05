@@ -220,6 +220,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+--- !u!1 &963658207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6660865642409539712, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+  m_PrefabInstance: {fileID: 963658206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &963658208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8508127197167944073, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+  m_PrefabInstance: {fileID: 963658206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1134312340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +237,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: staminaUI
+      value: 
+      objectReference: {fileID: 963658208}
+    - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: staminaBar
+      value: 
+      objectReference: {fileID: 963658207}
     - target: {fileID: 8833129366926981505, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: m_RootOrder
       value: 0

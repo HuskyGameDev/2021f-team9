@@ -209,6 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce49b3c3caf8d44f82303635c4f45a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxStamina: 100
+  exhaustionRate: 100
+  staminaUI: {fileID: 0}
+  staminaBar: {fileID: 0}
   imageList:
   - {fileID: 21300000, guid: f2c85fa5a05e5fb46aac8d62e39f3459, type: 3}
   - {fileID: 21300000, guid: f2c85fa5a05e5fb46aac8d62e39f3459, type: 3}
