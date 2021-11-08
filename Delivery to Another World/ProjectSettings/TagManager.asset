@@ -7,11 +7,15 @@ TagManager:
   - NPC
   - Text
   - Map
+  - SouthDoor
+  - EastDoor
+  - WestDoor
+  - NorthDoor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Volume
   - Water
   - UI
   - 

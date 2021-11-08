@@ -10,13 +10,11 @@ public class EnemyMovement : MonoBehaviour
 
     private bool canMove;
     private int currentPath;
-    private bool direction;
 
     // Start is called before the first frame update
     void Start()
     {
         canMove = true;
-        direction = true;
         currentPath = 1;
     }
 
@@ -34,23 +32,14 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (currentPath >= path.Length - 1)
                 {
-                    direction = false;
-                    StartCoroutine(Pause());
-                }
-                else if (currentPath == 0)
-                {
-                    direction = true;
-                    StartCoroutine(Pause());
-                }
-
-                if (direction)
-                {
-                    currentPath++;
+                    currentPath = 0;
                 }
                 else
                 {
-                    currentPath--;
+                    currentPath++;
                 }
+                
+                StartCoroutine(Pause());
             }
 
             // Negative X
