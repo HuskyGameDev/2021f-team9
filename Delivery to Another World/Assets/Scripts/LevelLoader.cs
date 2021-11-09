@@ -14,15 +14,24 @@ public class LevelLoader : MonoBehaviour
     public void LoadDesert()
     {
         Debug.Log("Loading Desert");
+        SceneManager.LoadScene("Desert");
     }
 
     public void LoadCave()
     {
         Debug.Log("Loading Cave");
+        SceneManager.LoadScene("Cave");
     }
 
     public void LoadCastle()
     {
         Debug.Log("Loading Castle");
+        SceneManager.LoadScene("Castle");
+    }
+
+    public void LoadHub()
+    {
+        Debug.Log("Loading Hub");
+        SceneManager.LoadScene("Hub");
     }
 }
