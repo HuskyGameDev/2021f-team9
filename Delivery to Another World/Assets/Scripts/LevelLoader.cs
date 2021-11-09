@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    [SerializeField] GameObject light;
     public void LoadForest()
     {
         Debug.Log("Loading Forest");
