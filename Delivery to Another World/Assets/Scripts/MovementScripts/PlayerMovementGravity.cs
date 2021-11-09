@@ -17,6 +17,7 @@ public class PlayerMovementGravity : MonoBehaviour
     public GameObject staminaUI;
     private Slider staminaSlider;
     public GameObject staminaBar;
+    public bool isSprinting;
 
     private bool dimension;
     RotationGravity rotation;
@@ -34,6 +35,7 @@ public class PlayerMovementGravity : MonoBehaviour
         staminaSlider = staminaUI.GetComponent<Slider>();
         staminaSlider.maxValue = maxStamina;
         staminaSlider.value = maxStamina;
+        isSprinting = false;
     }
 
     // Controls stamina
@@ -83,6 +85,7 @@ public class PlayerMovementGravity : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && canSprint)
         {
             playerSpeed = 10.0f;
+            isSprinting = true;
         }
         else if (Input.GetKey(KeyCode.J))
         {
@@ -91,6 +94,7 @@ public class PlayerMovementGravity : MonoBehaviour
         else
         {
             playerSpeed = 2.0f;
+            isSprinting = false;
         }
 
         //Change the direction of the player sprite

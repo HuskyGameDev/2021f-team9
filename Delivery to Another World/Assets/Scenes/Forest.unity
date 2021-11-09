@@ -474,7 +474,64 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6660865642409539712, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
   m_PrefabInstance: {fileID: 1035646707}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1593500804
+--- !u!1001 &1433329802
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.8479096
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.34019703
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.35524997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.19776922
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150938, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346270872020150943, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+      propertyPath: m_Name
+      value: NightLight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ea5d25c82658fc49bca4b6c3868dde0, type: 3}
+--- !u!1001 &1651606423
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -527,7 +584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8998556528389712702, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
       propertyPath: m_Name
-      value: Directional Light
+      value: Forest Directional Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998556528389712702, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
