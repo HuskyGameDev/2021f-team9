@@ -403,6 +403,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8833129366715113708, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: StaminaUI
       value: 
