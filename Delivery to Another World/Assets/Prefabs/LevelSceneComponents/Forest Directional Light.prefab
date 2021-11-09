@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8998556528389712701}
   - component: {fileID: 1682011123925689797}
   m_Layer: 3
-  m_Name: Directional Light
+  m_Name: Forest Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,8 +43,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.745283, g: 0.40090495, b: 0.024608415, a: 1}
-  m_Intensity: 1.39
+  m_Color: {r: 0.5849056, g: 0.53352237, b: 0.024830889, a: 1}
+  m_Intensity: 1.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
