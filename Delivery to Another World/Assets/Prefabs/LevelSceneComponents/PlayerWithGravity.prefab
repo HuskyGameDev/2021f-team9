@@ -274,9 +274,10 @@ MonoBehaviour:
   exhaustionRate: 100
   staminaUI: {fileID: 0}
   staminaBar: {fileID: 0}
-  imageList:
-  - {fileID: 21300000, guid: f2c85fa5a05e5fb46aac8d62e39f3459, type: 3}
-  - {fileID: 21300000, guid: f2c85fa5a05e5fb46aac8d62e39f3459, type: 3}
+  isSprinting: 0
+  materials:
+  - {fileID: 2100000, guid: 72b5eb5256fdbc64da35b6a1176a155c, type: 2}
+  - {fileID: 2100000, guid: 1577314fae288e042a0da8e8741064b3, type: 2}
 --- !u!54 &8833129366926981508
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2563037660528524173}
   - component: {fileID: 3061873839049753280}
   - component: {fileID: 7913525271541141774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3283630819551794191}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76385516, y: 0.7149531, z: 0.5}
-  m_Center: {x: -0.028985899, y: -0.003483057, z: 0.25}
+  m_Size: {x: 0.76385516, y: 0.7149531, z: 1}
+  m_Center: {x: -0.028985899, y: -0.003483057, z: 0}
 --- !u!114 &7913525271541141774
 MonoBehaviour:
   m_ObjectHideFlags: 0

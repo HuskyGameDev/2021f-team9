@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6594073470110891736}
   - component: {fileID: 5930217575229762340}
   - component: {fileID: 8530323852429685738}
-  - component: {fileID: 2606401956511441782}
-  m_Layer: 0
+  - component: {fileID: 4442755841466693777}
+  m_Layer: 8
   m_Name: Tree3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7060147308408326275}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dimensionActive: 0
---- !u!65 &2606401956511441782
+--- !u!65 &4442755841466693777
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,5 +107,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.45096627, y: 1, z: 0.5}
-  m_Center: {x: -0.04520855, y: 0, z: 0.25}
+  m_Size: {x: 0.44, y: 1, z: 1}
+  m_Center: {x: -0.04520855, y: 0, z: 0}

@@ -43,24 +43,28 @@ public class EnemyMovement : MonoBehaviour
             }
 
             // Negative X
-            if (transform.position.x > path[currentPath].transform.position.x)
+            if (transform.position.x > path[currentPath].transform.position.x + 0.1f)
             {
                 transform.position = new Vector3(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+                // Face in the negative X direction
+                transform.eulerAngles = new Vector3(0f, -90f, 0f);
             }
             // Positive X
-            else if (transform.position.x < path[currentPath].transform.position.x)
+            else if (transform.position.x < path[currentPath].transform.position.x - 0.1f)
             {
                 transform.position = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+                // Face in the positive X direction
+                transform.eulerAngles = new Vector3(0f, 90f, 0f);
             }
 
             // Negative Z
-            if (transform.position.z > path[currentPath].transform.position.z)
+            if (transform.position.z > path[currentPath].transform.position.z + .1f)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveSpeed * Time.deltaTime);
             }
 
             // Positive Z
-            else if (transform.position.z < path[currentPath].transform.position.z)
+            else if (transform.position.z < path[currentPath].transform.position.z - 0.1f)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + moveSpeed * Time.deltaTime);
             }

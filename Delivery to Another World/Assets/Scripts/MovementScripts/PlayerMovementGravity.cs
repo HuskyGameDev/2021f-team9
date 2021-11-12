@@ -18,10 +18,10 @@ public class PlayerMovementGravity : MonoBehaviour
     private Slider staminaSlider;
     public GameObject staminaBar;
     public bool isSprinting;
+    public Material[] materials;
 
     private bool dimension;
     RotationGravity rotation;
-    public Sprite[] imageList;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +57,7 @@ public class PlayerMovementGravity : MonoBehaviour
         {
             staminaBar.GetComponent<Image>().enabled = true;
             stamina -= exhaustionRate * Time.deltaTime;
+            isSprinting = true;
         }
         else if (stamina < maxStamina && canRegenerate)
         {
@@ -85,7 +86,6 @@ public class PlayerMovementGravity : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && canSprint)
         {
             playerSpeed = 10.0f;
-            isSprinting = true;
         }
         else if (Input.GetKey(KeyCode.J))
         {
@@ -101,10 +101,12 @@ public class PlayerMovementGravity : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             //gameObject.GetComponent<SpriteRenderer>().sprite = imageList[0];
+            GetComponent<MeshRenderer>().material = materials[1];
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             //gameObject.GetComponent<SpriteRenderer>().sprite = imageList[1];
+            GetComponent<MeshRenderer>().material = materials[0];
         }
 
         groundedPlayer = controller.isGrounded;
