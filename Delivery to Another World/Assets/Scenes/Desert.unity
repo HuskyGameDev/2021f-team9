@@ -187,6 +187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8833129366715113698, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: staminaUI
       value: 
@@ -309,6 +313,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1367223339}
+    - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
+      propertyPath: sceneName
+      value: Desert
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
 --- !u!1001 &1622771838

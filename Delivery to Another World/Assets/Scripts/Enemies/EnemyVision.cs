@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyVision : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnemyVision : MonoBehaviour
     private RaycastHit[] hit = new RaycastHit[5];
     private bool isSprinting;
     private EnemyMovement movement;
+    private bool alreadyGameover;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,7 @@ public class EnemyVision : MonoBehaviour
         canRaycast = false;
         movement = GetComponent<EnemyMovement>();
         player = FindObjectOfType<PlayerMovementGravity>().gameObject;
+        alreadyGameover = false;
     }
 
     // Update is called once per frame
@@ -62,41 +65,61 @@ public class EnemyVision : MonoBehaviour
             if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.forward, out hit[0], 5f, layerMask) && hit[0].collider.CompareTag("Player"))
             {
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.forward * hit[0].distance, Color.red);
-                Debug.Log("Caught!");
-                // send message that you lost and send back to hub
                 movement.enabled = false;
+
+                // send message that you lost and send back to hub
+                if (!alreadyGameover)
+                {
+                    StartCoroutine(GameOver());
+                }
             }
             // Far positive x ray
             else if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[1]), out hit[1], 3f, layerMask) && hit[1].collider.CompareTag("Player"))
             {
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[1]) * hit[1].distance, Color.red);
-                Debug.Log("Caught!");
-                // send message that you lost and send back to hub
                 movement.enabled = false;
+
+                // send message that you lost and send back to hub
+                if (!alreadyGameover)
+                {
+                    StartCoroutine(GameOver());
+                }
             }
             // Far negative x ray
             else if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[2]), out hit[2], 3f, layerMask) && hit[2].collider.CompareTag("Player"))
             {
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[2]) * hit[2].distance, Color.red);
-                Debug.Log("Caught!");
-                // send message that you lost and send back to hub
                 movement.enabled = false;
+
+                // send message that you lost and send back to hub
+                if (!alreadyGameover)
+                {
+                    StartCoroutine(GameOver());
+                }
             }
             // Middle positive x ray
             else if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[3]), out hit[3], 5f, layerMask) && hit[3].collider.CompareTag("Player"))
             {
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[3]) * hit[3].distance, Color.red);
-                Debug.Log("Caught!");
-                // send message that you lost and send back to hub
                 movement.enabled = false;
+
+                // send message that you lost and send back to hub
+                if (!alreadyGameover)
+                {
+                    StartCoroutine(GameOver());
+                }
             }
             // Middle negative x ray
             else if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[4]), out hit[4], 5f, layerMask) && hit[4].collider.CompareTag("Player"))
             {
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[4]) * hit[4].distance, Color.red);
-                Debug.Log("Caught!");
-                // send message that you lost and send back to hub
                 movement.enabled = false;
+
+                // send message that you lost and send back to hub
+                if (!alreadyGameover)
+                {
+                    StartCoroutine(GameOver());
+                }
             }
             else
             {
@@ -105,9 +128,13 @@ public class EnemyVision : MonoBehaviour
                     transform.LookAt(player.transform);
                     transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
                     Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.forward * hit[0].distance, Color.red);
-                    Debug.Log("Caught!");
-                    // send message that you lost and send back to hub
                     movement.enabled = false;
+
+                    // send message that you lost and send back to hub
+                    if (!alreadyGameover)
+                    {
+                        StartCoroutine(GameOver());
+                    }
                 }
                 else
                 {
@@ -116,6 +143,7 @@ public class EnemyVision : MonoBehaviour
                     Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[2]) * 3f, Color.white); // Far negative x
                     Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[3]) * 5f, Color.white); // Middle positive x
                     Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[4]) * 5f, Color.white); // Middle negative x
+                    
                     movement.enabled = true;
                 }
             }
@@ -124,5 +152,15 @@ public class EnemyVision : MonoBehaviour
         {
             movement.enabled = true;
         }
+    }
+
+    private IEnumerator GameOver()
+    {
+        alreadyGameover = true;
+        player.GetComponent<PlayerMovementGravity>().enabled = false;
+        player.GetComponent<Rigidbody>().useGravity = false;
+        yield return new WaitForSeconds(5f);
+        // send message that you lost and send back to hub
+        SceneManager.LoadScene("Hub");
     }
 }

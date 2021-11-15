@@ -249,6 +249,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1797947074}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
+      propertyPath: sceneName
+      value: Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.size
       value: 3
       objectReference: {fileID: 0}

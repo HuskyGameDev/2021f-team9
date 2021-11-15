@@ -9,18 +9,15 @@ public class ProceduralGeneration : MonoBehaviour
     public int[] roomCoordinate;
     public int numberOfDifferentRooms;
     public GameObject player;
-    private Transition transitionSquare;
-
     public GameObject[] prefabs;
-    public int difficulty;
-    private int spawn;
+    
+    private Transition transitionSquare;
     private int prefabAlgorithm;
     private GameObject currentPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawn = difficulty;
         roomCoordinate = new int[2];
         roomCoordinate[0] = Random.Range(0, numberOfDifferentRooms);
         roomCoordinate[1] = Random.Range(0, numberOfDifferentRooms);

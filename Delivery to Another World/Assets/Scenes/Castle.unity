@@ -502,6 +502,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1170344853}
+    - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
+      propertyPath: sceneName
+      value: Castle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
 --- !u!1001 &2145022800
