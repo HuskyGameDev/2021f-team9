@@ -2,35 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ProceduralGeneration : MonoBehaviour
 {
 
-    public int[] roomCoordinate;
     public int numberOfDifferentRooms;
     public GameObject player;
     public GameObject[] prefabs;
+    public int difficulty;
+    public GameObject lastRoomPrefab;
     
     private Transition transitionSquare;
     private int prefabAlgorithm;
     private GameObject currentPrefab;
+    private int roomsSpawned;
+    private roomCoordinate[] coordinatesVisited;
+    private roomCoordinate currentRoom;
+    private bool roomExists;
+
+    struct roomCoordinate
+    {
+        public int x;
+        public int y;
+
+        public roomCoordinate(int newX, int newY)
+        {
+            this.x = newX;
+            this.y = newY;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        roomCoordinate = new int[2];
-        roomCoordinate[0] = Random.Range(0, numberOfDifferentRooms);
-        roomCoordinate[1] = Random.Range(0, numberOfDifferentRooms);
+        coordinatesVisited = new roomCoordinate[difficulty];
+        currentRoom.x = Random.Range(0, numberOfDifferentRooms);
+        currentRoom.y = Random.Range(0, numberOfDifferentRooms);
         transitionSquare = FindObjectOfType<Transition>();
         prefabAlgorithm = 0;
+        roomsSpawned = 0;
 
         moveEast();
+        roomsSpawned = 1;
+        coordinatesVisited[roomsSpawned] = new roomCoordinate(currentRoom.x, currentRoom.y);
+        roomsSpawned++;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(roomsSpawned == difficulty)
+        {
+            // Spawn the treasure room then go back to the hub
+            SceneManager.LoadScene("Hub");
+        }
     }
 
     // Swans in a specific prefab
@@ -41,16 +67,34 @@ public class ProceduralGeneration : MonoBehaviour
         currentPrefab = prefabs[index];
         GameObject newRoom = Instantiate(currentPrefab, transform.position, transform.rotation);
         FindObjectOfType<Rigidbody>().useGravity = true;
+
+        roomExists = false;
+        for(int i = 0; i < roomsSpawned; i++)
+        {
+            if (currentRoom.Equals(coordinatesVisited[i]))
+            {
+                roomExists = true;
+                Debug.Log("It's working!");
+                break;
+            }
+        }
+
+        if (!roomExists)
+        {
+            coordinatesVisited[roomsSpawned] = new roomCoordinate(currentRoom.x, currentRoom.y);
+            roomsSpawned++;
+        }
+
         return newRoom;
     }
 
     // Does the math for determining which prefab to spawn in
     // input: newCoords = the coordinates of the room you want to spawn in
     // returns: the index of the prefab to be spawned in
-    int algorithm(int[] newCoords)
+    int algorithm(roomCoordinate newCoords)
     {
         //do math
-        int answer = Mathf.Abs(newCoords[0]) ^ Mathf.Abs(newCoords[1]);
+        int answer = Mathf.Abs(newCoords.x) ^ Mathf.Abs(newCoords.y);
         answer %= numberOfDifferentRooms;
         return answer;
     }
@@ -59,8 +103,8 @@ public class ProceduralGeneration : MonoBehaviour
     public void moveNorth()
     {
         transitionSquare.transition();
-        roomCoordinate[1] += 1;
-        prefabAlgorithm = algorithm(roomCoordinate);
+        currentRoom.y += 1;
+        prefabAlgorithm = algorithm(currentRoom);
         GameObject newRoom = spawnPrefab(prefabAlgorithm);
         Transform[] doors = newRoom.GetComponentsInChildren<Transform>();
         player.GetComponent<CharacterController>().enabled = false;
@@ -80,8 +124,8 @@ public class ProceduralGeneration : MonoBehaviour
     public void moveEast()
     {
         transitionSquare.transition();
-        roomCoordinate[0] += 1;
-        prefabAlgorithm = algorithm(roomCoordinate);
+        currentRoom.x += 1;
+        prefabAlgorithm = algorithm(currentRoom);
         GameObject newRoom = spawnPrefab(prefabAlgorithm);
         Transform[] doors = newRoom.GetComponentsInChildren<Transform>();
         player.GetComponent<CharacterController>().enabled = false;
@@ -101,8 +145,8 @@ public class ProceduralGeneration : MonoBehaviour
     public void moveSouth()
     {
         transitionSquare.transition();
-        roomCoordinate[1] -= 1;
-        prefabAlgorithm = algorithm(roomCoordinate);
+        currentRoom.y -= 1;
+        prefabAlgorithm = algorithm(currentRoom);
         GameObject newRoom = spawnPrefab(prefabAlgorithm);
         Transform[] doors = newRoom.GetComponentsInChildren<Transform>();
         player.GetComponent<CharacterController>().enabled = false;
@@ -122,8 +166,8 @@ public class ProceduralGeneration : MonoBehaviour
     public void moveWest()
     {
         transitionSquare.transition();
-        roomCoordinate[0] -= 1;
-        prefabAlgorithm = algorithm(roomCoordinate);
+        currentRoom.x -= 1;
+        prefabAlgorithm = algorithm(currentRoom);
         GameObject newRoom = spawnPrefab(prefabAlgorithm);
         Transform[] doors = newRoom.GetComponentsInChildren<Transform>();
         player.GetComponent<CharacterController>().enabled = false;
