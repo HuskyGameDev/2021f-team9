@@ -12,12 +12,6 @@ public class Load : MonoBehaviour
         this.obj = obj;
     }
 
-    private void Start()
-    {
-        
-    }
-
-
     public void LoadSave()
     {
         data = obj.GetComponent<SaveData>();

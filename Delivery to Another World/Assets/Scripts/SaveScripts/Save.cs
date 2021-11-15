@@ -29,20 +29,6 @@ public class Save
         this.obj = obj;
     }
 
-
-    private void Awake()
-    {
-
-        SaveData data = obj.GetComponent<SaveData>();
-
-        isDragonDefeated = data.isDragonDefeated;
-        isCactusFound = data.isCactusFound;
-        ownOasisWater = data.ownOasisWater;
-        doYouOwnAPicnicBasket = data.doYouOwnAPicnicBasket;
-        haveTheGremlinsScoldedYou = data.haveTheGremlinsScoldedYou;
-        didYouWin = data.didYouWin;
-    }
-
     public void save()
     {
 
