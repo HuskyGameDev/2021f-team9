@@ -7,9 +7,11 @@ public class EnemyMovement : MonoBehaviour
 
     public GameObject[] path;
     public int moveSpeed;
+    public bool isReverse;
 
     private bool canMove;
     private int currentPath;
+    private bool dimensionActive;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,43 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
+        MeshRenderer[] meshes = GetComponentsInChildren<MeshRenderer>();
+        Collider[] colliders = GetComponentsInChildren<MeshCollider>();
+
+        if (dimensionActive && isReverse)
+        {
+            for (int i = 0; i < meshes.Length; i++)
+            {
+                meshes[i].enabled = true;
+            }
+            for(int i = 0; i < colliders.Length; i++)
+            {
+                colliders[i].enabled = true;
+            }
+        }
+        else if(!dimensionActive && !isReverse)
+        {
+            for (int i = 0; i < meshes.Length; i++)
+            {
+                meshes[i].enabled = true;
+            }
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                colliders[i].enabled = true;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < meshes.Length; i++)
+            {
+                meshes[i].enabled = false;
+            }
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                colliders[i].enabled = false;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -47,26 +85,40 @@ public class EnemyMovement : MonoBehaviour
             {
                 transform.position = new Vector3(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
                 // Face in the negative X direction
-                transform.eulerAngles = new Vector3(0f, -90f, 0f);
+                if (!isReverse)
+                {
+                    transform.eulerAngles = new Vector3(0f, -90f, 0f);
+                }
             }
             // Positive X
             else if (transform.position.x < path[currentPath].transform.position.x - 0.1f)
             {
                 transform.position = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
                 // Face in the positive X direction
-                transform.eulerAngles = new Vector3(0f, 90f, 0f);
+                if (!isReverse)
+                {
+                    transform.eulerAngles = new Vector3(0f, 90f, 0f);
+                }
             }
 
             // Negative Z
             if (transform.position.z > path[currentPath].transform.position.z + .1f)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveSpeed * Time.deltaTime);
+                if (isReverse)
+                {
+                    transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                }
             }
 
             // Positive Z
             else if (transform.position.z < path[currentPath].transform.position.z - 0.1f)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + moveSpeed * Time.deltaTime);
+                if (isReverse)
+                {
+                    transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                }
             }
         }
     }

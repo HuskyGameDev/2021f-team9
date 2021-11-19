@@ -12,6 +12,8 @@ public class EnemyVision : MonoBehaviour
     private bool isSprinting;
     private EnemyMovement movement;
     private bool alreadyGameover;
+    private bool isReverse;
+    private bool dimensionActive;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class EnemyVision : MonoBehaviour
         movement = GetComponent<EnemyMovement>();
         player = FindObjectOfType<PlayerMovementGravity>().gameObject;
         alreadyGameover = false;
+        isReverse = GetComponent<EnemyMovement>().isReverse;
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class EnemyVision : MonoBehaviour
         float xDistToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
         float zDistToPlayer = Mathf.Abs(player.transform.position.z - transform.position.z);
         isSprinting = FindObjectOfType<PlayerMovementGravity>().isSprinting;
+        dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
 
         float[] xDirectionRay = new float[5];
         float[] zDirectionRay = new float[5];
@@ -123,7 +127,7 @@ public class EnemyVision : MonoBehaviour
             }
             else
             {
-                if (isSprinting || (xDistToPlayer < 1f && zDistToPlayer < 1f))
+                if ((isSprinting || (xDistToPlayer < 1f && zDistToPlayer < 1f)) && ((isReverse && dimensionActive) || (!isReverse && !dimensionActive)))
                 {
                     transform.LookAt(player.transform);
                     transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -158,7 +162,8 @@ public class EnemyVision : MonoBehaviour
     {
         alreadyGameover = true;
         player.GetComponent<PlayerMovementGravity>().enabled = false;
-        player.GetComponent<Rigidbody>().useGravity = false;
+        //player.GetComponent<Rigidbody>().useGravity = false;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         yield return new WaitForSeconds(5f);
         // send message that you lost and send back to hub
         SceneManager.LoadScene("Hub");

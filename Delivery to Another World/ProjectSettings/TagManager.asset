@@ -11,6 +11,8 @@ TagManager:
   - EastDoor
   - WestDoor
   - NorthDoor
+  - DimensionLighting
+  - ReverseDimensionLighting
   layers:
   - Default
   - TransparentFX
