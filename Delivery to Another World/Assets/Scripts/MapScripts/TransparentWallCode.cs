@@ -11,12 +11,22 @@ public class TransparentWallCode : MonoBehaviour
     private bool dimensionActive;
     private GameObject player;
     private GameObject playerCamera;
+    private Camera[] cameras;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerMovementGravity>().gameObject;
-        playerCamera = FindObjectOfType<Camera>().gameObject;
+        cameras = FindObjectsOfType<Camera>();
+
+        for (int i = 0; i < cameras.Length; i++)
+        {
+            if (cameras[i].CompareTag("MainCamera"))
+            {
+                playerCamera = cameras[i].gameObject;
+                break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -26,12 +36,13 @@ public class TransparentWallCode : MonoBehaviour
         MeshRenderer[] backsides = GetComponentsInChildren<MeshRenderer>();
         MeshRenderer backside = GetComponentInChildren<MeshRenderer>();
 
-        // If in the other dimension and this wall is a part of that dimension, make it visible (unless you need the camera to see through it
+        // If in the other dimension and this wall is a part of that dimension, make it visible (unless you need the camera to see through it)
         if (dimensionActive && isReverse)
         {
             GetComponent<MeshCollider>().enabled = true;
 
-            if (transform.position.x < player.transform.position.x && transform.position.x > playerCamera.transform.position.x && transform.eulerAngles.y == 90f)
+            if (transform.position.x < player.transform.position.x && transform.position.x > playerCamera.transform.position.x && transform.eulerAngles.y == 90f &&
+                Mathf.Abs(player.transform.position.z - transform.position.z) <= 5f)
             {
                 backside.enabled = false;
             }
@@ -44,12 +55,13 @@ public class TransparentWallCode : MonoBehaviour
                 }
             }
         }
-        // If in the standard dimension and this wall is a part of that dimension, make it visible (unless you need the camera to see through it
+        // If in the standard dimension and this wall is a part of that dimension, make it visible (unless you need the camera to see through it)
         else if(!dimensionActive && !isReverse)
         {
             GetComponent<MeshCollider>().enabled = true;
 
-            if (transform.position.z < player.transform.position.z && transform.position.z > playerCamera.transform.position.z && transform.eulerAngles.y == 0f)
+            if (transform.position.z < player.transform.position.z && transform.position.z > playerCamera.transform.position.z && transform.eulerAngles.y == 0f &&
+                Mathf.Abs(player.transform.position.x - transform.position.x) <= 5f)
             {
                 GetComponent<MeshRenderer>().enabled = false;
             }

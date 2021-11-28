@@ -20,6 +20,10 @@ public class ProceduralGeneration : MonoBehaviour
     private roomCoordinate[] coordinatesVisited;
     private roomCoordinate currentRoom;
     private bool roomExists;
+    private GameObject northDoor;
+    private GameObject eastDoor;
+    private GameObject southDoor;
+    private GameObject westDoor;
 
     struct roomCoordinate
     {
@@ -36,37 +40,45 @@ public class ProceduralGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coordinatesVisited = new roomCoordinate[difficulty];
+        coordinatesVisited = new roomCoordinate[difficulty + 1];
         currentRoom.x = Random.Range(0, numberOfDifferentRooms);
         currentRoom.y = Random.Range(0, numberOfDifferentRooms);
         transitionSquare = FindObjectOfType<Transition>();
         prefabAlgorithm = 0;
         roomsSpawned = 0;
 
+        currentRoom.x -= 1;
         moveEast();
-        roomsSpawned = 1;
-        coordinatesVisited[roomsSpawned] = new roomCoordinate(currentRoom.x, currentRoom.y);
-        roomsSpawned++;
+        //roomsSpawned = 1;
+        //coordinatesVisited[roomsSpawned] = new roomCoordinate(currentRoom.x, currentRoom.y);
+        //roomsSpawned++;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(roomsSpawned == difficulty)
-        {
-            // Spawn the treasure room then go back to the hub
-            SceneManager.LoadScene("Hub");
-        }
+        
     }
 
-    // Swans in a specific prefab
+    // Spawns in a specific prefab
     // input: index = which prefab to spawn in
     GameObject spawnPrefab(int index)
     {
         FindObjectOfType<Rigidbody>().useGravity = false;
-        currentPrefab = prefabs[index];
+        if (roomsSpawned == difficulty)
+        {
+            // Spawn the treasure room then go back to the hub
+            currentPrefab = lastRoomPrefab;
+            //SceneManager.LoadScene("Hub");
+        }
+        else
+        {
+            currentPrefab = prefabs[index];
+        }
         GameObject newRoom = Instantiate(currentPrefab, transform.position, transform.rotation);
         FindObjectOfType<Rigidbody>().useGravity = true;
+        Debug.Log(currentRoom.x);
+        Debug.Log(currentRoom.y);
 
         roomExists = false;
         for(int i = 0; i < roomsSpawned; i++)
@@ -74,7 +86,7 @@ public class ProceduralGeneration : MonoBehaviour
             if (currentRoom.Equals(coordinatesVisited[i]))
             {
                 roomExists = true;
-                Debug.Log("It's working!");
+                Debug.Log("Room Visited");
                 break;
             }
         }
@@ -83,7 +95,9 @@ public class ProceduralGeneration : MonoBehaviour
         {
             coordinatesVisited[roomsSpawned] = new roomCoordinate(currentRoom.x, currentRoom.y);
             roomsSpawned++;
+            Debug.Log("Room NOT Visited");
         }
+        Debug.Log(roomsSpawned);
 
         return newRoom;
     }
@@ -94,7 +108,9 @@ public class ProceduralGeneration : MonoBehaviour
     int algorithm(roomCoordinate newCoords)
     {
         //do math
-        int answer = Mathf.Abs(((newCoords.x - newCoords.y) * (newCoords.y - newCoords.x) * newCoords.y * newCoords.x) ^ Mathf.Abs(newCoords.y));
+        int tempY = newCoords.y * 3;
+        int tempX = newCoords.x * 2;
+        int answer = Mathf.Abs(((tempX - tempY) * (tempY - tempX) * tempY * tempX) ^ Mathf.Abs(tempY));
         answer %= numberOfDifferentRooms;
         return answer;
     }
@@ -118,6 +134,47 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
         player.GetComponent<CharacterController>().enabled = true;
+
+        for (int i = 0; i < doors.Length; i++)
+        {
+            if (doors[i].gameObject.CompareTag("NorthDoor"))
+            {
+                northDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("EastDoor"))
+            {
+                eastDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("SouthDoor"))
+            {
+                southDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("WestDoor"))
+            {
+                westDoor = doors[i].gameObject;
+            }
+        }
+
+        if (currentRoom.y >= numberOfDifferentRooms)
+        {
+            northDoor.SetActive(false);
+            Debug.Log("North door deactivated!");
+        }
+        if (currentRoom.x >= numberOfDifferentRooms)
+        {
+            eastDoor.SetActive(false);
+            Debug.Log("East door deactivated!");
+        }
+        if (currentRoom.y <= 0)
+        {
+            southDoor.SetActive(false);
+            Debug.Log("South door deactivated!");
+        }
+        if (currentRoom.x <= 0)
+        {
+            westDoor.SetActive(false);
+            Debug.Log("West door deactivated!");
+        }
     }
 
     // activates when player moves through east door
@@ -139,6 +196,47 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
         player.GetComponent<CharacterController>().enabled = true;
+
+        for (int i = 0; i < doors.Length; i++)
+        {
+            if (doors[i].gameObject.CompareTag("NorthDoor"))
+            {
+                northDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("EastDoor"))
+            {
+                eastDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("SouthDoor"))
+            {
+                southDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("WestDoor"))
+            {
+                westDoor = doors[i].gameObject;
+            }
+        }
+
+        if (currentRoom.y >= numberOfDifferentRooms)
+        {
+            northDoor.SetActive(false);
+            Debug.Log("North door deactivated!");
+        }
+        if (currentRoom.x >= numberOfDifferentRooms)
+        {
+            eastDoor.SetActive(false);
+            Debug.Log("East door deactivated!");
+        }
+        if (currentRoom.y <= 0)
+        {
+            southDoor.SetActive(false);
+            Debug.Log("South door deactivated!");
+        }
+        if (currentRoom.x <= 0)
+        {
+            westDoor.SetActive(false);
+            Debug.Log("West door deactivated!");
+        }
     }
 
     // activates when player moves through south door
@@ -160,6 +258,47 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
         player.GetComponent<CharacterController>().enabled = true;
+
+        for (int i = 0; i < doors.Length; i++)
+        {
+            if (doors[i].gameObject.CompareTag("NorthDoor"))
+            {
+                northDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("EastDoor"))
+            {
+                eastDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("SouthDoor"))
+            {
+                southDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("WestDoor"))
+            {
+                westDoor = doors[i].gameObject;
+            }
+        }
+
+        if (currentRoom.y >= numberOfDifferentRooms)
+        {
+            northDoor.SetActive(false);
+            Debug.Log("North door deactivated!");
+        }
+        if (currentRoom.x >= numberOfDifferentRooms)
+        {
+            eastDoor.SetActive(false);
+            Debug.Log("East door deactivated!");
+        }
+        if (currentRoom.y <= 0)
+        {
+            southDoor.SetActive(false);
+            Debug.Log("South door deactivated!");
+        }
+        if (currentRoom.x <= 0)
+        {
+            westDoor.SetActive(false);
+            Debug.Log("West door deactivated!");
+        }
     }
 
     // activates when player moves through west door
@@ -181,5 +320,46 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
         player.GetComponent<CharacterController>().enabled = true;
+
+        for(int i = 0; i < doors.Length; i++)
+        {
+            if (doors[i].gameObject.CompareTag("NorthDoor"))
+            {
+                northDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("EastDoor"))
+            {
+                eastDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("SouthDoor"))
+            {
+                southDoor = doors[i].gameObject;
+            }
+            else if (doors[i].gameObject.CompareTag("WestDoor"))
+            {
+                westDoor = doors[i].gameObject;
+            }
+        }
+
+        if (currentRoom.y >= numberOfDifferentRooms)
+        {
+            northDoor.SetActive(false);
+            Debug.Log("North door deactivated!");
+        }
+        if (currentRoom.x >= numberOfDifferentRooms)
+        {
+            eastDoor.SetActive(false);
+            Debug.Log("East door deactivated!");
+        }
+        if (currentRoom.y <= 0)
+        {
+            southDoor.SetActive(false);
+            Debug.Log("South door deactivated!");
+        }
+        if (currentRoom.x <= 0)
+        {
+            westDoor.SetActive(false);
+            Debug.Log("West door deactivated!");
+        }
     }
 }

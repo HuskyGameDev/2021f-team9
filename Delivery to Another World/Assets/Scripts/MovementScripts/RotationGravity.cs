@@ -57,6 +57,15 @@ public class RotationGravity : MonoBehaviour
         this.GetComponent<PlayerMovementGravity>().enabled = false;
         yield return new WaitForSeconds(1f);
         canTurn = true;
+        // Check to see if rotation is correct
+        if (dimensionActive && transform.eulerAngles.y != 90f)
+        {
+            transform.eulerAngles = new Vector3(0f, 90f, 0f);
+        }
+        else if (!dimensionActive && transform.eulerAngles.y != 0f)
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
         this.GetComponent<PlayerMovementGravity>().enabled = true;
         body.constraints = RigidbodyConstraints.None;
     }

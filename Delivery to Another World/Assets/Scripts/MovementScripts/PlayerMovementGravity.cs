@@ -53,7 +53,7 @@ public class PlayerMovementGravity : MonoBehaviour
             StartCoroutine(waitToRegenerate(0.5f));
         }
         
-        if(Input.GetKey(KeyCode.LeftShift) && (Input.GetAxis("Horizontal") > 0f || Input.GetAxis("Vertical") > 0f) && stamina > 0f && canSprint)
+        if(Input.GetKey(KeyCode.LeftShift) && (Mathf.Abs(Input.GetAxis("Horizontal")) > 0f || Mathf.Abs(Input.GetAxis("Vertical")) > 0f) && stamina > 0f && canSprint)
         {
             staminaBar.GetComponent<Image>().enabled = true;
             stamina -= exhaustionRate * Time.deltaTime;
