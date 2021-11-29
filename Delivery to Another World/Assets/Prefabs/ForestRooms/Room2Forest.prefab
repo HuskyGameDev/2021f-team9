@@ -394,7 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4602003165705531601}
   m_Layer: 0
-  m_Name: Enemy0Path4
+  m_Name: Path (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20402,7 +20402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509445255837208953}
   m_Layer: 0
-  m_Name: Enemy0Path3
+  m_Name: Path (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
