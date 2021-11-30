@@ -16,6 +16,7 @@ public class NPCInteraction : MonoBehaviour
 
     public Text myText;
     public string script;
+    public Dialogue dialogue;
 
     private StreamReader reader;
     private StreamReader alternate;
@@ -41,26 +42,30 @@ public class NPCInteraction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 string line;
+                /**
                 pm.enabled = false;
                 r.enabled = false;
                 move = false;
+                **/
                 if (!rotate)
                 {
-                    line = reader.ReadLine();
-                    myText.text = line;
+                    TriggerDialogue();
+                    //line = reader.ReadLine();
+                    //myText.text = line;
                 }
                 else
                 {
-                    line = alternate.ReadLine();
-                    myText.text = line;
+                    //line = alternate.ReadLine();
+                    //myText.text = line;
                 }
-
+                /**
                 if (line == null)
                 {
                     pm.enabled = true;
                     r.enabled = true;
                     move = true;
                 }
+                **/
             }
         }
 
@@ -69,6 +74,11 @@ public class NPCInteraction : MonoBehaviour
             StartCoroutine(disappear());
         }
 
+    }
+
+    public void TriggerDialogue()
+    {
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
     //This is to make it so that you can't see anyone when you flip dimensions, but this code will have to be fixed
