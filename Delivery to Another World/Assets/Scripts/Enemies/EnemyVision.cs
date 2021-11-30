@@ -32,8 +32,6 @@ public class EnemyVision : MonoBehaviour
         int layerMask = 1 << 6;
         int layerMask2 = 1 << 8;
         layerMask |= layerMask2;
-        float xDistToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
-        float zDistToPlayer = Mathf.Abs(player.transform.position.z - transform.position.z);
         isSprinting = FindObjectOfType<PlayerMovementGravity>().isSprinting;
         dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
 
@@ -60,7 +58,7 @@ public class EnemyVision : MonoBehaviour
             FindObjectOfType<GameOver>().SendMessage("gameOverMan");
         }
 
-        if (xDistToPlayer < 5f && zDistToPlayer < 5f)
+        if (Vector3.Distance(player.transform.position, transform.position) < 5f)
         {
             canRaycast = true;
         }
@@ -133,7 +131,7 @@ public class EnemyVision : MonoBehaviour
             }
             else
             {
-                if ((isSprinting || (xDistToPlayer < 1f && zDistToPlayer < 1f)) && ((isReverse && dimensionActive) || (!isReverse && !dimensionActive)))
+                if ((isSprinting || Vector3.Distance(player.transform.position, transform.position) < 1f) && ((isReverse && dimensionActive) || (!isReverse && !dimensionActive)))
                 {
                     transform.LookAt(player.transform);
                     transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);

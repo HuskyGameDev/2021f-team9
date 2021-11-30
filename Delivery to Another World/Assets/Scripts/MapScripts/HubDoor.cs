@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HubDoor : MonoBehaviour
 {
     GameObject map;
-    public GameObject pressE;
+
     private void Start()
     {
         map = GameObject.FindGameObjectWithTag("Map");
@@ -17,7 +17,6 @@ public class HubDoor : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f)
         {
-            pressE.GetComponent<Image>().color = new Vector4(255f, 255f, 255f, 255f);
             if (!map.activeSelf && Input.GetKeyDown(KeyCode.E))
             {
                 map.SetActive(true);
@@ -27,10 +26,6 @@ public class HubDoor : MonoBehaviour
             {
                 map.SetActive(false);
             }
-        }
-        else
-        {
-            pressE.GetComponent<Image>().color = new Vector4(255f, 255f, 255f, 0f);
         }
     }
 

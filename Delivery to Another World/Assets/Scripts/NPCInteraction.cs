@@ -37,7 +37,7 @@ public class NPCInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 3.0f)
+        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -88,13 +88,13 @@ public class NPCInteraction : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (!rotate)
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
             rotate = true;
         }
         else if (rotate)
         {
             alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<MeshRenderer>().enabled = true;
             rotate = false;
         }
     }

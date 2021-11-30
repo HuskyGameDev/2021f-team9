@@ -66,7 +66,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (canMove)
         {
-            if (Mathf.Abs(transform.position.x - path[currentPath].transform.position.x) < 0.1f && Mathf.Abs(transform.position.z - path[currentPath].transform.position.z) < 0.1f)
+            if (Vector3.Distance(transform.position, path[currentPath].transform.position) < 0.2f)
             {
                 if (currentPath >= path.Length - 1)
                 {

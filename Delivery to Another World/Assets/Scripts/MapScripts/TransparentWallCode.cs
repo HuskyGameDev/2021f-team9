@@ -11,22 +11,12 @@ public class TransparentWallCode : MonoBehaviour
     private bool dimensionActive;
     private GameObject player;
     private GameObject playerCamera;
-    private Camera[] cameras;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerMovementGravity>().gameObject;
-        cameras = FindObjectsOfType<Camera>();
-
-        for (int i = 0; i < cameras.Length; i++)
-        {
-            if (cameras[i].CompareTag("MainCamera"))
-            {
-                playerCamera = cameras[i].gameObject;
-                break;
-            }
-        }
+        playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     // Update is called once per frame

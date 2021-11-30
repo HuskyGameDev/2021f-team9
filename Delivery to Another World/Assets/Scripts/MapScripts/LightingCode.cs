@@ -41,9 +41,7 @@ public class LightingCode : MonoBehaviour
         // Finds the closest enemy to the player
         for (int i = 0; i < enemies.Length; i++)
         {
-            float x = player.transform.position.x - enemies[i].gameObject.transform.position.x;
-            float z = player.transform.position.z - enemies[i].gameObject.transform.position.z;
-            float distance = Mathf.Sqrt(Mathf.Pow(x, 2) + Mathf.Pow(z, 2));
+            float distance = Vector3.Distance(player.transform.position, enemies[i].gameObject.transform.position);
 
             // If the player is closer than 5 units away from an enemy start showing the vignette effect
             if(distance < 5f)

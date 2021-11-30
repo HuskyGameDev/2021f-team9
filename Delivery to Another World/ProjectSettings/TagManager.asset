@@ -13,6 +13,8 @@ TagManager:
   - NorthDoor
   - DimensionLighting
   - ReverseDimensionLighting
+  - Interactables
+  - MiniMap
   layers:
   - Default
   - TransparentFX
