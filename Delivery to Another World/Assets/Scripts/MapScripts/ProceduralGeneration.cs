@@ -24,6 +24,7 @@ public class ProceduralGeneration : MonoBehaviour
     private GameObject eastDoor;
     private GameObject southDoor;
     private GameObject westDoor;
+    private bool lastRoomReached;
 
     struct roomCoordinate
     {
@@ -46,6 +47,7 @@ public class ProceduralGeneration : MonoBehaviour
         transitionSquare = FindObjectOfType<Transition>();
         prefabAlgorithm = 0;
         roomsSpawned = 0;
+        lastRoomReached = false;
 
         currentRoom.x -= 1;
         moveEast();
@@ -70,6 +72,7 @@ public class ProceduralGeneration : MonoBehaviour
             // Spawn the treasure room then go back to the hub
             currentPrefab = lastRoomPrefab;
             //SceneManager.LoadScene("Hub");
+            lastRoomReached = true;
         }
         else
         {
@@ -175,6 +178,14 @@ public class ProceduralGeneration : MonoBehaviour
             westDoor.SetActive(false);
             Debug.Log("West door deactivated!");
         }
+
+        if (lastRoomReached)
+        {
+            northDoor.SetActive(false);
+            eastDoor.SetActive(false);
+            southDoor.SetActive(false);
+            westDoor.SetActive(false);
+        }
     }
 
     // activates when player moves through east door
@@ -236,6 +247,14 @@ public class ProceduralGeneration : MonoBehaviour
         {
             westDoor.SetActive(false);
             Debug.Log("West door deactivated!");
+        }
+
+        if (lastRoomReached)
+        {
+            northDoor.SetActive(false);
+            eastDoor.SetActive(false);
+            southDoor.SetActive(false);
+            westDoor.SetActive(false);
         }
     }
 
@@ -299,6 +318,14 @@ public class ProceduralGeneration : MonoBehaviour
             westDoor.SetActive(false);
             Debug.Log("West door deactivated!");
         }
+
+        if (lastRoomReached)
+        {
+            northDoor.SetActive(false);
+            eastDoor.SetActive(false);
+            southDoor.SetActive(false);
+            westDoor.SetActive(false);
+        }
     }
 
     // activates when player moves through west door
@@ -360,6 +387,14 @@ public class ProceduralGeneration : MonoBehaviour
         {
             westDoor.SetActive(false);
             Debug.Log("West door deactivated!");
+        }
+
+        if (lastRoomReached)
+        {
+            northDoor.SetActive(false);
+            eastDoor.SetActive(false);
+            southDoor.SetActive(false);
+            westDoor.SetActive(false);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemyVision : MonoBehaviour
 {
@@ -53,6 +54,11 @@ public class EnemyVision : MonoBehaviour
         ray[2] = new Vector3(xDirectionRay[2], 0f, zDirectionRay[2]); // Far negative x
         ray[3] = new Vector3(xDirectionRay[3], 0f, zDirectionRay[3]); // Middle positive x
         ray[4] = new Vector3(xDirectionRay[4], 0f, zDirectionRay[4]); // Middle negative x
+
+        if (alreadyGameover)
+        {
+            FindObjectOfType<GameOver>().SendMessage("gameOverMan");
+        }
 
         if (xDistToPlayer < 5f && zDistToPlayer < 5f)
         {
@@ -162,6 +168,7 @@ public class EnemyVision : MonoBehaviour
     {
         alreadyGameover = true;
         player.GetComponent<PlayerMovementGravity>().enabled = false;
+        player.GetComponent<RotationGravity>().enabled = false;
         //player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         yield return new WaitForSeconds(5f);

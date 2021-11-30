@@ -11,6 +11,7 @@ public class HubDoor : MonoBehaviour
     {
         map = GameObject.FindGameObjectWithTag("Map");
         map.SetActive(false);
+        FindObjectOfType<Transition>().SendMessage("transition");
     }
     void Update()
     {
