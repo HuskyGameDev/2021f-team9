@@ -53,7 +53,8 @@ public class BobbingApple : MonoBehaviour
     {
         FindObjectOfType<PlayerMovementGravity>().enabled = false;
         FindObjectOfType<PlayerMovementGravity>().gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
-        yield return new WaitForSeconds(3f);
+        FindObjectOfType<Success>().SendMessage("youWin");
+        yield return new WaitForSeconds(5f);
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         SceneManager.LoadScene("Hub");
     }

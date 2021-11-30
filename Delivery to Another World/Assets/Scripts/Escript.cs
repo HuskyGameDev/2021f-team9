@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Escript : MonoBehaviour
 {
+    public bool wait;
 
     private GameObject[] interactables;
     private GameObject player;
@@ -16,6 +17,7 @@ public class Escript : MonoBehaviour
         player = FindObjectOfType<PlayerMovementGravity>().gameObject;
         interactables = GameObject.FindGameObjectsWithTag("Interactables");
         tooFar = true;
+        wait = false;
     }
 
     // Update is called once per frame
@@ -29,14 +31,24 @@ public class Escript : MonoBehaviour
             }
         }
 
-        if (tooFar)
+        if (tooFar && !wait)
         {
-            GetComponent<Image>().color = new Vector4(255f, 255f, 255f, 0f);
+            hideSign();
         }
         else
         {
-            GetComponent<Image>().color = new Vector4(255f, 255f, 255f, 255f);
+            showSign();
             tooFar = true;
         }
+    }
+
+    public void showSign()
+    {
+        GetComponent<Image>().color = new Vector4(255f, 255f, 255f, 255f);
+    }
+
+    public void hideSign()
+    {
+        GetComponent<Image>().color = new Vector4(255f, 255f, 255f, 0f);
     }
 }
