@@ -6,12 +6,9 @@ public class DoorCode : MonoBehaviour
 {
     public string direction;
 
-    private bool canDetect;
-
     private void Start()
     {
         StartCoroutine(LockDoors());
-        canDetect = false;
     }
 
     // prevents player from leaving as soon as they enter the room
