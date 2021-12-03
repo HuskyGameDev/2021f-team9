@@ -25,6 +25,10 @@ public class ProceduralGeneration : MonoBehaviour
     private GameObject southDoor;
     private GameObject westDoor;
     private bool lastRoomReached;
+    private int spawn;
+    private int algorithmX;
+    private int algorithmY;
+    private int algorithmZ;
 
     struct roomCoordinate
     {
@@ -41,16 +45,45 @@ public class ProceduralGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numberOfDifferentRooms = prefabs.Length;
         coordinatesVisited = new roomCoordinate[difficulty + 1];
-        currentRoom.x = Random.Range(0, numberOfDifferentRooms);
-        currentRoom.y = Random.Range(0, numberOfDifferentRooms);
         transitionSquare = FindObjectOfType<Transition>();
         prefabAlgorithm = 0;
         roomsSpawned = 0;
         lastRoomReached = false;
+        algorithmX = Random.Range(1, 10);
+        algorithmY = Random.Range(1, 10);
+        algorithmZ = Random.Range(1, 10);
 
-        currentRoom.x -= 1;
-        moveEast();
+        spawn = Random.Range(0, 3);
+        if (spawn == 0)
+        {
+            currentRoom.x = Random.Range(0, numberOfDifferentRooms);
+            currentRoom.y = 0;
+            currentRoom.y -= 1;
+            moveNorth();
+        }
+        else if (spawn == 1)
+        {
+            currentRoom.x = 0;
+            currentRoom.y = Random.Range(0, numberOfDifferentRooms);
+            currentRoom.x -= 1;
+            moveEast();
+        }
+        else if (spawn == 2)
+        {
+            currentRoom.x = Random.Range(0, numberOfDifferentRooms);
+            currentRoom.y = numberOfDifferentRooms - 1;
+            currentRoom.y += 1;
+            moveSouth();
+        }
+        else
+        {
+            currentRoom.x = numberOfDifferentRooms - 1;
+            currentRoom.y = Random.Range(0, numberOfDifferentRooms);
+            currentRoom.x += 1;
+            moveWest();
+        }
         //roomsSpawned = 1;
         //coordinatesVisited[roomsSpawned] = new roomCoordinate(currentRoom.x, currentRoom.y);
         //roomsSpawned++;
@@ -71,6 +104,7 @@ public class ProceduralGeneration : MonoBehaviour
         {
             // Spawn the treasure room then go back to the hub
             currentPrefab = lastRoomPrefab;
+            index = 6;
             //SceneManager.LoadScene("Hub");
             lastRoomReached = true;
         }
@@ -98,6 +132,11 @@ public class ProceduralGeneration : MonoBehaviour
         {
             coordinatesVisited[roomsSpawned] = new roomCoordinate(currentRoom.x, currentRoom.y);
             roomsSpawned++;
+            int[] temp = new int[3];
+            temp[0] = currentRoom.x;
+            temp[1] = currentRoom.y;
+            temp[2] = index;
+            FindObjectOfType<WorldMap>().SendMessage("updateSquare", temp);
             Debug.Log("Room NOT Visited");
         }
         Debug.Log(roomsSpawned);
@@ -111,9 +150,9 @@ public class ProceduralGeneration : MonoBehaviour
     int algorithm(roomCoordinate newCoords)
     {
         //do math
-        int tempY = newCoords.y * 3;
-        int tempX = newCoords.x * 2;
-        int answer = Mathf.Abs(((tempX - tempY) * (tempY - tempX) * tempY * tempX) ^ Mathf.Abs(tempY));
+        int tempY = (newCoords.y + 1) * algorithmX;
+        int tempX = (newCoords.x + 1) * algorithmY;
+        int answer = Mathf.Abs(((tempX - tempY) * (tempY - tempX) * tempY / (tempX + algorithmZ)) ^ Mathf.Abs(tempY + tempX - algorithmZ));
         answer %= numberOfDifferentRooms;
         return answer;
     }
@@ -158,12 +197,12 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
 
-        if (currentRoom.y >= numberOfDifferentRooms)
+        if (currentRoom.y >= numberOfDifferentRooms - 1)
         {
             northDoor.SetActive(false);
             Debug.Log("North door deactivated!");
         }
-        if (currentRoom.x >= numberOfDifferentRooms)
+        if (currentRoom.x >= numberOfDifferentRooms - 1)
         {
             eastDoor.SetActive(false);
             Debug.Log("East door deactivated!");
@@ -228,12 +267,12 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
 
-        if (currentRoom.y >= numberOfDifferentRooms)
+        if (currentRoom.y >= numberOfDifferentRooms - 1)
         {
             northDoor.SetActive(false);
             Debug.Log("North door deactivated!");
         }
-        if (currentRoom.x >= numberOfDifferentRooms)
+        if (currentRoom.x >= numberOfDifferentRooms - 1)
         {
             eastDoor.SetActive(false);
             Debug.Log("East door deactivated!");
@@ -298,12 +337,12 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
 
-        if (currentRoom.y >= numberOfDifferentRooms)
+        if (currentRoom.y >= numberOfDifferentRooms - 1)
         {
             northDoor.SetActive(false);
             Debug.Log("North door deactivated!");
         }
-        if (currentRoom.x >= numberOfDifferentRooms)
+        if (currentRoom.x >= numberOfDifferentRooms - 1)
         {
             eastDoor.SetActive(false);
             Debug.Log("East door deactivated!");
@@ -368,12 +407,12 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
 
-        if (currentRoom.y >= numberOfDifferentRooms)
+        if (currentRoom.y >= numberOfDifferentRooms - 1)
         {
             northDoor.SetActive(false);
             Debug.Log("North door deactivated!");
         }
-        if (currentRoom.x >= numberOfDifferentRooms)
+        if (currentRoom.x >= numberOfDifferentRooms - 1)
         {
             eastDoor.SetActive(false);
             Debug.Log("East door deactivated!");

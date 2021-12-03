@@ -37,11 +37,11 @@ public class RotationForObjects : MonoBehaviour
         {
             if (dimensionActive)
             {
-                transform.Rotate(Vector3.up, 90f * Time.fixedDeltaTime);
+                transform.Rotate(Vector3.up, 90f * Time.fixedDeltaTime / 0.5f);
             }
             else
             {
-                transform.Rotate(Vector3.up, -90f * Time.fixedDeltaTime);
+                transform.Rotate(Vector3.up, -90f * Time.fixedDeltaTime / 0.5f);
             }
         }
     }
@@ -58,7 +58,7 @@ public class RotationForObjects : MonoBehaviour
         }
         canTurn = false;
         //this.GetComponent<PlayerMovement>().enabled = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         canTurn = true;
         //this.GetComponent<PlayerMovement>().enabled = true;
         //body.constraints = RigidbodyConstraints.None;
