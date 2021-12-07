@@ -218,7 +218,6 @@ GameObject:
   - component: {fileID: 7227097833518309399}
   - component: {fileID: 6252893409907084045}
   - component: {fileID: 7632752609567191868}
-  - component: {fileID: 936421561868851203}
   m_Layer: 0
   m_Name: DoorBackside
   m_TagString: Untagged
@@ -289,17 +288,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &936421561868851203
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5668191416396415907}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
