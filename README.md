@@ -12,9 +12,12 @@ land who reminds him a little too much of the CEO of Amazon from our world...
 
 Game Controls:
 WASD to move
+Mouse to interact with buttons
 Left Shift to sprint
 R to rotate 
 E to interact
+Tab to see map
+Escape to pause
 
 Installation:
 Make sure to unzip the entire file
