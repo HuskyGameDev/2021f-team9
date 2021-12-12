@@ -24,7 +24,7 @@ Make sure to unzip the entire file
 
 Team Members:
 Ethan Wright - Team Leader, Artist, Programmer
-Bradon Hosang - Artist, Programmer
+Brandon Hosang - Artist, Programmer
 Nicole Wiszowaty - Artist, Programmer
 Rachel Hartrick - Artist Programmer
 Rowdy Vyverberg - SFX Designer
