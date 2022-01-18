@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Save
 { 
@@ -16,6 +17,7 @@ public class Save
     public static Save instance { get { return instance; } }
 
     public GameObject obj; //GameObject.FindGameObjectsWithTag("SaveData")[0].GetComponent<SaveData>(); //Should only be one
+    //public GameObject playerObj;
 
     bool isDragonDefeated;
     bool isCactusFound;
@@ -23,6 +25,7 @@ public class Save
     bool doYouOwnAPicnicBasket;
     bool haveTheGremlinsScoldedYou;
     bool didYouWin;
+
 
     public Save(GameObject obj)
     {
@@ -41,6 +44,7 @@ public class Save
         haveTheGremlinsScoldedYou = data.haveTheGremlinsScoldedYou;
         didYouWin = data.didYouWin;
 
+
         //Overwrite data
         using (StreamWriter writer = File.CreateText(Application.persistentDataPath + "\\savedata.heheh"))
         {
@@ -50,6 +54,7 @@ public class Save
             writer.WriteLine("doYouOwnAPicnicBasket:" + doYouOwnAPicnicBasket);
             writer.WriteLine("haveTheGremlinsScoldedYou:" + haveTheGremlinsScoldedYou);
             writer.WriteLine("didYouWin:" + didYouWin);
+
         }
     }
 
