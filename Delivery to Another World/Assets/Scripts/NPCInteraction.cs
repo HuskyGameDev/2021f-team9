@@ -85,7 +85,7 @@ public class NPCInteraction : MonoBehaviour
     //based on the map and if we want people to be 2D or 3D
     IEnumerator disappear()
     {
-        yield return new WaitForSeconds(1f);
+        yield return null;
         if (!rotate)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
