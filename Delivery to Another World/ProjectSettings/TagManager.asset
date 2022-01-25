@@ -15,6 +15,7 @@ TagManager:
   - ReverseDimensionLighting
   - Interactables
   - MiniMap
+  - SaveNPC
   layers:
   - Default
   - TransparentFX

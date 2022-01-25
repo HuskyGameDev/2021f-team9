@@ -7,6 +7,7 @@ public class SaveIteraction : MonoBehaviour
 {
     public GameObject saveDataObj;
     public GameObject playerObj;
+    public GameObject text;
     Save save;
 
 
