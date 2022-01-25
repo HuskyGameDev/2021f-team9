@@ -19,11 +19,11 @@ public class HoleCode : MonoBehaviour
     {
         dimensionActive = rotGrav.dimensionActive;
 
-        if (dimensionActive && !isReverse)
+        if (dimensionActive && isReverse)
         {
             GetComponent<BoxCollider>().isTrigger = true;
         }
-        else if (isReverse && !dimensionActive)
+        else if (!isReverse && !dimensionActive)
         {
             GetComponent<BoxCollider>().isTrigger = true;
         }
