@@ -87,8 +87,8 @@ public class EnemyMovement : MonoBehaviour
                 // Face in the negative X direction
                 if (!isReverse)
                 {
-                    //transform.eulerAngles = new Vector3(0f, -90f, 0f);
-                    transform.eulerAngles = new Vector3(0f, Mathf.Lerp(transform.eulerAngles.y, 270f, Time.deltaTime), 0f);
+                    transform.eulerAngles = new Vector3(0f, -90f, 0f);
+                    //transform.eulerAngles = new Vector3(0f, Mathf.Lerp(transform.eulerAngles.y, 270f, Time.deltaTime), 0f);
                 }
             }
             // Positive X
@@ -98,8 +98,8 @@ public class EnemyMovement : MonoBehaviour
                 // Face in the positive X direction
                 if (!isReverse)
                 {
-                    //transform.eulerAngles = new Vector3(0f, 90f, 0f);
-                    transform.eulerAngles = new Vector3(0f, Mathf.Lerp(transform.eulerAngles.y, 90f, Time.deltaTime), 0f);
+                    transform.eulerAngles = new Vector3(0f, 90f, 0f);
+                    //transform.eulerAngles = new Vector3(0f, Mathf.Lerp(transform.eulerAngles.y, 90f, Time.deltaTime), 0f);
                 }
             }
 
@@ -109,8 +109,8 @@ public class EnemyMovement : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveSpeed * Time.deltaTime);
                 if (isReverse)
                 {
-                    //transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                    transform.eulerAngles = new Vector3(0f, Mathf.Lerp(transform.eulerAngles.y, 180f, Time.deltaTime), 0f);
+                    transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                    //transform.eulerAngles = new Vector3(0f, Mathf.Lerp(transform.eulerAngles.y, 180f, Time.deltaTime), 0f);
                 }
             }
 
@@ -120,8 +120,8 @@ public class EnemyMovement : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + moveSpeed * Time.deltaTime);
                 if (isReverse)
                 {
-                    //transform.eulerAngles = new Vector3(0f, 0f, 0f);
-                    transform.eulerAngles = new Vector3(0f, Mathf.Lerp(transform.eulerAngles.y, 0f, Time.deltaTime), 0f);
+                    transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                    //transform.eulerAngles = new Vector3(0f, Mathf.Lerp(transform.eulerAngles.y, 0f, Time.deltaTime), 0f);
                 }
             }
         }
