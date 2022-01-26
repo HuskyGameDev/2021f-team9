@@ -12,6 +12,7 @@ public class ProceduralGeneration : MonoBehaviour
     public GameObject[] prefabs;
     public int difficulty;
     public GameObject lastRoomPrefab;
+    public bool inTreasureRoom;
     
     private Transition transitionSquare;
     private int prefabAlgorithm;
@@ -54,11 +55,12 @@ public class ProceduralGeneration : MonoBehaviour
         algorithmX = Random.Range(1, 10);
         algorithmY = Random.Range(1, 10);
         algorithmZ = Random.Range(1, 10);
+        inTreasureRoom = false;
 
         spawn = Random.Range(0, 3);
         if (spawn == 0)
         {
-            currentRoom.x = Random.Range(0, numberOfDifferentRooms);
+            currentRoom.x = Random.Range(0, difficulty);
             currentRoom.y = 0;
             currentRoom.y -= 1;
             moveNorth();
@@ -66,21 +68,21 @@ public class ProceduralGeneration : MonoBehaviour
         else if (spawn == 1)
         {
             currentRoom.x = 0;
-            currentRoom.y = Random.Range(0, numberOfDifferentRooms);
+            currentRoom.y = Random.Range(0, difficulty);
             currentRoom.x -= 1;
             moveEast();
         }
         else if (spawn == 2)
         {
-            currentRoom.x = Random.Range(0, numberOfDifferentRooms);
-            currentRoom.y = numberOfDifferentRooms - 1;
+            currentRoom.x = Random.Range(0, difficulty);
+            currentRoom.y = difficulty - 1;
             currentRoom.y += 1;
             moveSouth();
         }
         else
         {
-            currentRoom.x = numberOfDifferentRooms - 1;
-            currentRoom.y = Random.Range(0, numberOfDifferentRooms);
+            currentRoom.x = difficulty - 1;
+            currentRoom.y = Random.Range(0, difficulty);
             currentRoom.x += 1;
             moveWest();
         }
@@ -104,9 +106,10 @@ public class ProceduralGeneration : MonoBehaviour
         {
             // Spawn the treasure room then go back to the hub
             currentPrefab = lastRoomPrefab;
-            index = 6;
+            index = 9;
             //SceneManager.LoadScene("Hub");
             lastRoomReached = true;
+            inTreasureRoom = true;
         }
         else
         {
@@ -197,12 +200,12 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
 
-        if (currentRoom.y >= numberOfDifferentRooms - 1)
+        if (currentRoom.y >= difficulty - 1)
         {
             northDoor.SetActive(false);
             Debug.Log("North door deactivated!");
         }
-        if (currentRoom.x >= numberOfDifferentRooms - 1)
+        if (currentRoom.x >= difficulty - 1)
         {
             eastDoor.SetActive(false);
             Debug.Log("East door deactivated!");
@@ -267,12 +270,12 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
 
-        if (currentRoom.y >= numberOfDifferentRooms - 1)
+        if (currentRoom.y >= difficulty - 1)
         {
             northDoor.SetActive(false);
             Debug.Log("North door deactivated!");
         }
-        if (currentRoom.x >= numberOfDifferentRooms - 1)
+        if (currentRoom.x >= difficulty - 1)
         {
             eastDoor.SetActive(false);
             Debug.Log("East door deactivated!");
@@ -337,12 +340,12 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
 
-        if (currentRoom.y >= numberOfDifferentRooms - 1)
+        if (currentRoom.y >= difficulty - 1)
         {
             northDoor.SetActive(false);
             Debug.Log("North door deactivated!");
         }
-        if (currentRoom.x >= numberOfDifferentRooms - 1)
+        if (currentRoom.x >= difficulty - 1)
         {
             eastDoor.SetActive(false);
             Debug.Log("East door deactivated!");
@@ -407,12 +410,12 @@ public class ProceduralGeneration : MonoBehaviour
             }
         }
 
-        if (currentRoom.y >= numberOfDifferentRooms - 1)
+        if (currentRoom.y >= difficulty - 1)
         {
             northDoor.SetActive(false);
             Debug.Log("North door deactivated!");
         }
-        if (currentRoom.x >= numberOfDifferentRooms - 1)
+        if (currentRoom.x >= difficulty - 1)
         {
             eastDoor.SetActive(false);
             Debug.Log("East door deactivated!");

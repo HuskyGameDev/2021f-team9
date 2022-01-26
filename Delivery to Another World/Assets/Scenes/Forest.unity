@@ -269,8 +269,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
+      propertyPath: prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4603397755048469298, guid: 41c3d40dfbdea4c4daaee7820940940c, type: 3}
+    - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
+      propertyPath: prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 4956516205164512414, guid: 01e6a20c961dcce44a5cbe6ceb65fcfa, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[2]
       value: 
@@ -292,8 +300,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2262300603463083347, guid: 0bd9fc5e1984c19489452293b9fb9f8a, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
+      propertyPath: prefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 7265800173736580412, guid: c6227f64f06cb964ab32debea8595f2c, type: 3}
+    - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: numberOfDifferentRooms
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
@@ -619,6 +631,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSceneUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: treasureRoomImage
+      value: 
+      objectReference: {fileID: 7824617036102746641, guid: 93e00fc30fa2d91499f5c6cba409e44a, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[6]
+      value: 
+      objectReference: {fileID: 4604535663753594816, guid: 53b4f221c8e1670428afa8d5de2fc26f, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[7]
+      value: 
+      objectReference: {fileID: 6046349430932521226, guid: 5382996bca56b08439ed08a1ee83214e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
 --- !u!1 &1336617236 stripped

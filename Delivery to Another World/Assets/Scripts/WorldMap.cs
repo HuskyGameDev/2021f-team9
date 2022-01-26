@@ -8,6 +8,7 @@ public class WorldMap : MonoBehaviour
 
     public Image defaultImage;
     public Image[] roomImages;
+    public Image treasureRoomImage;
 
     private int sizeOfGrid;
     private int sizeOfSquares;
@@ -16,7 +17,7 @@ public class WorldMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sizeOfGrid = FindObjectOfType<ProceduralGeneration>().numberOfDifferentRooms;
+        sizeOfGrid = FindObjectOfType<ProceduralGeneration>().difficulty;
         sizeOfSquares = 850 / sizeOfGrid;
         children = new Image[sizeOfGrid * sizeOfGrid];
 
@@ -65,7 +66,14 @@ public class WorldMap : MonoBehaviour
         int prefabNum = temp[2];
         Vector3 position = new Vector3(children[(yPos * sizeOfGrid) + xPos].transform.position.x, children[(yPos * sizeOfGrid) + xPos].transform.position.y, 0f);
         Destroy(children[(yPos * sizeOfGrid) + xPos].gameObject);
-        children[(yPos * sizeOfGrid) + xPos] = Instantiate(roomImages[prefabNum], position, Quaternion.identity);
+        if (FindObjectOfType<ProceduralGeneration>().inTreasureRoom)
+        {
+            children[(yPos * sizeOfGrid) + xPos] = Instantiate(treasureRoomImage, position, Quaternion.identity);
+        }
+        else
+        {
+            children[(yPos * sizeOfGrid) + xPos] = Instantiate(roomImages[prefabNum], position, Quaternion.identity);
+        }
         children[(yPos * sizeOfGrid) + xPos].rectTransform.sizeDelta = new Vector2(sizeOfSquares, sizeOfSquares);
         children[(yPos * sizeOfGrid) + xPos].transform.SetParent(gameObject.transform);
         children[(yPos * sizeOfGrid) + xPos].GetComponent<Image>().enabled = false;
