@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SaveIteraction : MonoBehaviour
+public class NewGameSaveOverite : MonoBehaviour
 {
     public GameObject saveDataObj;
     public GameObject playerObj;
