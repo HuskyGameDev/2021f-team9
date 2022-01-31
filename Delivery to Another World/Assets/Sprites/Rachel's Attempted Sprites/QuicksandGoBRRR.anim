@@ -20,12 +20,12 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 64.63613, z: 0}
-        outSlope: {x: 0, y: 64.63613, z: 0}
+        inSlope: {x: 0, y: 33.91482, z: 0}
+        outSlope: {x: 0, y: 33.91482, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.113268994, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.26988822, z: 0.33333334}
       - serializedVersion: 3
         time: 2.55
         value: {x: 0, y: 90, z: 0}
@@ -56,11 +56,11 @@ AnimationClip:
       - serializedVersion: 3
         time: 10
         value: {x: 0, y: 360, z: 0}
-        inSlope: {x: 0, y: 69.717445, z: 0}
-        outSlope: {x: 0, y: 69.717445, z: 0}
+        inSlope: {x: 0, y: 36.492016, z: 0}
+        outSlope: {x: 0, y: 36.492016, z: 0}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.11367033, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.5264854, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -131,12 +131,12 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 64.63613
-        outSlope: 64.63613
+        inSlope: 33.91482
+        outSlope: 33.91482
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.113268994
+        outWeight: 0.26988822
       - serializedVersion: 3
         time: 2.55
         value: 90
@@ -167,11 +167,11 @@ AnimationClip:
       - serializedVersion: 3
         time: 10
         value: 360
-        inSlope: 69.717445
-        outSlope: 69.717445
+        inSlope: 36.492016
+        outSlope: 36.492016
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.11367033
+        inWeight: 0.5264854
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
