@@ -97,5 +97,6 @@ public class Load : MonoBehaviour
                 }
             }
         }
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Hub");
     }
 }

@@ -18,7 +18,7 @@ public class SaveIteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, playerObj.transform.position) < 20.0f)
+        if (Vector3.Distance(transform.position, playerObj.transform.position) < 1.0f)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {

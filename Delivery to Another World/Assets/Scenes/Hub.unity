@@ -4138,8 +4138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDragonDefeated: 0
-  isCactusFound: 0
-  ownOasisWater: 0
+  isCactusFound: 1
+  ownOasisWater: 1
   doYouOwnAPicnicBasket: 0
   haveTheGremlinsScoldedYou: 0
   didYouWin: 0
