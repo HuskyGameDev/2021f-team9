@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RandomSound : MonoBehaviour
 {
-    public AudioSource randSound;
+    private AudioSource randSound;
+    public AudioClip[] sounds;
     public float timetoplay;
     float timer;
 
@@ -25,7 +26,7 @@ public class RandomSound : MonoBehaviour
         int seconds = (int) timer % 60;
 
         //if seconds is devisiable by 6 play sound for x seconds
-        if ((seconds % 6) == 0 && seconds != 0)
+        if ((seconds % 8) == 0 && seconds != 0)
         {
             PlayForTime(timetoplay);
         }
@@ -36,6 +37,7 @@ public class RandomSound : MonoBehaviour
     //Play the sound for time ammount of time
     public void PlayForTime(float time)
     {
+        randSound.clip = sounds[Random.Range(0, sounds.Length)];
         randSound.Play();
         Invoke("StopAudio", time);
     }
