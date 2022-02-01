@@ -4,7 +4,9 @@ using UnityEngine;
 public class RotationForObjects : MonoBehaviour
 {
     public bool dimensionActive;
+
     private bool canTurn;
+    private bool stopTURNING;
     private RotationGravity rotGrav;
 
     //private Rigidbody body;
@@ -13,27 +15,29 @@ public class RotationForObjects : MonoBehaviour
     void Start()
     {
         dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
-        canTurn = true;
         transform.rotation = FindObjectOfType<RotationGravity>().transform.rotation;
         rotGrav = FindObjectOfType<RotationGravity>();
+        stopTURNING = true;
         //body = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        canTurn = FindObjectOfType<RotationGravity>().canTurn;
         // Swaps orientation
         if (Input.GetKey(KeyCode.R) && canTurn && rotGrav.enabled)
         {
             // uncomment these 2 lines of code only if you have a rigidbody attached to your player object
             //body.constraints = RigidbodyConstraints.FreezePositionY;
             StartCoroutine(Flip());
+            StartCoroutine(Cooldown());
         }
     }
 
     void FixedUpdate()
     {
-        if (canTurn == false)
+        if (stopTURNING == false)
         {
             if (dimensionActive)
             {
@@ -46,6 +50,13 @@ public class RotationForObjects : MonoBehaviour
         }
     }
 
+    private IEnumerator Cooldown()
+    {
+        canTurn = false;
+        yield return new WaitForSeconds(3f);
+        canTurn = true;
+    }
+
     private IEnumerator Flip()
     {
         if (dimensionActive)
@@ -56,10 +67,10 @@ public class RotationForObjects : MonoBehaviour
         {
             dimensionActive = true;
         }
-        canTurn = false;
+        stopTURNING = false;
         //this.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(0.5f);
-        canTurn = true;
+        stopTURNING = true;
         //this.GetComponent<PlayerMovement>().enabled = true;
         //body.constraints = RigidbodyConstraints.None;
     }

@@ -14,6 +14,7 @@ public class LightingCode : MonoBehaviour
     private Vignette vignetteEffect;
     private GameObject player;
     private EnemyMovement[] enemies;
+    private bool canTurn;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +28,11 @@ public class LightingCode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        canTurn = FindObjectOfType<RotationGravity>().canTurn;
         dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
         enemies = FindObjectsOfType<EnemyMovement>();
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && canTurn)
         {
             StartCoroutine(DimensionEffect());
         }
