@@ -167,7 +167,7 @@ public class EnemyVision : MonoBehaviour
         alreadyGameover = true;
         player.GetComponent<PlayerMovementGravity>().enabled = false;
         player.GetComponent<RotationGravity>().enabled = false;
-        //player.GetComponent<Rigidbody>().useGravity = false;
+        player.GetComponent<Rigidbody>().useGravity = false;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         yield return new WaitForSeconds(5f);
         // send message that you lost and send back to hub
