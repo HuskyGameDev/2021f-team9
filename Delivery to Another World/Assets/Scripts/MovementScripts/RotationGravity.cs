@@ -22,6 +22,11 @@ public class RotationGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
         // Swaps orientation
         if (Input.GetKey(KeyCode.R) && canTurn)
         {
@@ -30,10 +35,7 @@ public class RotationGravity : MonoBehaviour
             StartCoroutine(Flip());
             StartCoroutine(Cooldown());
         }
-    }
 
-    void FixedUpdate()
-    {
         if (stopTURNING == false)
         {
             if (dimensionActive)
@@ -50,7 +52,7 @@ public class RotationGravity : MonoBehaviour
     private IEnumerator Cooldown()
     {
         canTurn = false;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         canTurn = true;
     }
 
@@ -64,6 +66,7 @@ public class RotationGravity : MonoBehaviour
         {
             dimensionActive = true;
         }
+        FindObjectOfType<LightingCode>().SendMessage("DimensionEffect");
         this.GetComponent<PlayerMovementGravity>().enabled = false;
         stopTURNING = false;
         yield return new WaitForSeconds(0.5f);
