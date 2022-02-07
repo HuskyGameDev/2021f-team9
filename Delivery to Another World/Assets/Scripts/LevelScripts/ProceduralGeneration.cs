@@ -139,6 +139,7 @@ public class ProceduralGeneration : MonoBehaviour
             temp[0] = currentRoom.x;
             temp[1] = currentRoom.y;
             temp[2] = index;
+            Debug.Log(FindObjectOfType<WorldMap>().name);
             FindObjectOfType<WorldMap>().SendMessage("updateSquare", temp);
             Debug.Log("Room NOT Visited");
         }

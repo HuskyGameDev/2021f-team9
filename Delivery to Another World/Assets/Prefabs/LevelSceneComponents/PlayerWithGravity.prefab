@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 8833129366926981504}
   - component: {fileID: 8833129366926981508}
   - component: {fileID: 5442161765047522211}
+  - component: {fileID: 8485844868074894226}
   m_Layer: 6
   m_Name: PlayerWithGravity
   m_TagString: Player
@@ -352,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dimensionActive: 0
+  canTurn: 0
 --- !u!64 &8833129366926981506
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -469,3 +471,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &8485844868074894226
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833129366926981517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdcb2995ee80ca041b543b1c381812d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

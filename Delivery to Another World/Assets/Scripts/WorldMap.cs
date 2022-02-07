@@ -64,18 +64,19 @@ public class WorldMap : MonoBehaviour
         int xPos = temp[0];
         int yPos = temp[1];
         int prefabNum = temp[2];
-        Vector3 position = new Vector3(children[(yPos * sizeOfGrid) + xPos].transform.position.x, children[(yPos * sizeOfGrid) + xPos].transform.position.y, 0f);
-        Destroy(children[(yPos * sizeOfGrid) + xPos].gameObject);
+        int index = (yPos * sizeOfGrid) + xPos;
+        Vector3 position = new Vector3(children[index].transform.position.x, children[index].transform.position.y, 0f);
+        Destroy(children[index].gameObject);
         if (FindObjectOfType<ProceduralGeneration>().inTreasureRoom)
         {
-            children[(yPos * sizeOfGrid) + xPos] = Instantiate(treasureRoomImage, position, Quaternion.identity);
+            children[index] = Instantiate(treasureRoomImage, position, Quaternion.identity);
         }
         else
         {
-            children[(yPos * sizeOfGrid) + xPos] = Instantiate(roomImages[prefabNum], position, Quaternion.identity);
+            children[index] = Instantiate(roomImages[prefabNum], position, Quaternion.identity);
         }
-        children[(yPos * sizeOfGrid) + xPos].rectTransform.sizeDelta = new Vector2(sizeOfSquares, sizeOfSquares);
-        children[(yPos * sizeOfGrid) + xPos].transform.SetParent(gameObject.transform);
-        children[(yPos * sizeOfGrid) + xPos].GetComponent<Image>().enabled = false;
+        children[index].rectTransform.sizeDelta = new Vector2(sizeOfSquares, sizeOfSquares);
+        children[index].transform.SetParent(gameObject.transform);
+        children[index].GetComponent<Image>().enabled = false;
     }
 }

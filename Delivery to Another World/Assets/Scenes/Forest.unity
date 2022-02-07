@@ -601,6 +601,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MiniMap
       objectReference: {fileID: 0}
+    - target: {fileID: 8485844868074894226, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485844868074894226, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8833129366715113708, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: m_Layer
       value: 6

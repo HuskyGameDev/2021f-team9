@@ -219,6 +219,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &562987491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3304433251373470401, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+  m_PrefabInstance: {fileID: 743441377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &626741676
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +592,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8833129366926981508, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833129366926981508, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8833129366926981517, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: m_Name
       value: PlayerWithGravity
@@ -598,25 +611,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8833129366926981517, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
   m_PrefabInstance: {fileID: 1367223338}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1367223340
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367223339}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bdcb2995ee80ca041b543b1c381812d4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1612258135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -673,6 +667,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 562987491}
+    - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1367223339}
@@ -691,11 +689,11 @@ PrefabInstance:
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 5371888514384407835, guid: fdb40d5b9e5e8af46a4c92bbaf40c6fe, type: 3}
+      objectReference: {fileID: 8092178432750710884, guid: 2177dcd3f4717e448b943a8e15605738, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 5371888514384407835, guid: fdb40d5b9e5e8af46a4c92bbaf40c6fe, type: 3}
+      objectReference: {fileID: 8092178432750710884, guid: 2177dcd3f4717e448b943a8e15605738, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[2]
       value: 
