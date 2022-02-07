@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4479772, g: 0.49798077, b: 0.5754983, a: 1}
+  m_IndirectSpecularColor: {r: 0.44797707, g: 0.4979806, b: 0.5754979, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -445,6 +445,14 @@ PrefabInstance:
       propertyPath: treasureRoomImage
       value: 
       objectReference: {fileID: 7824617036102746641, guid: 93e00fc30fa2d91499f5c6cba409e44a, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
 --- !u!1001 &910452782
@@ -590,6 +598,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8833129366926981517, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
   m_PrefabInstance: {fileID: 1367223338}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1367223340
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367223339}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdcb2995ee80ca041b543b1c381812d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1612258135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -664,11 +691,11 @@ PrefabInstance:
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 5073363077901994837, guid: e42878e6e3bc34e468240299e308446b, type: 3}
+      objectReference: {fileID: 5371888514384407835, guid: fdb40d5b9e5e8af46a4c92bbaf40c6fe, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 5073363077901994837, guid: e42878e6e3bc34e468240299e308446b, type: 3}
+      objectReference: {fileID: 5371888514384407835, guid: fdb40d5b9e5e8af46a4c92bbaf40c6fe, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[2]
       value: 

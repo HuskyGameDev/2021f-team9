@@ -8,6 +8,9 @@ public class EnemyMovement : MonoBehaviour
     public GameObject[] path;
     public int moveSpeed;
     public bool isReverse;
+    // Uncomment when all enemies have animations
+    //public Animator frontAnimation;
+    //public Animator backAnimation;
 
     private bool canMove;
     private int currentPath;
@@ -130,7 +133,13 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Pause()
     {
         canMove = false;
+        // Uncomment when all enemies have animations
+        //frontAnimation.SetBool("isWalking", false);
+        //backAnimation.SetBool("isWalking", false);
         yield return new WaitForSeconds(1f);
+        //frontAnimation.SetBool("isWalking", true);
+        //backAnimation.SetBool("isWalking", true);
         canMove = true;
+        
     }
 }
