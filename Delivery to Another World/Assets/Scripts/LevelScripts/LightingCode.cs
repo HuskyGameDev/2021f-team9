@@ -14,6 +14,7 @@ public class LightingCode : MonoBehaviour
     private Vignette vignetteEffect;
     private GameObject player;
     private EnemyMovement[] enemies;
+    private bool canTurn;
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +28,8 @@ public class LightingCode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
+        
         enemies = FindObjectsOfType<EnemyMovement>();
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(DimensionEffect());
-        }
 
         // Finds the closest enemy to the player
         for (int i = 0; i < enemies.Length; i++)
@@ -43,7 +39,7 @@ public class LightingCode : MonoBehaviour
             // If the player is closer than 5 units away from an enemy start showing the vignette effect
             if(distance < 5f)
             {
-                // Vignette effect gets stronger the close the player gets to the enemy
+                // Vignette effect gets stronger the closer the player gets to the enemy
                 float percentage = distance / 5f;
                 percentage = 1f - percentage;
                 float intensityValue = 0.6f * percentage;
@@ -59,17 +55,25 @@ public class LightingCode : MonoBehaviour
 
     private void FixedUpdate()
     {
+        /*canTurn = FindObjectOfType<RotationGravity>().canTurn;
+        dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
+
+        if (Input.GetKeyDown(KeyCode.R) && canTurn)
+        {
+            StartCoroutine(DimensionEffect());
+        }*/
+
         if (startEffect)
         {
-            dimensionEffect.intensity.Interp(dimensionEffect.intensity, -100f, Time.deltaTime / 0.25f);
+            dimensionEffect.intensity.Interp(dimensionEffect.intensity, -100f, Time.deltaTime / 0.15f);
         }
         else
         {
-            dimensionEffect.intensity.Interp(dimensionEffect.intensity, 0f, Time.deltaTime / 0.25f);
+            dimensionEffect.intensity.Interp(dimensionEffect.intensity, 0f, Time.deltaTime / 0.35f);
         }
     }
 
-    IEnumerator DimensionEffect()
+    public IEnumerator DimensionEffect()
     {
         startEffect = true;
         yield return new WaitForSeconds(0.25f);

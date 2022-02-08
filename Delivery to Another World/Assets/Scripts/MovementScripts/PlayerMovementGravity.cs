@@ -98,12 +98,12 @@ public class PlayerMovementGravity : MonoBehaviour
         }
 
         //Change the direction of the player sprite
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
             //gameObject.GetComponent<SpriteRenderer>().sprite = imageList[0];
             GetComponent<MeshRenderer>().material = materials[1];
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             //gameObject.GetComponent<SpriteRenderer>().sprite = imageList[1];
             GetComponent<MeshRenderer>().material = materials[0];
@@ -135,6 +135,25 @@ public class PlayerMovementGravity : MonoBehaviour
 
         //Move the player
         controller.Move(move * Time.deltaTime * playerSpeed);
+
+        // Activate/deactivate player animations
+        if(Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
+        {
+            GetComponent<Animator>().SetBool("isWalking", true);
+            if (Input.GetKey(KeyCode.LeftShift) && canSprint)
+            {
+                GetComponent<Animator>().SetBool("isRunning", true);
+            }
+            else
+            {
+                GetComponent<Animator>().SetBool("isRunning", false);
+            }
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("isRunning", false);
+            GetComponent<Animator>().SetBool("isWalking", false);
+        }
     }
 
     IEnumerator waitToRegenerate(float wait)

@@ -5,7 +5,9 @@ using UnityEngine;
 public class RotationGravity : MonoBehaviour
 {
     public bool dimensionActive;
-    private bool canTurn;
+    public bool canTurn;
+
+    private bool stopTURNING;
     private Rigidbody body;
 
     // Start is called before the first frame update
@@ -13,11 +15,17 @@ public class RotationGravity : MonoBehaviour
     {
         dimensionActive = false;
         canTurn = true;
+        stopTURNING = true;
         body = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    void FixedUpdate()
     {
         // Swaps orientation
         if (Input.GetKey(KeyCode.R) && canTurn)
@@ -25,12 +33,10 @@ public class RotationGravity : MonoBehaviour
             // uncomment these 2 lines of code only if you have a rigidbody attached to your player object
             body.constraints = RigidbodyConstraints.FreezePositionY;
             StartCoroutine(Flip());
+            StartCoroutine(Cooldown());
         }
-    }
 
-    void FixedUpdate()
-    {
-        if (canTurn == false)
+        if (stopTURNING == false)
         {
             if (dimensionActive)
             {
@@ -43,6 +49,13 @@ public class RotationGravity : MonoBehaviour
         }
     }
 
+    private IEnumerator Cooldown()
+    {
+        canTurn = false;
+        yield return new WaitForSeconds(2f);
+        canTurn = true;
+    }
+
     private IEnumerator Flip()
     {
         if (dimensionActive)
@@ -53,10 +66,11 @@ public class RotationGravity : MonoBehaviour
         {
             dimensionActive = true;
         }
-        canTurn = false;
+        FindObjectOfType<LightingCode>().SendMessage("DimensionEffect");
         this.GetComponent<PlayerMovementGravity>().enabled = false;
+        stopTURNING = false;
         yield return new WaitForSeconds(0.5f);
-        canTurn = true;
+        stopTURNING = true;
         // Check to see if rotation is correct
         if (dimensionActive && transform.eulerAngles.y != 90f)
         {
