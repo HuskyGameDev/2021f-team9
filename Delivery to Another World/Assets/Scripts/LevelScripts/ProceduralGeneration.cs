@@ -175,7 +175,7 @@ public class ProceduralGeneration : MonoBehaviour
             if (doors[i].gameObject.CompareTag("SouthDoor"))
             {
                 Transform door = doors[i];
-                player.GetComponent<Transform>().transform.position = door.position;
+                player.transform.position = new Vector3(door.position.x, door.position.y - 0.4f, door.position.z);
                 break;
             }
         }
@@ -245,7 +245,7 @@ public class ProceduralGeneration : MonoBehaviour
             if (doors[i].gameObject.CompareTag("WestDoor"))
             {
                 Transform door = doors[i];
-                player.GetComponent<Transform>().transform.position = door.position;
+                player.transform.position = new Vector3(door.position.x, door.position.y - 0.4f, door.position.z);
                 break;
             }
         }
@@ -315,7 +315,7 @@ public class ProceduralGeneration : MonoBehaviour
             if (doors[i].gameObject.CompareTag("NorthDoor"))
             {
                 Transform door = doors[i];
-                player.GetComponent<Transform>().transform.position = door.position;
+                player.transform.position = new Vector3(door.position.x, door.position.y - 0.4f, door.position.z);
                 break;
             }
         }
@@ -385,7 +385,7 @@ public class ProceduralGeneration : MonoBehaviour
             if (doors[i].gameObject.CompareTag("EastDoor"))
             {
                 Transform door = doors[i];
-                player.GetComponent<Transform>().transform.position = door.position;
+                player.transform.position = new Vector3(door.position.x, door.position.y - 0.4f, door.position.z);
                 break;
             }
         }
