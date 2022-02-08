@@ -17,6 +17,7 @@ public class NPCInteraction : MonoBehaviour
     public Text myText;
     public string script;
     public Dialogue dialogue;
+    public bool questNPC;
 
     private StreamReader reader;
     private StreamReader alternate;
@@ -28,8 +29,8 @@ public class NPCInteraction : MonoBehaviour
     void Start()
     {
         move = true;
-        reader = new StreamReader("Assets/Dialogue/" + script + ".txt");
-        alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
+        //reader = new StreamReader("Assets/Dialogue/" + script + ".txt");
+        //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         r = GameObject.FindGameObjectWithTag("Player").GetComponent<Rotation>();
     }
@@ -45,8 +46,9 @@ public class NPCInteraction : MonoBehaviour
                 /**
                 pm.enabled = false;
                 r.enabled = false;
-                move = false;
                 **/
+                TriggerMovement();
+                
                 if (!rotate)
                 {
                     TriggerDialogue();
@@ -78,7 +80,7 @@ public class NPCInteraction : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, questNPC);
     }
 
     //This is to make it so that you can't see anyone when you flip dimensions, but this code will have to be fixed
@@ -97,5 +99,13 @@ public class NPCInteraction : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = true;
             rotate = false;
         }
+    }
+
+    public void TriggerMovement()
+    {
+        if (move)
+            move = false;
+        else
+            move = true;
     }
 }

@@ -8,8 +8,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public Text nameText;
     public Text dialogueText;
+    public GameObject questBox;
 
     private Queue<string> script;
+    private bool isQuestNPC;
 
     private void Start()
     {
@@ -17,8 +19,10 @@ public class DialogueManager : MonoBehaviour
         script = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, bool questNPC)
     {
+        isQuestNPC = questNPC;
+
         dialogueBox.SetActive(true);
 
         Debug.Log("Starting conversation with " + dialogue.name);
@@ -40,7 +44,9 @@ public class DialogueManager : MonoBehaviour
         if (script.Count == 0)
         {
             EndDialogue();
-            return;
+
+            if (isQuestNPC)
+                ShowQuests();
         }
 
         string scentence = script.Dequeue();
@@ -51,5 +57,11 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of conversation");
         dialogueBox.SetActive(false);
+        
+    }
+
+    public void ShowQuests()
+    {
+        FindObjectOfType<QuestManager>().ShowQuests();
     }
 }
