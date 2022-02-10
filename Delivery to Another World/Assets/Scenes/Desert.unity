@@ -545,6 +545,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1622771840}
     - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: maxStamina
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1622771839}

@@ -30,6 +30,7 @@ public class ProceduralGeneration : MonoBehaviour
     private int algorithmX;
     private int algorithmY;
     private int algorithmZ;
+    private string treasureName;
 
     struct roomCoordinate
     {
@@ -56,6 +57,9 @@ public class ProceduralGeneration : MonoBehaviour
         algorithmY = Random.Range(1, 10);
         algorithmZ = Random.Range(1, 10);
         inTreasureRoom = false;
+
+        // Set in the quest manager
+        treasureName = PlayerPrefs.GetString("treasureName");
 
         spawn = Random.Range(0, 3);
         if (spawn == 0)
@@ -116,6 +120,13 @@ public class ProceduralGeneration : MonoBehaviour
             currentPrefab = prefabs[index];
         }
         GameObject newRoom = Instantiate(currentPrefab, transform.position, transform.rotation);
+
+        if (lastRoomReached)
+        {
+            // If statements to determine which quest this is. Currently defaulted to mission 2 to detect if the tome worked.
+            GameObject.FindGameObjectWithTag("Apple").SetActive(false);
+        }
+
         FindObjectOfType<Rigidbody>().useGravity = true;
         Debug.Log(currentRoom.x);
         Debug.Log(currentRoom.y);

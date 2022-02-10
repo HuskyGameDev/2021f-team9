@@ -8,6 +8,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadForest()
     {
         Debug.Log("Loading Forest");
+        PlayerPrefs.SetString("treasureName", "epicTome");
         SceneManager.LoadScene("Forest");
     }
 

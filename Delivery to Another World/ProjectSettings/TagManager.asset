@@ -16,6 +16,8 @@ TagManager:
   - Interactables
   - MiniMap
   - SaveNPC
+  - Apple
+  - EpicTome
   layers:
   - Default
   - TransparentFX

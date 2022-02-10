@@ -26,6 +26,15 @@ public class PlayerMovementGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(PlayerPrefs.GetFloat("maxStamina") > maxStamina)
+        {
+            maxStamina = PlayerPrefs.GetFloat("maxStamina");
+        }
+        if(PlayerPrefs.GetFloat("exhaustionRate") > exhaustionRate)
+        {
+            exhaustionRate = PlayerPrefs.GetFloat("exhaustionRate");
+        }
+
         controller = this.GetComponent<CharacterController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         rotation = player.GetComponent<RotationGravity>();

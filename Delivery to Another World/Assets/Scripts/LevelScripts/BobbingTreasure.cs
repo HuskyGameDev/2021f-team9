@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BobbingApple : MonoBehaviour
+public class BobbingTreasure : MonoBehaviour
 {
 
     private bool direction;
@@ -42,18 +42,27 @@ public class BobbingApple : MonoBehaviour
         }
     }
 
-    // When the player enters the apple
+    // When the player touches the treasure
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(GoHome());
+        StartCoroutine(GoHome(other.tag));
     }
 
-    // Sends the player back to the hub with the apple.
-    IEnumerator GoHome()
+    // Sends the player back to the hub with the treasure.
+    IEnumerator GoHome(string treasureName)
     {
         FindObjectOfType<PlayerMovementGravity>().enabled = false;
         FindObjectOfType<PlayerMovementGravity>().gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         FindObjectOfType<Success>().SendMessage("youWin");
+
+        if (treasureName.Equals("Apple"))
+        {
+            PlayerPrefs.SetFloat("maxStamina", 125f);
+        }
+        else if(treasureName.Equals("EpicTome"))
+        {
+            PlayerPrefs.SetFloat("exhaustionRate", 50f);
+        }    
         yield return new WaitForSeconds(5f);
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         SceneManager.LoadScene("Hub");
