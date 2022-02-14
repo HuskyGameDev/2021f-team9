@@ -123,9 +123,9 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &41665830 stripped
+--- !u!1 &204858944 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7919911708639745640, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7919911708522661188, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}
   m_PrefabInstance: {fileID: 208088144}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &208088144
@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 263177429}
   - component: {fileID: 263177428}
   - component: {fileID: 263177427}
+  - component: {fileID: 263177432}
   m_Layer: 0
   m_Name: NPC_Sprite_1
   m_TagString: Interactables
@@ -357,6 +358,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263177432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263177426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b458ee5d5d59e54ea27558151929462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myText: {fileID: 0}
+  script: 
+  dialogue:
+    name: Tutorial
+    scentences:
+    - AAAAAA
 --- !u!114 &412434543 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7919911708980852329, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}
@@ -450,6 +469,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &659095810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 659095811}
+  m_Layer: 0
+  m_Name: Input
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &659095811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659095810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9807, y: 1.9616181, z: 8.781035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &763826562
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +976,7 @@ PrefabInstance:
     - target: {fileID: 6120698390849757048, guid: 3b052528412300f4ba3cc87b0a00c216, type: 3}
       propertyPath: dialogueBox
       value: 
-      objectReference: {fileID: 41665830}
+      objectReference: {fileID: 204858944}
     - target: {fileID: 6120698390849757048, guid: 3b052528412300f4ba3cc87b0a00c216, type: 3}
       propertyPath: dialogueText
       value: 
