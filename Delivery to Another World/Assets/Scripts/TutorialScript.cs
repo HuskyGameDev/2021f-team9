@@ -17,7 +17,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
     private Rotation r;
     private bool move;
 
-    private bool intro = false;
+    private bool intro = true;
 
     // Start is called before the first frame updates
     void Start()
@@ -28,28 +28,29 @@ public class TutorialNPCInteractionScript : MonoBehaviour
         //pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         //r = GameObject.FindGameObjectWithTag("Player").GetComponent<Rotation>();
 
-       // TriggerDialogue();
+        
     }
+    
 
 
     // Update is called once per frame
     void Update()
     {
+        if (intro)
+        {
+            TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Hey welcome to the game. Press continue so I can keep talking", "Now, use WASD to walk over to me" }));
+            intro = false;
+        }
+
         if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (!rotate)
                 {
-                    //TriggerDialogue();
-                    intro = true;
+                    TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Nice job walking over to me", "You're gonna be great at this" }));
                 }
             }
-        }
-
-        if (intro)
-        {
-            
         }
 
         if (Input.GetKeyDown(KeyCode.R) && move)
