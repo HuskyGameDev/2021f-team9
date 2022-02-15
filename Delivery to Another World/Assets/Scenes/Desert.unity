@@ -469,8 +469,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1682011123925689797, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1682011123925689797, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ed57bf5feaa43c4abe02d77fbf0011d, type: 2}
     - target: {fileID: 6172351866663938830, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
       propertyPath: volume
       value: 
@@ -523,9 +527,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8998556528389712701, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998556528389712701, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 507
+      objectReference: {fileID: 0}
     - target: {fileID: 8998556528389712702, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
       propertyPath: m_Name
       value: Directional Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998556528389712702, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b077d8bb006c7b4b822507a7d4875ef, type: 3}
@@ -539,6 +555,18 @@ PrefabInstance:
     - target: {fileID: 8833129366715113698, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: m_ClearFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833129366715113698, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.68235296
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833129366715113698, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833129366715113698, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.43921572
       objectReference: {fileID: 0}
     - target: {fileID: 8833129366926981504, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: staminaUI
@@ -841,7 +869,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 910452782}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 

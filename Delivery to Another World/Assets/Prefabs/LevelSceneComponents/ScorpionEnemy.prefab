@@ -198,8 +198,6 @@ MonoBehaviour:
   - {fileID: 4540077270688706217}
   moveSpeed: 3
   isReverse: 0
-  frontAnimation: {fileID: 3417499419670849512}
-  backAnimation: {fileID: 6815172523032265601}
 --- !u!114 &5663336701757765507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3062648991254552707}
   - component: {fileID: 6435070551117574765}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EyeLights
   m_TagString: Untagged
   m_Icon: {fileID: 0}

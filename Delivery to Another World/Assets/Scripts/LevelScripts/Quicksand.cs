@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class Quicksand : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Quicksand : MonoBehaviour
     private float distanceToCenter;
     private bool forceActive;
     private bool holding;
+    private PostProcessVolume volume;
+    private Vignette vignette;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,8 @@ public class Quicksand : MonoBehaviour
         player = FindObjectOfType<PlayerMovementGravity>().gameObject;
         forceActive = false;
         holding = false;
+        volume = FindObjectOfType<PostProcessVolume>();
+        vignette = volume.profile.GetSetting<Vignette>();
     }
 
     // Update is called once per frame
@@ -36,6 +41,9 @@ public class Quicksand : MonoBehaviour
         if (forceActive)
         {
             distanceToCenter = Vector3.Distance(player.transform.position, transform.position);
+
+            vignette.intensity.Interp(vignette.intensity, 1f, 1f);
+
             forceTowardsCenter = new Vector3(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y, transform.position.z - player.transform.position.z);
             forceTowardsCenter = Vector3.Normalize(forceTowardsCenter);
             player.GetComponent<CharacterController>().Move(forceTowardsCenter * forceMultiplier * Time.deltaTime);
@@ -44,6 +52,10 @@ public class Quicksand : MonoBehaviour
             {
                 StartCoroutine(HoldingBreath());
             }
+        }
+        else
+        {
+            vignette.intensity.Interp(vignette.intensity, 0f, 1f);
         }
     }
 

@@ -240,6 +240,10 @@ public class ProceduralGeneration : MonoBehaviour
             southDoor.SetActive(false);
             westDoor.SetActive(false);
         }
+
+        // Prevents the camera from getting stuck in the wall
+        Vector3 cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform.localPosition;
+        GameObject.FindGameObjectWithTag("MainCamera").transform.localPosition = new Vector3(cameraPosition.x, cameraPosition.y, 0f);
     }
 
     // activates when player moves through east door

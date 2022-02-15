@@ -18,6 +18,7 @@ TagManager:
   - SaveNPC
   - Apple
   - EpicTome
+  - Wall
   layers:
   - Default
   - TransparentFX
