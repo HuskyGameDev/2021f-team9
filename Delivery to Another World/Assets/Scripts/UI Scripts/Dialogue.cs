@@ -9,4 +9,10 @@ public class Dialogue
 
     [TextArea(3, 10)]
     public string[] scentences;
+
+    public Dialogue(string name, string[] sentences)
+    {
+        this.name = name;
+        this.scentences = sentences;
+    }
 }

@@ -48,9 +48,12 @@ public class DialogueManager : MonoBehaviour
             if (isQuestNPC)
                 ShowQuests();
         }
-
-        string scentence = script.Dequeue();
-        dialogueText.text = scentence;
+        else
+        {
+            string scentence = script.Dequeue();
+            dialogueText.text = scentence;
+        }
+        
     }
 
     public void EndDialogue()
