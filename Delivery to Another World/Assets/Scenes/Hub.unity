@@ -2789,6 +2789,7 @@ GameObject:
   - component: {fileID: 550670960}
   - component: {fileID: 550670959}
   - component: {fileID: 550670961}
+  - component: {fileID: 550670962}
   m_Layer: 3
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2889,6 +2890,19 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &550670962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550670958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988f09a0c5a39ef4ea48f8391409354a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 550670961}
 --- !u!1 &555923679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5159,9 +5173,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1724951691}
-        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: DisplayNextScentence
+      - m_Target: {fileID: 1298455856}
+        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
+        m_MethodName: QuestButtonTwo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8175,7 +8189,6 @@ GameObject:
   - component: {fileID: 1435206894}
   - component: {fileID: 1435206891}
   - component: {fileID: 1435206895}
-  - component: {fileID: 1435206896}
   - component: {fileID: 1435206893}
   m_Layer: 0
   m_Name: Quest_NPC
@@ -8285,18 +8298,6 @@ MonoBehaviour:
       spookyness for us.
     - It would be really helpful in helping us beat Geoffry Bezas.
   questNPC: 1
---- !u!114 &1435206896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435206890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30359a8fa0f6cb44dbcb59e5956d40ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1438543087
 GameObject:
   m_ObjectHideFlags: 0
@@ -11993,9 +11994,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1724951691}
-        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: DisplayNextScentence
+      - m_Target: {fileID: 1298455856}
+        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
+        m_MethodName: QuestButtonOne
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
