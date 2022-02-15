@@ -47,19 +47,15 @@ public class NPCInteraction : MonoBehaviour
                 pm.enabled = false;
                 r.enabled = false;
                 **/
-                TriggerMovement();
+
+                FindObjectOfType<PlayerMovementGravity>().enabled = false;
+                FindObjectOfType<RotationGravity>().enabled = false;
                 
-                if (!rotate)
-                {
-                    TriggerDialogue();
+               
+                TriggerDialogue();
                     //line = reader.ReadLine();
                     //myText.text = line;
-                }
-                else
-                {
-                    //line = alternate.ReadLine();
-                    //myText.text = line;
-                }
+                
                 /**
                 if (line == null)
                 {
@@ -71,9 +67,14 @@ public class NPCInteraction : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && move)
+        if (FindObjectOfType<RotationGravity>().dimensionActive)
         {
-            StartCoroutine(disappear());
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
+        else
+        {
+            alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
+            gameObject.GetComponent<MeshRenderer>().enabled = true;
         }
 
     }
@@ -83,29 +84,5 @@ public class NPCInteraction : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, questNPC);
     }
 
-    //This is to make it so that you can't see anyone when you flip dimensions, but this code will have to be fixed
-    //based on the map and if we want people to be 2D or 3D
-    IEnumerator disappear()
-    {
-        yield return null;
-        if (!rotate)
-        {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            rotate = true;
-        }
-        else if (rotate)
-        {
-            alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
-            rotate = false;
-        }
-    }
 
-    public void TriggerMovement()
-    {
-        if (move)
-            move = false;
-        else
-            move = true;
-    }
 }
