@@ -6,9 +6,12 @@ public class DoorCode : MonoBehaviour
 {
     public string direction;
 
+    private bool stopDuplicates;
+
     private void Start()
     {
         StartCoroutine(LockDoors());
+        stopDuplicates = false;
     }
 
     // prevents player from leaving as soon as they enter the room
@@ -57,8 +60,9 @@ public class DoorCode : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !stopDuplicates)
         {
+            stopDuplicates = true;
             if (direction == "NORTH")
             {
                 FindObjectOfType<ProceduralGeneration>().moveNorth();

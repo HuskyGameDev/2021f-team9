@@ -64,12 +64,20 @@ public class QuestManager : MonoBehaviour
         }
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         FindObjectOfType<RotationGravity>().enabled = true;
-        HideQuests();
 
+        // If the forest world is selected set the treasure to apple
+        PlayerPrefs.SetString("treasureName", "Apple");
+        HideQuests();
     }
 
     public void QuestButtonTwo()
     {
+        Debug.Log("UnderConstruction");
+        FindObjectOfType<PlayerMovementGravity>().enabled = true;
+        FindObjectOfType<RotationGravity>().enabled = true;
 
+        // If the forest world is selected set the treature to epic tome
+        PlayerPrefs.SetString("treasureName", "EpicTome");
+        HideQuests();
     }
 }

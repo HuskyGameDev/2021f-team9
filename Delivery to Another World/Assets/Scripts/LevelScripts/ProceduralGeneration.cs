@@ -119,12 +119,20 @@ public class ProceduralGeneration : MonoBehaviour
         {
             currentPrefab = prefabs[index];
         }
+        GameObject.Destroy(GameObject.FindGameObjectWithTag("Room"));
         GameObject newRoom = Instantiate(currentPrefab, transform.position, transform.rotation);
 
         if (lastRoomReached)
         {
             // If statements to determine which quest this is. Currently defaulted to mission 2 to detect if the tome worked.
-            GameObject.FindGameObjectWithTag("Apple").SetActive(false);
+            if (treasureName.Equals("Apple"))
+            {
+                GameObject.FindGameObjectWithTag("EpicTome").SetActive(false);
+            }
+            else if (treasureName.Equals("EpicTome"))
+            {
+                GameObject.FindGameObjectWithTag("Apple").SetActive(false);
+            }
         }
 
         FindObjectOfType<Rigidbody>().useGravity = true;

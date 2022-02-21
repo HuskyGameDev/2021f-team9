@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 5073363077901994834}
   m_Layer: 0
   m_Name: Room2Desert
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
