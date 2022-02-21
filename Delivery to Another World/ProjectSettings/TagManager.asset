@@ -19,6 +19,7 @@ TagManager:
   - Apple
   - EpicTome
   - Wall
+  - Room
   layers:
   - Default
   - TransparentFX
