@@ -10,6 +10,7 @@ public class QuestManager : MonoBehaviour
     public Button button2;
     public Image newQuest1;
     public Image newQuest2;
+    public bool questActive;
 
     public List<Quest> quests;
 
@@ -37,6 +38,8 @@ public class QuestManager : MonoBehaviour
         {
             activeQuest1 = quests[0];
         }
+
+        questActive = false;
        
     }
 
@@ -67,6 +70,7 @@ public class QuestManager : MonoBehaviour
 
         // If the forest world is selected set the treasure to apple
         PlayerPrefs.SetString("treasureName", "Apple");
+        questActive = true;
         HideQuests();
     }
 
@@ -78,6 +82,7 @@ public class QuestManager : MonoBehaviour
 
         // If the forest world is selected set the treature to epic tome
         PlayerPrefs.SetString("treasureName", "EpicTome");
+        questActive = true;
         HideQuests();
     }
 }
