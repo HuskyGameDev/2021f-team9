@@ -8,7 +8,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public Text nameText;
     public Text dialogueText;
-    public GameObject questBox;
 
     private Queue<string> script;
     private bool isQuestNPC;
@@ -21,10 +20,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && FindObjectOfType<NPCInteraction>().talking)
-        {
-            DisplayNextScentence();
-        }
+
     }
 
     public void StartDialogue(Dialogue dialogue, bool questNPC)
@@ -44,7 +40,7 @@ public class DialogueManager : MonoBehaviour
             script.Enqueue(scentence);
         }
 
-        
+        DisplayNextScentence();
     }
 
     public void DisplayNextScentence()
@@ -52,10 +48,6 @@ public class DialogueManager : MonoBehaviour
         if (script.Count == 0)
         {
             EndDialogue();
-
-            FindObjectOfType<NPCInteraction>().talking = false;
-
-            FindObjectOfType<NPCInteraction>().enabled = false;
 
             if (isQuestNPC)
                 ShowQuests();

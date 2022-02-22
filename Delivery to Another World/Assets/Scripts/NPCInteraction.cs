@@ -18,13 +18,13 @@ public class NPCInteraction : MonoBehaviour
     public string script;
     public Dialogue dialogue;
     public bool questNPC;
-    public bool talking;
 
     private StreamReader reader;
     private StreamReader alternate;
     private PlayerMovement pm;
     private Rotation r;
     private bool move;
+    private bool test;
 
     // Start is called before the first frame updates
     void Start()
@@ -34,7 +34,7 @@ public class NPCInteraction : MonoBehaviour
         //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         r = GameObject.FindGameObjectWithTag("Player").GetComponent<Rotation>();
-        talking = false;
+        test = true;
     }
 
     // Update is called once per frame
@@ -44,19 +44,27 @@ public class NPCInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                string line;
-                /**
-                pm.enabled = false;
-                r.enabled = false;
-                **/
-                
+                if (test)
+                {
+                    test = false;
+                    string line;
+                    /**
+                    pm.enabled = false;
+                    r.enabled = false;
+                    **/
 
-                FindObjectOfType<PlayerMovementGravity>().enabled = false;
-                FindObjectOfType<RotationGravity>().enabled = false;
-                this.enabled = false;
-               
-                TriggerDialogue();
-                talking = true;
+
+                    FindObjectOfType<PlayerMovementGravity>().enabled = false;
+                    FindObjectOfType<RotationGravity>().enabled = false;
+                    //this.enabled = false;
+
+                    TriggerDialogue();
+                }
+                else
+                {
+                    FindObjectOfType<DialogueManager>().DisplayNextScentence();
+                }
+                
                 //line = reader.ReadLine();
                 //myText.text = line;
 
