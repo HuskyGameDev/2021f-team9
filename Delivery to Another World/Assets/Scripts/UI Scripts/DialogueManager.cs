@@ -19,6 +19,14 @@ public class DialogueManager : MonoBehaviour
         script = new Queue<string>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && FindObjectOfType<NPCInteraction>().talking)
+        {
+            DisplayNextScentence();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue, bool questNPC)
     {
         isQuestNPC = questNPC;
@@ -36,7 +44,7 @@ public class DialogueManager : MonoBehaviour
             script.Enqueue(scentence);
         }
 
-        DisplayNextScentence();
+        
     }
 
     public void DisplayNextScentence()
@@ -44,6 +52,10 @@ public class DialogueManager : MonoBehaviour
         if (script.Count == 0)
         {
             EndDialogue();
+
+            FindObjectOfType<NPCInteraction>().talking = false;
+
+            FindObjectOfType<NPCInteraction>().enabled = false;
 
             if (isQuestNPC)
                 ShowQuests();

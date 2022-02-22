@@ -18,6 +18,7 @@ public class NPCInteraction : MonoBehaviour
     public string script;
     public Dialogue dialogue;
     public bool questNPC;
+    public bool talking;
 
     private StreamReader reader;
     private StreamReader alternate;
@@ -33,6 +34,7 @@ public class NPCInteraction : MonoBehaviour
         //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         r = GameObject.FindGameObjectWithTag("Player").GetComponent<Rotation>();
+        talking = false;
     }
 
     // Update is called once per frame
@@ -47,15 +49,17 @@ public class NPCInteraction : MonoBehaviour
                 pm.enabled = false;
                 r.enabled = false;
                 **/
+                
 
                 FindObjectOfType<PlayerMovementGravity>().enabled = false;
                 FindObjectOfType<RotationGravity>().enabled = false;
-                
+                this.enabled = false;
                
                 TriggerDialogue();
-                    //line = reader.ReadLine();
-                    //myText.text = line;
-                
+                talking = true;
+                //line = reader.ReadLine();
+                //myText.text = line;
+
                 /**
                 if (line == null)
                 {
