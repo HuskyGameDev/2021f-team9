@@ -24,6 +24,7 @@ public class NPCInteraction : MonoBehaviour
     private PlayerMovement pm;
     private Rotation r;
     private bool move;
+    private bool test;
 
     // Start is called before the first frame updates
     void Start()
@@ -33,6 +34,7 @@ public class NPCInteraction : MonoBehaviour
         //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         r = GameObject.FindGameObjectWithTag("Player").GetComponent<Rotation>();
+        test = true;
     }
 
     // Update is called once per frame
@@ -42,20 +44,30 @@ public class NPCInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                string line;
-                /**
-                pm.enabled = false;
-                r.enabled = false;
-                **/
+                if (test)
+                {
+                    test = false;
+                    string line;
+                    /**
+                    pm.enabled = false;
+                    r.enabled = false;
+                    **/
 
-                FindObjectOfType<PlayerMovementGravity>().enabled = false;
-                FindObjectOfType<RotationGravity>().enabled = false;
+
+                    FindObjectOfType<PlayerMovementGravity>().enabled = false;
+                    FindObjectOfType<RotationGravity>().enabled = false;
+                    //this.enabled = false;
+
+                    TriggerDialogue();
+                }
+                else
+                {
+                    FindObjectOfType<DialogueManager>().DisplayNextScentence();
+                }
                 
-               
-                TriggerDialogue();
-                    //line = reader.ReadLine();
-                    //myText.text = line;
-                
+                //line = reader.ReadLine();
+                //myText.text = line;
+
                 /**
                 if (line == null)
                 {

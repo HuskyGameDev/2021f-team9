@@ -18,6 +18,8 @@ public class TutorialNPCInteractionScript : MonoBehaviour
     private bool move;
 
     private bool intro = true;
+    private bool walkedOver = false;
+    private bool hasTurned = false;
 
     // Start is called before the first frame updates
     void Start()
@@ -28,9 +30,9 @@ public class TutorialNPCInteractionScript : MonoBehaviour
         //pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         //r = GameObject.FindGameObjectWithTag("Player").GetComponent<Rotation>();
 
-        
+
     }
-    
+
 
 
     // Update is called once per frame
@@ -44,17 +46,25 @@ public class TutorialNPCInteractionScript : MonoBehaviour
 
         if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !walkedOver)
             {
                 if (!rotate)
                 {
-                    TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Nice job walking over to me", "You're gonna be great at this" }));
+                    intro = false;
+                    walkedOver = true;
+                    TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Nice job walking over to me", "You're gonna be great at this", "How about you try pressing R?" }));
                 }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && move)
+        if (Input.GetKeyDown(KeyCode.R))
         {
+            if (!intro && !hasTurned && walkedOver)
+            {
+                walkedOver = false;
+                hasTurned = true;
+                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Whoa, that wasn't supposed to happen", "Ethan, did you die? Where are you?" }));
+            }
             StartCoroutine(disappear());
         }
 

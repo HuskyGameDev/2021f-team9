@@ -8,7 +8,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public Text nameText;
     public Text dialogueText;
-    public GameObject questBox;
 
     private Queue<string> script;
     private bool isQuestNPC;
@@ -17,6 +16,11 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueBox.SetActive(false);
         script = new Queue<string>();
+    }
+
+    private void Update()
+    {
+
     }
 
     public void StartDialogue(Dialogue dialogue, bool questNPC)
