@@ -124,14 +124,28 @@ public class ProceduralGeneration : MonoBehaviour
 
         if (lastRoomReached)
         {
-            // If statements to determine which quest this is. Currently defaulted to mission 2 to detect if the tome worked.
-            if (treasureName.Equals("Apple"))
+            // These set the opposite treasure to invisible
+            if (PlayerPrefs.GetString("world").Equals("forest"))
             {
-                GameObject.FindGameObjectWithTag("EpicTome").SetActive(false);
+                if (treasureName.Equals("Apple"))
+                {
+                    GameObject.FindGameObjectWithTag("EpicTome").SetActive(false);
+                }
+                else if (treasureName.Equals("EpicTome"))
+                {
+                    GameObject.FindGameObjectWithTag("Apple").SetActive(false);
+                }
             }
-            else if (treasureName.Equals("EpicTome"))
+            else if (PlayerPrefs.GetString("world").Equals("desert"))
             {
-                GameObject.FindGameObjectWithTag("Apple").SetActive(false);
+                if (treasureName.Equals("FinalCactus"))
+                {
+                    GameObject.FindGameObjectWithTag("SpecialSkull").SetActive(false);
+                }
+                else if (treasureName.Equals("SpecialSkull"))
+                {
+                    GameObject.FindGameObjectWithTag("FinalCactus").SetActive(false);
+                }
             }
         }
 

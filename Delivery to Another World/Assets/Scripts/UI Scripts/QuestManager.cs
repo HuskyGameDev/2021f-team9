@@ -53,6 +53,7 @@ public class QuestManager : MonoBehaviour
         questBox.SetActive(false);
     }
 
+    // Forest Quest One
     public void QuestButtonOne()
     {
 
@@ -74,6 +75,7 @@ public class QuestManager : MonoBehaviour
         HideQuests();
     }
 
+    // Forest Quest Two
     public void QuestButtonTwo()
     {
         Debug.Log("UnderConstruction");
