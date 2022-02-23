@@ -22,6 +22,7 @@ TagManager:
   - Room
   - FinalCactus
   - SpecialSkull
+  - Quest
   layers:
   - Default
   - TransparentFX
