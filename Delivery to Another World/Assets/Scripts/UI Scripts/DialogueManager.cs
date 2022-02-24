@@ -20,7 +20,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DisplayNextScentence();
+        }
     }
 
     public void StartDialogue(Dialogue dialogue, bool questNPC)
