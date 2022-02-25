@@ -8,8 +8,8 @@ public class QuestManager : MonoBehaviour
     public GameObject questBox;
     public Button button1;
     public Button button2;
-    public Image newQuest1;
-    public Image newQuest2;
+    public GameObject newQuest1;
+    public GameObject newQuest2;
     public bool questActive;
 
     public List<Quest> quests;
@@ -26,21 +26,20 @@ public class QuestManager : MonoBehaviour
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         questBox.SetActive(false);
+        incompleteQuests = new Queue<Quest>();
+        questActive = false;
 
-        /*foreach (Quest quest in quests) 
+        foreach (Quest quest in quests) 
         {
-            Debug.Log(quest.name);
+            quest.dialogue.name = this.GetComponentInParent<NPCInteraction>().dialogue.name;
             incompleteQuests.Enqueue(quest);
-      
-        }*/
-
-        if (quests[0] != null)
-        {
-            activeQuest1 = quests[0];
         }
 
-        questActive = false;
-       
+        if (activeQuest1 == null || activeQuest1.isNewQuest)
+            newQuest1.SetActive(true);
+
+        if (activeQuest2 == null || activeQuest2.isNewQuest)
+            newQuest2.SetActive(true);
     }
 
     public void ShowQuests()
@@ -53,38 +52,80 @@ public class QuestManager : MonoBehaviour
         questBox.SetActive(false);
     }
 
-    // Forest Quest One
     public void QuestButtonOne()
     {
+        if (activeQuest1 == null)
+            activeQuest1 = incompleteQuests.Dequeue();
 
         if (activeQuest1.isQuestComplete())
         {
             activeQuest1.ClaimQuestReward();
-            if (quests.Count > 0)
-            {
-                activeQuest1 = quests[0];
-                quests.RemoveAt(0);
-            }
+            activeQuest1 = null;
+            if (activeQuest2 == null)
+                questActive = false;
         }
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         FindObjectOfType<RotationGravity>().enabled = true;
 
+        questActive = true;
+        HideQuests();
+        newQuest1.SetActive(false);
+        dialogueManager.StartDialogue(activeQuest1.dialogue, true);
+
         // If the forest world is selected set the treasure to apple
+        /*
         PlayerPrefs.SetString("treasureName", "Apple");
         questActive = true;
+        */
         HideQuests();
     }
 
-    // Forest Quest Two
     public void QuestButtonTwo()
     {
-        Debug.Log("UnderConstruction");
+        if (activeQuest2 == null)
+            activeQuest2 = incompleteQuests.Dequeue();
+
+        if (activeQuest2.isQuestComplete())
+        {
+            activeQuest2.ClaimQuestReward();
+            activeQuest2 = null;
+            if (activeQuest1 == null)
+                questActive = false;
+        }
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         FindObjectOfType<RotationGravity>().enabled = true;
 
-        // If the forest world is selected set the treature to epic tome
-        PlayerPrefs.SetString("treasureName", "EpicTome");
         questActive = true;
         HideQuests();
+        newQuest2.SetActive(false);
+        dialogueManager.StartDialogue(activeQuest2.dialogue, true);
+
+        // If the forest world is selected set the treature to epic tome
+        /*
+        PlayerPrefs.SetString("treasureName", "EpicTome");
+        questActive = true;
+        */
+        HideQuests();
+    }
+
+    public void ExitQuestScreen()
+    {
+        HideQuests();
+        FindObjectOfType<PlayerMovementGravity>().enabled = true;
+        FindObjectOfType<RotationGravity>().enabled = true;
+    }
+
+    public string GetQuest1()
+    {
+        if (activeQuest1 != null)
+            return activeQuest1.questArea;
+        return "";
+    }
+
+    public string GetQuest2()
+    {
+        if (activeQuest2 != null)
+            return activeQuest2.questArea;
+        return "";
     }
 }

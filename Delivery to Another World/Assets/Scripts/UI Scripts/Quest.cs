@@ -5,15 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class Quest
 {
-    public string name;
+    public string questName;
     public bool isNewQuest = true;
     public string objective;
+    public string questArea;
 
     private bool isComplete = false;
     private bool isClaimed = false;
 
-    [TextArea(3, 10)]
-    public string[] scentences;
+    public Dialogue dialogue;
 
     public void CompleteQuest()
     {
