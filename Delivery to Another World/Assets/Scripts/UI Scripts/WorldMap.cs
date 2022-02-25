@@ -9,6 +9,7 @@ public class WorldMap : MonoBehaviour
     public Image defaultImage;
     public Image[] roomImages;
     public Image treasureRoomImage;
+    public bool firstSpawn = true;
 
     private int sizeOfGrid;
     private int sizeOfSquares;
@@ -17,6 +18,7 @@ public class WorldMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //firstSpawn = true;
         sizeOfGrid = FindObjectOfType<ProceduralGeneration>().difficulty;
         sizeOfSquares = 850 / sizeOfGrid;
         children = new Image[sizeOfGrid * sizeOfGrid];
@@ -34,6 +36,8 @@ public class WorldMap : MonoBehaviour
                 children[(i * sizeOfGrid) + j].GetComponent<Image>().enabled = false;
             }
         }
+        Debug.Log("Start complete");
+        //firstSpawn = false;
     }
 
     // Update is called once per frame
@@ -59,13 +63,17 @@ public class WorldMap : MonoBehaviour
         }
     }
 
+    // Updates the image of the section of the map you are in to the image of the room you are in.
+    // Called by Procedural Generation
     public void updateSquare(int[] temp)
     {
         int xPos = temp[0];
         int yPos = temp[1];
         int prefabNum = temp[2];
         int index = (yPos * sizeOfGrid) + xPos;
+        //Debug.Log("Error = " + index);
         Vector3 position = new Vector3(children[index].transform.position.x, children[index].transform.position.y, 0f);
+        Debug.Log(position);
         Destroy(children[index].gameObject);
         if (FindObjectOfType<ProceduralGeneration>().inTreasureRoom)
         {

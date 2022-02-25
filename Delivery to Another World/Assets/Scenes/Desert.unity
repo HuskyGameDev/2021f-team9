@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44797707, g: 0.4979806, b: 0.5754979, a: 1}
+  m_IndirectSpecularColor: {r: 0.4479772, g: 0.49798077, b: 0.5754983, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -447,17 +447,49 @@ PrefabInstance:
       value: LevelSceneUI
       objectReference: {fileID: 0}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: firstSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: treasureRoomImage
       value: 
-      objectReference: {fileID: 7824617036102746641, guid: 93e00fc30fa2d91499f5c6cba409e44a, type: 3}
+      objectReference: {fileID: 6124760169264745027, guid: c281b64eb157f164ea8e2e35333e0a08, type: 3}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 8610950150643425613, guid: bbf480c7859cb4c4b8b083f7a5c21a47, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 8823006506617384045, guid: 9cb71c5cc83d9c64f8a65c038650063f, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 316262182825945354, guid: 7684bcf5953d9c44eba92460c2347642, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 6792578573777746117, guid: 8203d4117526c5e40adda7a8f4d04346, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 1136982724746368308, guid: 4bb106c5569d76b4691084853da4ae81, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[5]
+      value: 
+      objectReference: {fileID: 6366727096261889213, guid: efb6f790452296047ae7c99588b7fafe, type: 3}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[6]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8801250321904356218, guid: 74e972c67092d344f9cc5da8b40c4656, type: 3}
+    - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
+      propertyPath: roomImages.Array.data[7]
+      value: 
+      objectReference: {fileID: 6625886386900798202, guid: 70d5d3b54edba1742aa0632fff438fec, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
 --- !u!1001 &910452782
@@ -724,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 520083753281473255, guid: 22eaf8a0a8f97ed46a884144cb9eedc9, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[0]
@@ -755,8 +787,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5754189719156711137, guid: eb863ebc7c8086b4ba0c932c33130ec8, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
+      propertyPath: prefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 8345588007904175144, guid: d2be8c486ca990a4184820028ab9d16d, type: 3}
+    - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: numberOfDifferentRooms
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}

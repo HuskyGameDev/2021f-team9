@@ -61,7 +61,7 @@ public class ProceduralGeneration : MonoBehaviour
         // Set in the quest manager
         treasureName = PlayerPrefs.GetString("treasureName");
 
-        spawn = Random.Range(0, 3);
+        spawn = Random.Range(0, 4);
         if (spawn == 0)
         {
             currentRoom.x = Random.Range(0, difficulty);
@@ -150,8 +150,8 @@ public class ProceduralGeneration : MonoBehaviour
         }
 
         FindObjectOfType<Rigidbody>().useGravity = true;
-        Debug.Log(currentRoom.x);
-        Debug.Log(currentRoom.y);
+        Debug.Log("X pos = " + currentRoom.x);
+        Debug.Log("Y pos = " + currentRoom.y);
 
         roomExists = false;
         for(int i = 0; i < roomsSpawned; i++)
@@ -172,11 +172,17 @@ public class ProceduralGeneration : MonoBehaviour
             temp[0] = currentRoom.x;
             temp[1] = currentRoom.y;
             temp[2] = index;
-            Debug.Log(FindObjectOfType<WorldMap>().name);
-            FindObjectOfType<WorldMap>().SendMessage("updateSquare", temp);
-            Debug.Log("Room NOT Visited");
+
+            if (FindObjectOfType<WorldMap>().firstSpawn)
+            {
+                StartCoroutine(StartWorldMap(temp));
+            }
+            else
+            {
+                FindObjectOfType<WorldMap>().SendMessage("updateSquare", temp);
+            }
         }
-        Debug.Log(roomsSpawned);
+        Debug.Log("Rooms spawned = " + roomsSpawned);
 
         return newRoom;
     }
@@ -476,5 +482,12 @@ public class ProceduralGeneration : MonoBehaviour
             southDoor.SetActive(false);
             westDoor.SetActive(false);
         }
+    }
+
+    public IEnumerator StartWorldMap(int[] temp)
+    {
+        yield return new WaitForEndOfFrame();
+        FindObjectOfType<WorldMap>().firstSpawn = false;
+        FindObjectOfType<WorldMap>().SendMessage("updateSquare", temp);
     }
 }
