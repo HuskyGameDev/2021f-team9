@@ -8,9 +8,6 @@ public class TutorialNPCInteractionScript : MonoBehaviour
 {
     private bool rotate = false;
 
-    public Text myText;
-    public string script;
-
     private StreamReader reader;
     private StreamReader alternate;
     private PlayerMovement pm;
@@ -40,6 +37,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
     {
         if (intro)
         {
+            
             TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Hey welcome to the game. Press continue so I can keep talking", "Now, use WASD to walk over to me" }));
             intro = false;
         }
@@ -63,10 +61,17 @@ public class TutorialNPCInteractionScript : MonoBehaviour
             {
                 walkedOver = false;
                 hasTurned = true;
-                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Whoa, that wasn't supposed to happen", "Ethan, did you die? Where are you?" }));
+                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Whoa, that wasn't supposed to happen", "Ethan, did you die? Where are you?", "You were supposed to be the chosen one..." }));
+            }
+            else if (!intro && hasTurned && !walkedOver)
+            {
+                hasTurned = false;
+                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Oh!", "You're back!", "Want to try sprinting? Press _" }));
             }
             StartCoroutine(disappear());
         }
+
+        
 
     }
 
