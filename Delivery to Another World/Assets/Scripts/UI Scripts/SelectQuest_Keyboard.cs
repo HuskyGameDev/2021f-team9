@@ -15,7 +15,7 @@ public class SelectQuest_Keyboard : MonoBehaviour
     public bool run;
 
     private GameObject[] buttonBackground;
-    private int index = 0;
+    private int index = 1;
 
     private void Start()
     {
