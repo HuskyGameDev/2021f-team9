@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 2343f9e44f29e6e43bc11e30b1e56cf8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -684029570233969320
+    second: Player Sprite 1-Sheet-Reverse_0
+  - first:
+      213: 5813450201291031820
+    second: Player Sprite 1-Sheet-Reverse_1
+  - first:
+      213: 3303063254814055943
+    second: Player Sprite 1-Sheet-Reverse_2
+  - first:
+      213: -3156719610005576323
+    second: Player Sprite 1-Sheet-Reverse_3
+  - first:
+      213: -2844940317553663484
+    second: Player Sprite 1-Sheet-Reverse_4
+  - first:
+      213: 201954245639917031
+    second: Player Sprite 1-Sheet-Reverse_5
+  - first:
+      213: 6391023828444137912
+    second: Player Sprite 1-Sheet-Reverse_6
+  - first:
+      213: -7718906114025221300
+    second: Player Sprite 1-Sheet-Reverse_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,11 +113,179 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Player Sprite 1-Sheet-Reverse_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8555752eab6d186f0800000000000000
+      internalID: -684029570233969320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sprite 1-Sheet-Reverse_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05006738268da050800000000000000
+      internalID: 5813450201291031820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sprite 1-Sheet-Reverse_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e56d5a786d6dd20800000000000000
+      internalID: 3303063254814055943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sprite 1-Sheet-Reverse_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d75ab1e5d341134d0800000000000000
+      internalID: -3156719610005576323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sprite 1-Sheet-Reverse_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 402e605baddb488d0800000000000000
+      internalID: -2844940317553663484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sprite 1-Sheet-Reverse_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7edcf30015c7dc200800000000000000
+      internalID: 201954245639917031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sprite 1-Sheet-Reverse_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b948759f4a71b850800000000000000
+      internalID: 6391023828444137912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sprite 1-Sheet-Reverse_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c439fea29cfe0e490800000000000000
+      internalID: -7718906114025221300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: df523bd67680e654fbf64240087372d1
     internalID: 0
     vertices: []
     indices: 

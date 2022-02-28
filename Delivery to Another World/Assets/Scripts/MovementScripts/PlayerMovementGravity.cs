@@ -5,23 +5,24 @@ using UnityEngine.UI;
 
 public class PlayerMovementGravity : MonoBehaviour
 {
+    public float maxStamina;
+    public float exhaustionRate;
+    public GameObject staminaUI;
+    public GameObject staminaBar;
+    public bool isSprinting;
+    public Material[] materials;
+
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private float playerSpeed;
     private bool canSprint;
-    public float maxStamina;
     private float stamina;
-    public float exhaustionRate;
     private bool canRegenerate;
-    public GameObject staminaUI;
     private Slider staminaSlider;
-    public GameObject staminaBar;
-    public bool isSprinting;
-    public Material[] materials;
-
     private bool dimension;
-    RotationGravity rotation;
+    private RotationGravity rotation;
+    private bool direction;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class PlayerMovementGravity : MonoBehaviour
         staminaSlider.maxValue = maxStamina;
         staminaSlider.value = maxStamina;
         isSprinting = false;
+        direction = true;
     }
 
     // Controls stamina
@@ -110,12 +112,14 @@ public class PlayerMovementGravity : MonoBehaviour
         if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
             //gameObject.GetComponent<SpriteRenderer>().sprite = imageList[0];
-            GetComponent<MeshRenderer>().material = materials[1];
+            //GetComponent<MeshRenderer>().material = materials[1];
+            direction = false;
         }
         else if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             //gameObject.GetComponent<SpriteRenderer>().sprite = imageList[1];
-            GetComponent<MeshRenderer>().material = materials[0];
+            //GetComponent<MeshRenderer>().material = materials[0];
+            direction = true;
         }
 
         groundedPlayer = controller.isGrounded;
@@ -148,6 +152,7 @@ public class PlayerMovementGravity : MonoBehaviour
         // Activate/deactivate player animations
         if(Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
         {
+            GetComponent<Animator>().SetBool("direction", direction);
             GetComponent<Animator>().SetBool("isWalking", true);
             if (Input.GetKey(KeyCode.LeftShift) && canSprint)
             {
