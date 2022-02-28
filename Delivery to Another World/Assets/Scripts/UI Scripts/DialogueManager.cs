@@ -20,10 +20,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        /*if (Input.GetKeyDown(KeyCode.E))
         {
             DisplayNextScentence();
-        }
+        }*/
     }
 
     public void StartDialogue(Dialogue dialogue, bool questNPC)
@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
 
-            if (isQuestNPC)
+            if (isQuestNPC) // This is being run after the dialogue after selecting a quest - Brandon
                 ShowQuests();
         }
         else
@@ -67,7 +67,6 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of conversation");
         dialogueBox.SetActive(false);
-        
     }
 
     public void ShowQuests()
