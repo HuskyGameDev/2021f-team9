@@ -47,9 +47,13 @@ public class SelectQuest_Keyboard : MonoBehaviour
         {
             if(index == 0)
             {
+                FindObjectOfType<QuestManager>().ExitQuestScreen();
+            }
+            else if(index == 1)
+            {
                 FindObjectOfType<QuestManager>().QuestButtonOne();
             }
-            if (index == 1)
+            else if (index == 2)
             {
                 FindObjectOfType<QuestManager>().QuestButtonTwo();
             }
