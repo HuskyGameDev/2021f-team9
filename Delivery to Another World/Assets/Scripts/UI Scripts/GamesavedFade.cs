@@ -61,10 +61,11 @@ public class GamesavedFade : MonoBehaviour
     public void hideSign()
     {
         // loop over 1 second backwards
-        for (float i = 1; i >= 0; i -= Time.deltaTime)
+        /*for (float i = 1; i >= 0; i -= Time.deltaTime)
         {
             // set color with i as alpha
             GetComponent<Image>().color = new Vector4(255f, 255f, 255f, i);
-        }
+        }*/
+        GetComponent<Image>().color = new Vector4(255f, 255f, 255f, 0f);
     }
 }
