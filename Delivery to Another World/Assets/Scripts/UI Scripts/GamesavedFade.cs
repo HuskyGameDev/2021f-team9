@@ -18,6 +18,7 @@ public class GamesavedFade : MonoBehaviour
         interactables = GameObject.FindGameObjectsWithTag("Interactables");
         tooFar = true;
         wait = false;
+        hideSign();
     }
 
     // Update is called once per frame
