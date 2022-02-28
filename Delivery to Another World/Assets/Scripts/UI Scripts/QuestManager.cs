@@ -18,8 +18,6 @@ public class QuestManager : MonoBehaviour
     private Quest activeQuest1;
     private Quest activeQuest2;
 
-    int i = 0;
-
     private DialogueManager dialogueManager;
 
     private void Start()
@@ -67,7 +65,7 @@ public class QuestManager : MonoBehaviour
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         FindObjectOfType<RotationGravity>().enabled = true;
 
-        questActive = true;
+        questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
         HideQuests();
         newQuest1.SetActive(false);
         dialogueManager.StartDialogue(activeQuest1.dialogue, true);
@@ -95,12 +93,12 @@ public class QuestManager : MonoBehaviour
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         FindObjectOfType<RotationGravity>().enabled = true;
 
-        questActive = true;
+        questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
         HideQuests();
         newQuest2.SetActive(false);
         dialogueManager.StartDialogue(activeQuest2.dialogue, true);
 
-        // If the forest world is selected set the treature to epic tome
+        // If the forest world is selected set the treasure to epic tome
         /*
         PlayerPrefs.SetString("treasureName", "EpicTome");
         questActive = true;

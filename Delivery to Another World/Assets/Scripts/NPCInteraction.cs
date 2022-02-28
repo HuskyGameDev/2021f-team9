@@ -12,50 +12,43 @@ using System.IO;
  */
 public class NPCInteraction : MonoBehaviour
 {
-    private bool rotate = false;
-
     public Text myText;
     public string script;
     public Dialogue dialogue;
     public bool questNPC;
 
-    private StreamReader reader;
+    //private StreamReader reader;
     private StreamReader alternate;
-    private PlayerMovement pm;
-    private Rotation r;
-    private bool move;
+    private GameObject player;
     private bool test;
 
     // Start is called before the first frame updates
     void Start()
     {
-        move = true;
         //reader = new StreamReader("Assets/Dialogue/" + script + ".txt");
         //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
-        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        r = GameObject.FindGameObjectWithTag("Player").GetComponent<Rotation>();
+        player = GameObject.FindGameObjectWithTag("Player");
         test = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f)
+        if (Vector3.Distance(transform.position, player.transform.position) < 1.0f)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (test)
                 {
                     test = false;
-                    string line;
+                    //string line;
                     /**
                     pm.enabled = false;
                     r.enabled = false;
                     **/
 
-
-                    FindObjectOfType<PlayerMovementGravity>().enabled = false;
-                    FindObjectOfType<RotationGravity>().enabled = false;
+                    player.GetComponent<PlayerMovementGravity>().enabled = false;
+                    player.GetComponent<RotationGravity>().enabled = false;
                     //this.enabled = false;
 
                     TriggerDialogue();
@@ -79,14 +72,14 @@ public class NPCInteraction : MonoBehaviour
             }
         }
 
-        if (FindObjectOfType<RotationGravity>().dimensionActive)
+        if (player.GetComponent<RotationGravity>().dimensionActive)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<MeshRenderer>().enabled = false;
         }
         else
         {
             alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<MeshRenderer>().enabled = true;
         }
 
     }
