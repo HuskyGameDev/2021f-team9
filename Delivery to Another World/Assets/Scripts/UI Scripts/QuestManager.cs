@@ -53,6 +53,8 @@ public class QuestManager : MonoBehaviour
     public void ShowQuests()
     {
         questBox.SetActive(true);
+        FindObjectOfType<PlayerMovementGravity>().enabled = false;
+        FindObjectOfType<RotationGravity>().enabled = false;
     }
 
     public void HideQuests()
@@ -76,7 +78,7 @@ public class QuestManager : MonoBehaviour
         questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
         HideQuests();
         newQuest1.SetActive(false);
-        dialogueManager.StartDialogue(activeQuest1.dialogue, true);
+        dialogueManager.StartDialogue(activeQuest1.dialogue, false); // Set to false so quest screen doesn't show up again
 
         // If the forest world is selected set the treasure to apple
         /*
@@ -102,7 +104,7 @@ public class QuestManager : MonoBehaviour
         questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
         HideQuests();
         newQuest2.SetActive(false);
-        dialogueManager.StartDialogue(activeQuest2.dialogue, true);
+        dialogueManager.StartDialogue(activeQuest2.dialogue, false); // Set to false so quest screen doesn't show up again
 
         // If the forest world is selected set the treasure to epic tome
         /*
