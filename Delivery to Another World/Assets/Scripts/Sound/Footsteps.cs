@@ -6,21 +6,29 @@ public class Footsteps : MonoBehaviour
 {
     public AudioSource footsteps;
     public float timetodelay;
+
+    private bool canStart;
     // Start is called before the first frame update
     void Start()
     {
         footsteps = GetComponent<AudioSource>();
+        canStart = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        //Debug.Log(Input.GetAxis("Vertical"));
+        if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && canStart)
         {
+            Debug.Log("HI");
             footsteps.Play();
+            canStart = false;
         }
-        else if (Input.GetKeyUp(KeyCode.W)) {
+        else if (Input.GetAxis("Horizontal") == 0f && Input.GetAxis("Vertical") == 0f && !canStart)
+        {
             footsteps.Stop();
+            canStart = true;
         }
        
     }
