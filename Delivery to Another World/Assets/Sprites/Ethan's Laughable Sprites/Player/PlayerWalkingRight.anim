@@ -21,19 +21,21 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 2100000, guid: 880b14aa75c1ee54990e39e19dd021ed, type: 2}
-    - time: 0.15
+    - time: 0.26666668
       value: {fileID: 2100000, guid: f8712f6bdcaa9eb4e8c156fe911b9f49, type: 2}
-    - time: 0.31666666
+    - time: 0.48333332
       value: {fileID: 2100000, guid: a20d494836352384394aae36b6829db7, type: 2}
-    - time: 0.46666667
+    - time: 0.75
       value: {fileID: 2100000, guid: 1c6ec19297d9a864bba16a0779ca6cba, type: 2}
-    - time: 0.6166667
+    - time: 0.95
       value: {fileID: 2100000, guid: 645c304bd725d68478e7982c5811038a, type: 2}
-    - time: 0.76666665
+    - time: 1.25
       value: {fileID: 2100000, guid: 364a0c0c98d58824baaebdf3acfc29e6, type: 2}
-    - time: 0.93333334
+    - time: 1.45
       value: {fileID: 2100000, guid: 9d1347ea49f777540b8f4de7066edcee, type: 2}
-    - time: 1.0833334
+    - time: 1.7333333
+      value: {fileID: 2100000, guid: a75ef96d4852c9c4182a3e16b459ac44, type: 2}
+    - time: 2.0166667
       value: {fileID: 2100000, guid: a75ef96d4852c9c4182a3e16b459ac44, type: 2}
     attribute: m_Materials.Array.data[0]
     path: 
@@ -62,12 +64,13 @@ AnimationClip:
     - {fileID: 2100000, guid: 364a0c0c98d58824baaebdf3acfc29e6, type: 2}
     - {fileID: 2100000, guid: 9d1347ea49f777540b8f4de7066edcee, type: 2}
     - {fileID: 2100000, guid: a75ef96d4852c9c4182a3e16b459ac44, type: 2}
+    - {fileID: 2100000, guid: a75ef96d4852c9c4182a3e16b459ac44, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.1
+    m_StopTime: 2.0333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
