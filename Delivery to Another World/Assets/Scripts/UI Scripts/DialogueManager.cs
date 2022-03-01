@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> script;
     private bool isQuestNPC;
+    private bool isComplete;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue, bool questNPC)
     {
         isQuestNPC = questNPC;
+        isComplete = false;
 
         dialogueBox.SetActive(true);
 
@@ -62,6 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        isComplete = true;
         Debug.Log("End of conversation");
         dialogueBox.SetActive(false);
     }
@@ -69,5 +72,10 @@ public class DialogueManager : MonoBehaviour
     public void ShowQuests()
     {
         FindObjectOfType<QuestManager>().ShowQuests();
+    }
+
+    public bool IsDialogueCompleted()
+    {
+        return isComplete;
     }
 }

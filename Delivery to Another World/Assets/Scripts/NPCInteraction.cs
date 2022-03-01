@@ -38,9 +38,8 @@ public class NPCInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (test)
+                if (FindObjectOfType<DialogueManager>().IsDialogueCompleted())
                 {
-                    test = false;
                     //string line;
                     /**
                     pm.enabled = false;
@@ -88,6 +87,4 @@ public class NPCInteraction : MonoBehaviour
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, questNPC);
     }
-
-
 }
