@@ -54,6 +54,11 @@ public class DialogueManager : MonoBehaviour
 
             if (isQuestNPC) // This is being run after the dialogue after selecting a quest - Brandon
                 ShowQuests();
+            else
+            {
+                FindObjectOfType<PlayerMovementGravity>().enabled = true;
+                FindObjectOfType<RotationGravity>().enabled = true;
+            }
         }
         else
         {
