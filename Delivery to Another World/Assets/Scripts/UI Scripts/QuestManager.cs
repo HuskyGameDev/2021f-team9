@@ -27,8 +27,18 @@ public class QuestManager : MonoBehaviour
         incompleteQuests = new Queue<Quest>();
         questActive = false;
 
+        /*
         foreach (Quest quest in quests) 
         {
+            quest.dialogue.name = this.GetComponentInParent<NPCInteraction>().dialogue.name;
+            incompleteQuests.Enqueue(quest);
+        }
+        */
+
+        //DELETE AFTER PLAYTESTING
+        for (int i = 0; i < 2; i++)
+        {
+            Quest quest = quests[i];
             quest.dialogue.name = this.GetComponentInParent<NPCInteraction>().dialogue.name;
             incompleteQuests.Enqueue(quest);
         }
@@ -62,8 +72,6 @@ public class QuestManager : MonoBehaviour
             if (activeQuest2 == null)
                 questActive = false;
         }
-        FindObjectOfType<PlayerMovementGravity>().enabled = true;
-        FindObjectOfType<RotationGravity>().enabled = true;
 
         questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
         HideQuests();
@@ -90,8 +98,6 @@ public class QuestManager : MonoBehaviour
             if (activeQuest1 == null)
                 questActive = false;
         }
-        FindObjectOfType<PlayerMovementGravity>().enabled = true;
-        FindObjectOfType<RotationGravity>().enabled = true;
 
         questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
         HideQuests();

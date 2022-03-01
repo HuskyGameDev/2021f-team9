@@ -15,7 +15,7 @@ public class SelectQuest_Keyboard : MonoBehaviour
     public bool run;
 
     private GameObject[] buttonBackground;
-    private int index = 0;
+    private int index = 1;
 
     private void Start()
     {
@@ -47,9 +47,13 @@ public class SelectQuest_Keyboard : MonoBehaviour
         {
             if(index == 0)
             {
+                FindObjectOfType<QuestManager>().ExitQuestScreen();
+            }
+            else if(index == 1)
+            {
                 FindObjectOfType<QuestManager>().QuestButtonOne();
             }
-            if (index == 1)
+            else if (index == 2)
             {
                 FindObjectOfType<QuestManager>().QuestButtonTwo();
             }
