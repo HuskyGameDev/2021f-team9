@@ -6,6 +6,7 @@ public class RotationGravity : MonoBehaviour
 {
     public bool dimensionActive;
     public bool canTurn;
+    public CameraSwoosh cameraswoosh;
 
     private bool stopTURNING;
     private Rigidbody body;
@@ -17,6 +18,7 @@ public class RotationGravity : MonoBehaviour
         canTurn = true;
         stopTURNING = true;
         body = GetComponent<Rigidbody>();
+        cameraswoosh = FindObjectOfType<CameraSwoosh>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class RotationGravity : MonoBehaviour
             body.constraints = RigidbodyConstraints.FreezePositionY;
             StartCoroutine(Flip());
             StartCoroutine(Cooldown());
+            cameraswoosh.PlayForTime(cameraswoosh.timetoplay);
         }
 
         if (stopTURNING == false)
