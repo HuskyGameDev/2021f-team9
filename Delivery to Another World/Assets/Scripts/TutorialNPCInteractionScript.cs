@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class TutorialNPCInteractionScript : MonoBehaviour
 {
-    private bool rotate = false;
+    private bool rotate;
 
     public Text myText;
     public string script;
 
     private StreamReader reader;
     private StreamReader alternate;
-    private PlayerMovement pm;
+    private GameObject pm;
     private Rotation r;
     private bool move;
 
@@ -34,9 +34,9 @@ public class TutorialNPCInteractionScript : MonoBehaviour
         //move = true;
         //reader = new StreamReader("Assets/Dialogue/" + script + ".txt");
         //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
-        //pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        pm = GameObject.FindGameObjectWithTag("Player");
         //r = GameObject.FindGameObjectWithTag("Player").GetComponent<Rotation>();
-
+        rotate = pm.GetComponent<RotationGravity>().dimensionActive;
 
     }
 
@@ -46,9 +46,13 @@ public class TutorialNPCInteractionScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (pm.GetComponent<RotationGravity>().dimensionActive)
         {
-            StartCoroutine(disappear());
+            GetComponent<MeshRenderer>().enabled = false;
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().enabled = true;
         }
 
         if (intro)
@@ -63,7 +67,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 FindObjectOfType<DialogueManager>().DisplayNextScentence();
-                if (iWillFightUnity[0] <= 0)
+                if (iWillFightUnity[0] <= 1)
                 {
                     intro = false;
                     talking = false;
@@ -72,9 +76,9 @@ public class TutorialNPCInteractionScript : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f)
+        if (Vector3.Distance(transform.position, pm.transform.position) < 1.0f)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !walkedOver && !hasTurned)
+            if (Input.GetKeyDown(KeyCode.E) && !walkedOver && !hasTurned && !hasTurnedBack)
             {
                 if (!rotate)
                 {
@@ -87,7 +91,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
                     else
                     {
                         FindObjectOfType<DialogueManager>().DisplayNextScentence();
-                        if (iWillFightUnity[1] <= 0)
+                        if (iWillFightUnity[1] <= 1)
                         {
                             walkedOver = true;
                             talking = false;
@@ -100,7 +104,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
 
         if (!intro && !hasTurned && walkedOver)
         {
-            if (!talking && Input.GetKeyDown(KeyCode.R))
+            if (!talking && pm.GetComponent<RotationGravity>().dimensionActive) //Input.GetKeyDown(KeyCode.R))
             {
                 talking = true;
                 TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Whoa, that wasn't supposed to happen", "Ethan, did you die? Where are you?", "You were supposed to be the chosen one..." }));
@@ -109,7 +113,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.E) && talking)
             {
                 FindObjectOfType<DialogueManager>().DisplayNextScentence();
-                if (iWillFightUnity[2] <= 0)
+                if (iWillFightUnity[2] <= 1)
                 {
                     walkedOver = false;
                     hasTurned = true;
@@ -118,19 +122,19 @@ public class TutorialNPCInteractionScript : MonoBehaviour
                 iWillFightUnity[2]--;
             }
         }
-        else if (hasTurned && !walkedOver && !hasTurnedBack)
+        if (hasTurned && !walkedOver && !hasTurnedBack)
         {
-            if (!talking && Input.GetKeyDown(KeyCode.R))
+            if (!talking && !pm.GetComponent<RotationGravity>().dimensionActive)//Input.GetKeyDown(KeyCode.R))
             {
                 talking = true;
-                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Oh!", "You're back!", "Want to try sprinting? Press shift and moving around" }));
+                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Oh!", "You're back!", "Want to try sprinting? Press shift and move around" }));
                 iWillFightUnity[3]--;
             }
             else if (Input.GetKeyDown(KeyCode.E) && talking)
             {
                 FindObjectOfType<DialogueManager>().DisplayNextScentence();
 
-                if (iWillFightUnity[3] <= 0)
+                if (iWillFightUnity[3] <= 1)
                 {
                     hasTurned = false;
                     hasTurnedBack = true;
@@ -145,7 +149,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
             if (!talking && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
             {
                 talking = true;
-                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Nice Job Running!", "I bet when you ... turn invisible...? You'd be able to sprint past people and they would never know!", "Well that's all I can teach you.", "Have fun at the theives guild!" }));
+                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Nice Job Running!", "I bet when you ... turn invisible...? You'd be able to sprint past people and they would never know!", "Well that's all I can teach you.", "Have fun at the thieves guild!" }));
                 iWillFightUnity[4]--;
             }
             else if (talking && Input.GetKeyDown(KeyCode.E))
