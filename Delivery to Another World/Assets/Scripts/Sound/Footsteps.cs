@@ -21,7 +21,6 @@ public class Footsteps : MonoBehaviour
         //Debug.Log(Input.GetAxis("Vertical"));
         if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && canStart)
         {
-            Debug.Log("HI");
             footsteps.Play();
             canStart = false;
         }
