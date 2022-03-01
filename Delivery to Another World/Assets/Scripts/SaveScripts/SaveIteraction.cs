@@ -9,7 +9,6 @@ public class SaveIteraction : MonoBehaviour
     public GameObject playerObj;
     Save save;
 
-
     private void Awake()
     {
         save = new Save(saveDataObj);
@@ -24,6 +23,15 @@ public class SaveIteraction : MonoBehaviour
             {
                 save.save();
             }
+        }
+
+        if (playerObj.GetComponent<RotationGravity>().dimensionActive)
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().enabled = true;
         }
     }
 }
