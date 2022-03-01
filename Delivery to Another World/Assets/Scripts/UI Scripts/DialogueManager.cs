@@ -18,14 +18,6 @@ public class DialogueManager : MonoBehaviour
         script = new Queue<string>();
     }
 
-    private void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.E))
-        {
-            DisplayNextScentence();
-        }*/
-    }
-
     public void StartDialogue(Dialogue dialogue, bool questNPC)
     {
         isQuestNPC = questNPC;
