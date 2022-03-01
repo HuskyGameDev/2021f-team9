@@ -27,6 +27,9 @@ public class HubDoor : MonoBehaviour
             {
                 map.SetActive(true);
 
+                FindObjectOfType<PlayerMovementGravity>().enabled = false;
+                FindObjectOfType<RotationGravity>().enabled = false;
+
                 forestButton.SetActive(false);
                 desertButton.SetActive(false);
                 castleButton.SetActive(false);
@@ -53,6 +56,8 @@ public class HubDoor : MonoBehaviour
 
     public void ExitMap()
     {
+        FindObjectOfType<PlayerMovementGravity>().enabled = true;
+        FindObjectOfType<RotationGravity>().enabled = true;
         map.SetActive(false);
     }
 }
