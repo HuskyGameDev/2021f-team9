@@ -20,7 +20,6 @@ public class NPCInteraction : MonoBehaviour
     //private StreamReader reader;
     private StreamReader alternate;
     private GameObject player;
-    private bool test;
 
     // Start is called before the first frame updates
     void Start()
@@ -28,7 +27,6 @@ public class NPCInteraction : MonoBehaviour
         //reader = new StreamReader("Assets/Dialogue/" + script + ".txt");
         //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
         player = GameObject.FindGameObjectWithTag("Player");
-        test = true;
     }
 
     // Update is called once per frame

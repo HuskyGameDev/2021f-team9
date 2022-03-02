@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueBox.SetActive(false);
         script = new Queue<string>();
+        isComplete = true;
     }
 
     public void StartDialogue(Dialogue dialogue, bool questNPC)

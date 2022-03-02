@@ -72,7 +72,7 @@ public class QuestManager : MonoBehaviour
             activeQuest1.ClaimQuestReward();
             activeQuest1 = null;
             if (activeQuest2 == null)
-                questActive = false;
+                questActive = false; // this is the questActive I was referring to...
         }
 
         questActive = true; // This will overrite the questActive = false in the if statement above - Brandon

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementGravity : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class PlayerMovementGravity : MonoBehaviour
     public GameObject staminaUI;
     public GameObject staminaBar;
     public bool isSprinting;
-    public Material[] materials;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -27,6 +27,12 @@ public class PlayerMovementGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            PlayerPrefs.SetFloat("maxStamina", maxStamina);
+            PlayerPrefs.SetFloat("exhaustionRate", exhaustionRate);
+        }
+
         if(PlayerPrefs.GetFloat("maxStamina") > maxStamina)
         {
             maxStamina = PlayerPrefs.GetFloat("maxStamina");
@@ -111,14 +117,10 @@ public class PlayerMovementGravity : MonoBehaviour
         //Change the direction of the player sprite
         if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
-            //gameObject.GetComponent<SpriteRenderer>().sprite = imageList[0];
-            //GetComponent<MeshRenderer>().material = materials[1];
             direction = false;
         }
         else if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
-            //gameObject.GetComponent<SpriteRenderer>().sprite = imageList[1];
-            //GetComponent<MeshRenderer>().material = materials[0];
             direction = true;
         }
 

@@ -55,6 +55,7 @@ public class BobbingTreasure : MonoBehaviour
         FindObjectOfType<PlayerMovementGravity>().gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         FindObjectOfType<Success>().SendMessage("youWin");
 
+        // Set the power ups from collecting treasures
         if (treasureName.Equals("Apple"))
         {
             PlayerPrefs.SetFloat("maxStamina", 125f);
@@ -62,7 +63,8 @@ public class BobbingTreasure : MonoBehaviour
         else if(treasureName.Equals("EpicTome"))
         {
             PlayerPrefs.SetFloat("exhaustionRate", 50f);
-        }    
+        }
+
         yield return new WaitForSeconds(5f);
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         SceneManager.LoadScene("Hub");

@@ -165,6 +165,7 @@ public class EnemyVision : MonoBehaviour
     private IEnumerator GameOver()
     {
         alreadyGameover = true;
+        player.GetComponent<Animator>().SetBool("inVision", true);
         player.GetComponent<PlayerMovementGravity>().enabled = false;
         player.GetComponent<RotationGravity>().enabled = false;
         player.GetComponent<Rigidbody>().useGravity = false;

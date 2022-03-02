@@ -12,7 +12,7 @@ public class RandomSound : MonoBehaviour
     // Start is called upon initilization
     void Start()
     {
-    
+        timer = 0f;
         randSound = GetComponent<AudioSource>();
     }
 

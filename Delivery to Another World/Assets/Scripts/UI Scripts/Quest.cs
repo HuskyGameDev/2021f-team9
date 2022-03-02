@@ -9,6 +9,7 @@ public class Quest
     public bool isNewQuest = true;
     public string objective;
     public string questArea;
+    public string treasure;
 
     private bool isComplete = false;
     private bool isClaimed = false;

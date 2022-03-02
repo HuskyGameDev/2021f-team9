@@ -8,7 +8,8 @@ public class LevelLoader : MonoBehaviour
     public void LoadForest()
     {
         Debug.Log("Loading Forest");
-        //PlayerPrefs.SetString("treasureName", "epicTome");
+        //Hardcoded for playtesting
+        PlayerPrefs.SetString("treasureName", "Apple");
         PlayerPrefs.SetString("world", "forest");
         SceneManager.LoadScene("Forest");
     }
@@ -16,6 +17,8 @@ public class LevelLoader : MonoBehaviour
     public void LoadDesert()
     {
         Debug.Log("Loading Desert");
+        //Hardcoded for playtesting
+        PlayerPrefs.SetString("treasureName", "FinalCactus");
         PlayerPrefs.SetString("world", "desert");
         SceneManager.LoadScene("Desert");
     }

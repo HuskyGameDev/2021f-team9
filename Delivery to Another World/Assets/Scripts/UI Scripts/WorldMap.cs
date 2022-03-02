@@ -9,6 +9,7 @@ public class WorldMap : MonoBehaviour
     public Image defaultImage;
     public Image[] roomImages;
     public Image treasureRoomImage;
+    public Image locationIndicator;
     public bool firstSpawn = true;
 
     private int sizeOfGrid;
@@ -22,6 +23,7 @@ public class WorldMap : MonoBehaviour
         sizeOfGrid = FindObjectOfType<ProceduralGeneration>().difficulty;
         sizeOfSquares = 850 / sizeOfGrid;
         children = new Image[sizeOfGrid * sizeOfGrid];
+        locationIndicator.rectTransform.sizeDelta = new Vector2(sizeOfSquares/2, sizeOfSquares/2);
 
         int offset = 450 - (sizeOfSquares / 2);
 
@@ -47,6 +49,7 @@ public class WorldMap : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             GetComponent<Image>().enabled = true;
+            locationIndicator.enabled = true;
             for (int i = 0; i < childrens.Length; i++)
             {
                 childrens[i].enabled = true;
@@ -56,6 +59,7 @@ public class WorldMap : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Tab))
         {
             GetComponent<Image>().enabled = false;
+            locationIndicator.enabled = false;
             for (int i = 0; i < childrens.Length; i++)
             {
                 childrens[i].enabled = false;
@@ -86,5 +90,6 @@ public class WorldMap : MonoBehaviour
         children[index].rectTransform.sizeDelta = new Vector2(sizeOfSquares, sizeOfSquares);
         children[index].transform.SetParent(gameObject.transform);
         children[index].GetComponent<Image>().enabled = false;
+        locationIndicator.transform.position = position;
     }
 }

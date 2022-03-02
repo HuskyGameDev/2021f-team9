@@ -23,6 +23,7 @@ TagManager:
   - FinalCactus
   - SpecialSkull
   - Quest
+  - MapButton
   layers:
   - Default
   - TransparentFX

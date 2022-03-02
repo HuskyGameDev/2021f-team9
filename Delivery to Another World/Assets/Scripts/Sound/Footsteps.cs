@@ -19,7 +19,7 @@ public class Footsteps : MonoBehaviour
     void Update()
     {
         //Debug.Log(Input.GetAxis("Vertical"));
-        if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && canStart)
+        if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && canStart && FindObjectOfType<PlayerMovementGravity>().enabled)
         {
             footsteps.Play();
             canStart = false;

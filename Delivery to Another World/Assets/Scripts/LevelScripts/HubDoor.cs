@@ -30,21 +30,23 @@ public class HubDoor : MonoBehaviour
                 FindObjectOfType<PlayerMovementGravity>().enabled = false;
                 FindObjectOfType<RotationGravity>().enabled = false;
 
-                forestButton.SetActive(false);
-                desertButton.SetActive(false);
-                castleButton.SetActive(false);
+                forestButton.GetComponent<Button>().interactable = false;
+                desertButton.GetComponent<Button>().interactable = false;
+                // Uncomment these when cave and castle have been implemented
+                //caveButton.GetComponent<Button>().interactable = false;
+                //castleButton.GetComponent<Button>().interactable = false;
 
                 string quest1Area = questManager.GetQuest1();
                 string quest2Area = questManager.GetQuest2();
 
                 if (quest1Area.Equals("FOREST") || quest2Area.Equals("FOREST"))
-                    forestButton.SetActive(true);
+                    forestButton.GetComponent<Button>().interactable = true;
 
                 if (quest1Area.Equals("DESERT") || quest2Area.Equals("DESERT"))
-                    desertButton.SetActive(true);
+                    desertButton.GetComponent<Button>().interactable = true;
 
-                if (quest1Area.Equals("CASTLE") || quest2Area.Equals("CASTLE"))
-                    castleButton.SetActive(true);
+                /*if (quest1Area.Equals("CASTLE") || quest2Area.Equals("CASTLE"))
+                    castleButton.GetComponent<Button>().interactable = true;*/
             }
 
             if (map.activeSelf && Input.GetKeyDown(KeyCode.Escape))
