@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4479772, g: 0.49798077, b: 0.5754983, a: 1}
+  m_IndirectSpecularColor: {r: 0.4479773, g: 0.49798095, b: 0.57549846, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -982,7 +982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: difficulty
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: lastRoomPrefab
