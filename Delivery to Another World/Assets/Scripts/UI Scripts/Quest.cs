@@ -11,10 +11,11 @@ public class Quest
     public string questArea;
     public string treasure;
 
-    private bool isComplete = false;
+    [SerializeField] private bool isComplete = false;
     private bool isClaimed = false;
 
     public Dialogue dialogue;
+    public Dialogue completionDialogue;
 
     public void CompleteQuest()
     {

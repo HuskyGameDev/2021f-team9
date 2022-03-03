@@ -56,13 +56,15 @@ public class BobbingTreasure : MonoBehaviour
         FindObjectOfType<Success>().SendMessage("youWin");
 
         // Set the power ups from collecting treasures
-        if (treasureName.Equals("Apple"))
+        if (PlayerPrefs.GetString("treasureName") == "Apple")
         {
             PlayerPrefs.SetFloat("maxStamina", 125f);
+            FindObjectOfType<QuestManager>().CompleteQuest1();
         }
-        else if(treasureName.Equals("EpicTome"))
+        else if(PlayerPrefs.GetString("treasureName") == "EpicTome")
         {
             PlayerPrefs.SetFloat("exhaustionRate", 50f);
+            FindObjectOfType<QuestManager>().CompleteQuest2();
         }
 
         yield return new WaitForSeconds(5f);

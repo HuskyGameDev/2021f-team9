@@ -2330,7 +2330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 154, y: 0}
+  m_AnchoredPosition: {x: 375, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &369586039
@@ -6498,7 +6498,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1435206892}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1079082712
 MonoBehaviour:
@@ -8252,55 +8252,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questBox: {fileID: 2348307619275077853}
+  button1Text: {fileID: 2348307618676214768}
+  button2Text: {fileID: 315676710}
   newQuest1: {fileID: 369586037}
   newQuest2: {fileID: 2054579321}
   questActive: 0
+  questNPC: {fileID: 1435206890}
   quests:
-  - questName: Forest Quest 1
+  - questName: An Apple a Day
     isNewQuest: 1
     objective: Get the apple.
     questArea: FOREST
     treasure: Apple
+    isComplete: 0
     dialogue:
       name: 
       scentences:
       - We need you to go get the magic apple.
-  - questName: Desert Quest 1
+      - It should help you on your adventure when you eat it.
+    completionDialogue:
+      name: 
+      scentences:
+      - Thank you for getting the apple!
+      - We might be able to use this to defeat Geoffry Bezas!
+  - questName: A Pointy Adventure
     isNewQuest: 1
-    objective: Get the cactus.
+    objective: Get the magic cactus.
     questArea: DESERT
     treasure: FinalCactus
+    isComplete: 0
     dialogue:
       name: 
       scentences:
-      - We need you to go get the magic cactus. Trust me, you're gonna need it.
+      - We need you to get a special cactus.
+      - Trust me, you're gonna need it.
+    completionDialogue:
+      name: 
+      scentences:
+      - Thank you for getting the cactus!
+      - We might be able to use this to defeat Geoffry Bezas!
   - questName: Forest Quest 2
     isNewQuest: 1
     objective: Get the tome.
     questArea: FOREST
     treasure: EpicTome
+    isComplete: 0
     dialogue:
       name: 
       scentences:
       - We need you to go get the Epic Tome. It's a magical book, not a diary!
+    completionDialogue:
+      name: 
+      scentences: []
   - questName: Desert Quest 2
     isNewQuest: 1
     objective: Get the skull.
     questArea: DESERT
     treasure: SpecialSkull
+    isComplete: 0
     dialogue:
       name: 
       scentences:
       - We need you to go get the red skull. It might be Rudolph's skull! *Priceless*
+    completionDialogue:
+      name: 
+      scentences: []
   - questName: Castle Quest
     isNewQuest: 1
     objective: Defeat Geoffry.
     questArea: CASTLE
     treasure: Win
+    isComplete: 0
     dialogue:
       name: 
       scentences:
       - We need you to go defeat Geoffry Bezas. Because he hit you with a box...
+    completionDialogue:
+      name: 
+      scentences: []
 --- !u!4 &1298455857
 Transform:
   m_ObjectHideFlags: 0
@@ -8309,11 +8338,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298455855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: -0.5, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1435206892}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1330281371
 GameObject:
@@ -8996,7 +9025,6 @@ Transform:
   m_LocalPosition: {x: 7, y: 0.5, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1298455857}
   - {fileID: 1079082711}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -9040,11 +9068,8 @@ MonoBehaviour:
     name: Brenden
     scentences:
     - Hello there. Nice to finally meet the legendary thief of our world.
-    - You just need to click "r" on your keyboard to switch dimentions don't you?
-    - That's so cool that you're able to do that.
-    - Anyways, I was wondering if you could find the magic apple in the forest of
-      spookyness for us.
-    - It would be really helpful in helping us beat Geoffry Bezas.
+    - I have a couple quests for you to complete.
+    - Come talk to me when you've completed them.
   questNPC: 1
 --- !u!1 &1438543087
 GameObject:
@@ -12727,7 +12752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 154, y: -3}
+  m_AnchoredPosition: {x: 375, y: -3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2054579323
@@ -14365,7 +14390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919911708522661188, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7919911708522661189, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}
       propertyPath: m_Pivot.x
