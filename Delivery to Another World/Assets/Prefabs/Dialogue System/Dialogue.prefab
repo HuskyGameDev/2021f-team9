@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 395908575770074636}
   - component: {fileID: 1877269726511247148}
   - component: {fileID: 5559039432749692287}
+  - component: {fileID: 824228573232170468}
   m_Layer: 5
   m_Name: PressE
   m_TagString: Untagged
@@ -79,6 +80,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Press E
+--- !u!114 &824228573232170468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756570898234563870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4cae7c52496324ead88e31ba784718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7919911707702117427
 GameObject:
   m_ObjectHideFlags: 0
