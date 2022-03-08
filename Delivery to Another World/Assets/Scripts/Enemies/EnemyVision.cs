@@ -31,7 +31,7 @@ public class EnemyVision : MonoBehaviour
     {
         int layerMask = 1 << 6;
         int layerMask2 = 1 << 8;
-        layerMask |= layerMask2;
+        layerMask |= layerMask2; // Layer mask for playerlayer and obstacle layer
         isSprinting = FindObjectOfType<PlayerMovementGravity>().isSprinting;
         dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
 
@@ -106,7 +106,7 @@ public class EnemyVision : MonoBehaviour
                 }
             }
             // Middle positive x ray
-            else if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[3]), out hit[3], 5f, layerMask) && hit[3].collider.CompareTag("Player"))
+            else if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[3]), out hit[3], 4.5f, layerMask) && hit[3].collider.CompareTag("Player"))
             {
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[3]) * hit[3].distance, Color.red);
                 movement.enabled = false;
@@ -118,7 +118,7 @@ public class EnemyVision : MonoBehaviour
                 }
             }
             // Middle negative x ray
-            else if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[4]), out hit[4], 5f, layerMask) && hit[4].collider.CompareTag("Player"))
+            else if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[4]), out hit[4], 4.5f, layerMask) && hit[4].collider.CompareTag("Player"))
             {
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[4]) * hit[4].distance, Color.red);
                 movement.enabled = false;
@@ -149,8 +149,8 @@ public class EnemyVision : MonoBehaviour
                     Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.forward * 5f, Color.white); // Middle
                     Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[1]) * 3f, Color.white); // Far positive x
                     Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[2]) * 3f, Color.white); // Far negative x
-                    Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[3]) * 5f, Color.white); // Middle positive x
-                    Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[4]) * 5f, Color.white); // Middle negative x
+                    Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[3]) * 4.5f, Color.white); // Middle positive x
+                    Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.55f, transform.position.z), transform.TransformDirection(ray[4]) * 4.5f, Color.white); // Middle negative x
                     
                     movement.enabled = true;
                 }

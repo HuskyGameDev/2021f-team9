@@ -36,6 +36,7 @@ public class RotationGravity : MonoBehaviour
             body.constraints = RigidbodyConstraints.FreezePositionY;
             StartCoroutine(Flip());
             StartCoroutine(Cooldown());
+            FindObjectOfType<DimensionIndicator>().SendMessage("showDimension");
             cameraswoosh.PlayForTime(cameraswoosh.timetoplay);
         }
 

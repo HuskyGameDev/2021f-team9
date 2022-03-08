@@ -156,8 +156,8 @@ public class QuestManager : MonoBehaviour
         questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
         newQuest2.SetActive(false);
 
-        // If the forest world is selected set the treasure to epic tome
-        PlayerPrefs.SetString("treasureName", "EpicTome");
+        // If the desert world is selected set the treasure to final cactus
+        PlayerPrefs.SetString("treasureName", "FinalCactus");
         questActive = true;
         HideQuests();
     }

@@ -58,12 +58,13 @@ public class BobbingTreasure : MonoBehaviour
         // Set the power ups from collecting treasures
         if (PlayerPrefs.GetString("treasureName") == "Apple")
         {
-            PlayerPrefs.SetFloat("maxStamina", 125f);
+            PlayerPrefs.SetFloat("maxStamina", 200f);
+            Debug.Log("Stamina increased");
             FindObjectOfType<QuestManager>().CompleteQuest1();
         }
-        else if(PlayerPrefs.GetString("treasureName") == "EpicTome")
+        else if(PlayerPrefs.GetString("treasureName") == "FinalCactus")
         {
-            PlayerPrefs.SetFloat("exhaustionRate", 50f);
+            // Lower cooldown time for rotating
             FindObjectOfType<QuestManager>().CompleteQuest2();
         }
 

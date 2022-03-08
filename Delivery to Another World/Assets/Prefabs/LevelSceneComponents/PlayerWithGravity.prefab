@@ -368,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dimensionActive: 0
   canTurn: 0
+  cameraswoosh: {fileID: 0}
 --- !u!64 &8833129366926981506
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -445,12 +446,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 100
   exhaustionRate: 100
+  walkingSpeed: 3
+  runningSpeed: 10
   staminaUI: {fileID: 0}
   staminaBar: {fileID: 0}
   isSprinting: 0
-  materials:
-  - {fileID: 2100000, guid: 72b5eb5256fdbc64da35b6a1176a155c, type: 2}
-  - {fileID: 2100000, guid: 1577314fae288e042a0da8e8741064b3, type: 2}
 --- !u!54 &8833129366926981508
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ public class PlayerMovementGravity : MonoBehaviour
 {
     public float maxStamina;
     public float exhaustionRate;
+    public float walkingSpeed;
+    public float runningSpeed;
     public GameObject staminaUI;
     public GameObject staminaBar;
     public bool isSprinting;
@@ -37,10 +39,6 @@ public class PlayerMovementGravity : MonoBehaviour
         {
             maxStamina = PlayerPrefs.GetFloat("maxStamina");
         }
-        if(PlayerPrefs.GetFloat("exhaustionRate") > exhaustionRate)
-        {
-            exhaustionRate = PlayerPrefs.GetFloat("exhaustionRate");
-        }
 
         controller = this.GetComponent<CharacterController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -66,11 +64,10 @@ public class PlayerMovementGravity : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) && canSprint && canRegenerate)
         {
-            canRegenerate = false;
             StartCoroutine(waitToRegenerate(0.5f));
         }
         
-        if(Input.GetKey(KeyCode.LeftShift) && (Mathf.Abs(Input.GetAxis("Horizontal")) > 0f || Mathf.Abs(Input.GetAxis("Vertical")) > 0f) && stamina > 0f && canSprint)
+        if(Input.GetKey(KeyCode.LeftShift) && (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && stamina > 0f && canSprint)
         {
             staminaBar.GetComponent<Image>().enabled = true;
             stamina -= exhaustionRate * Time.deltaTime;
@@ -102,7 +99,7 @@ public class PlayerMovementGravity : MonoBehaviour
         //Change the speed of the player
         if (Input.GetKey(KeyCode.LeftShift) && canSprint)
         {
-            playerSpeed = 10.0f;
+            playerSpeed = runningSpeed;
         }
         else if (Input.GetKey(KeyCode.J))
         {
@@ -110,7 +107,7 @@ public class PlayerMovementGravity : MonoBehaviour
         }
         else
         {
-            playerSpeed = 2.0f;
+            playerSpeed = walkingSpeed;
             isSprinting = false;
         }
 
