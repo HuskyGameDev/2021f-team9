@@ -555,22 +555,6 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8833129366715113698, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
-      propertyPath: field of view
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 8833129366715113699, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8833129366715113699, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.95881975
-      objectReference: {fileID: 0}
-    - target: {fileID: 8833129366715113699, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.2840153
-      objectReference: {fileID: 0}
     - target: {fileID: 8833129366715113699, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 33
