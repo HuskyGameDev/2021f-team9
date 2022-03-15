@@ -14,6 +14,7 @@ public class BobbingTreasure : MonoBehaviour
     {
         direction = false;
         startTime = Time.time;
+        
     }
 
     // Update is called once per frame

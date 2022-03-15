@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class SaveIteraction : MonoBehaviour
 {
-    public GameObject saveDataObj;
+    public GameObject QuestManager;
     public GameObject playerObj;
     Save save;
 
     private void Awake()
     {
-        save = new Save(saveDataObj);
+        save = new Save(QuestManager);
     }
 
     // Update is called once per frame
