@@ -34,13 +34,18 @@ public class Save
     public void save()
     {
 
-        SaveData data = obj.GetComponent<SaveData>();
+        QuestManager data = obj.GetComponent<QuestManager>();
 
-        apple = data.apple;
-        epictome = data.epictome;
-        finalcactus = data.finalcactus;
-        specialskull = data.specialskull;
-        didYouWin = data.didYouWin;
+        apple = data.quests[0].isQuestComplete();
+        //epictome = data.quests[1].isQuestComplete();
+        finalcactus = data.quests[1].isQuestComplete();
+        //specialskull = data.specialskull;
+        //didYouWin = data.didYouWin;
+
+        //temp till we fix all quests later
+        epictome = false;
+        specialskull = false;
+        didYouWin = false;
 
         //Overwrite data
         using (StreamWriter writer = File.CreateText(Application.persistentDataPath + "\\savedata.heheh"))

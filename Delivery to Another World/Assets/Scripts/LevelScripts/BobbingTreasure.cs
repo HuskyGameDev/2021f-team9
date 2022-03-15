@@ -46,7 +46,6 @@ public class BobbingTreasure : MonoBehaviour
     // When the player touches the treasure
     private void OnTriggerEnter(Collider other)
     {
-        
         StartCoroutine(GoHome(other.tag));
     }
 
