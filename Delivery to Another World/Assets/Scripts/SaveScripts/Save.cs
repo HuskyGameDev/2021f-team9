@@ -19,11 +19,10 @@ public class Save
     public GameObject obj; //GameObject.FindGameObjectsWithTag("SaveData")[0].GetComponent<SaveData>(); //Should only be one
     //public GameObject playerObj;
 
-    bool isDragonDefeated;
-    bool isCactusFound;
-    bool ownOasisWater;
-    bool doYouOwnAPicnicBasket;
-    bool haveTheGremlinsScoldedYou;
+    bool apple;
+    bool epictome;
+    bool finalcactus;
+    bool specialskull;
     bool didYouWin;
 
 
@@ -37,22 +36,19 @@ public class Save
 
         SaveData data = obj.GetComponent<SaveData>();
 
-        isDragonDefeated = data.isDragonDefeated;
-        isCactusFound = data.isCactusFound;
-        ownOasisWater = data.ownOasisWater;
-        doYouOwnAPicnicBasket = data.doYouOwnAPicnicBasket;
-        haveTheGremlinsScoldedYou = data.haveTheGremlinsScoldedYou;
+        apple = data.apple;
+        epictome = data.epictome;
+        finalcactus = data.finalcactus;
+        specialskull = data.specialskull;
         didYouWin = data.didYouWin;
-
 
         //Overwrite data
         using (StreamWriter writer = File.CreateText(Application.persistentDataPath + "\\savedata.heheh"))
         {
-            writer.WriteLine("isDragonDefeated:" + isDragonDefeated);
-            writer.WriteLine("isCactusFound:" + isCactusFound);
-            writer.WriteLine("ownOasisWater:" + ownOasisWater);
-            writer.WriteLine("doYouOwnAPicnicBasket:" + doYouOwnAPicnicBasket);
-            writer.WriteLine("haveTheGremlinsScoldedYou:" + haveTheGremlinsScoldedYou);
+            writer.WriteLine("apple:" + apple);
+            writer.WriteLine("epictome:" + epictome);
+            writer.WriteLine("finalcactus:" + finalcactus);
+            writer.WriteLine("specialskull:" + specialskull);
             writer.WriteLine("didYouWin:" + didYouWin);
 
         }

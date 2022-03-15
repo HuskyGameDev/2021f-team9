@@ -26,59 +26,48 @@ public class Load : MonoBehaviour
                     string[] split = tempLine.Split(':');
                     if (split.Length >= 2)
                     {
-                        if (split[0].ToString().Equals("isDragonDefeated"))
+                        if (split[0].ToString().Equals("apple"))
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.isDragonDefeated = true;
+                                data.apple = true;
                             }
                             else
                             {
-                                data.isDragonDefeated = false;
+                                data.apple = false;
                             }
                         }
-                        if (split[0].ToString().Equals("isCactusFound"))
+                        if (split[0].ToString().Equals("epictome"))
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.isCactusFound = true;
+                                data.epictome = true;
                             }
                             else
                             {
-                                data.isCactusFound = false;
+                                data.epictome = false;
                             }
                         }
-                        if (split[0].ToString().Equals("ownOasisWater"))
+                        if (split[0].ToString().Equals("finalcactus"))
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.ownOasisWater = true;
+                                data.finalcactus = true;
                             }
                             else
                             {
-                                data.ownOasisWater = false;
+                                data.finalcactus = false;
                             }
                         }
-                        if (split[0].ToString().Equals("doYouOwnAPicnicBasket"))
+                        if (split[0].ToString().Equals("specialskull"))
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.doYouOwnAPicnicBasket = true;
+                                data.specialskull = true;
                             }
                             else
                             {
-                                data.doYouOwnAPicnicBasket = false;
-                            }
-                        }
-                        if (split[0].ToString().Equals("haveTheGremlinsScoldedYou"))
-                        {
-                            if (split[1].ToLower().Equals("true"))
-                            {
-                                data.haveTheGremlinsScoldedYou = true;
-                            }
-                            else
-                            {
-                                data.haveTheGremlinsScoldedYou = false;
+                                data.specialskull = false;
                             }
                         }
                         if (split[0].ToString().Equals("didYouWin"))

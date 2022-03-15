@@ -14,6 +14,7 @@ public class BobbingTreasure : MonoBehaviour
     {
         direction = false;
         startTime = Time.time;
+        
     }
 
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class BobbingTreasure : MonoBehaviour
     // When the player touches the treasure
     private void OnTriggerEnter(Collider other)
     {
+        
         StartCoroutine(GoHome(other.tag));
     }
 
