@@ -8,13 +8,14 @@ public class BobbingTreasure : MonoBehaviour
 
     private bool direction;
     private float startTime;
+    private bool wait;
 
     // Start is called before the first frame update
     void Start()
     {
         direction = false;
         startTime = Time.time;
-        
+        wait = false;
     }
 
     // Update is called once per frame
@@ -46,12 +47,16 @@ public class BobbingTreasure : MonoBehaviour
     // When the player touches the treasure
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(GoHome(other.tag));
+        if (!wait)
+        {
+            StartCoroutine(GoHome(other.tag));
+        }
     }
 
     // Sends the player back to the hub with the treasure.
     IEnumerator GoHome(string treasureName)
     {
+        wait = true;
         FindObjectOfType<PlayerMovementGravity>().enabled = false;
         FindObjectOfType<PlayerMovementGravity>().gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         FindObjectOfType<Success>().SendMessage("youWin");
@@ -70,6 +75,7 @@ public class BobbingTreasure : MonoBehaviour
         }
 
         yield return new WaitForSeconds(5f);
+        wait = false;
         FindObjectOfType<PlayerMovementGravity>().enabled = true;
         SceneManager.LoadScene("Hub");
     }

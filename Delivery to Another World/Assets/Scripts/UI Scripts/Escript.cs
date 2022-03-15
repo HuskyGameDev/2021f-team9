@@ -25,7 +25,7 @@ public class Escript : MonoBehaviour
     {
         for (int i = 0; i < interactables.Length; i++)
         {
-            if (Vector3.Distance(player.transform.position, interactables[i].transform.position) < 1f)
+            if (Vector3.Distance(player.transform.position, interactables[i].transform.position) < 1f && FindObjectOfType<PlayerMovementGravity>().enabled)
             {
                 tooFar = false;
             }

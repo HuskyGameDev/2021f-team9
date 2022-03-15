@@ -7,6 +7,8 @@ public class QuestIndicator : MonoBehaviour
 
     public GameObject questButton1;
     public GameObject questButton2;
+    public Sprite exclamationMark;
+    public Sprite questionMark;
 
     private bool direction;
     private float startTime;
@@ -53,5 +55,15 @@ public class QuestIndicator : MonoBehaviour
             direction = false;
             startTime = Time.time;
         }
+    }
+
+    public void questAvailable()
+    {
+        GetComponent<SpriteRenderer>().sprite = exclamationMark;
+    }
+
+    public void questCompleted()
+    {
+        GetComponent<SpriteRenderer>().sprite = questionMark;
     }
 }

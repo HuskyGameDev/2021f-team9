@@ -16,6 +16,8 @@ public class QuestManager : MonoBehaviour
     public bool questActive;
     public GameObject questNPC;
     public List<Quest> quests;
+    public Sprite exclamationMark;
+    public Sprite questionMark;
 
     private Queue<Quest> incompleteQuests;
     private Quest activeQuest1;
@@ -73,15 +75,34 @@ public class QuestManager : MonoBehaviour
         button1Text.text = activeQuest1.questName;
         button2Text.text = activeQuest2.questName;
 
-        if (activeQuest1.isNewQuest)
+        if (activeQuest1.isNewQuest || activeQuest1.isQuestComplete())
             newQuest1.SetActive(true);
         else
             newQuest1.SetActive(false);
 
-        if (activeQuest2.isNewQuest)
+        if (activeQuest2.isNewQuest || activeQuest2.isQuestComplete())
             newQuest2.SetActive(true);
         else
             newQuest2.SetActive(false);
+
+        if (activeQuest1.isQuestComplete())
+        {
+            newQuest1.GetComponent<UnityEngine.UI.Image>().sprite = questionMark;
+            FindObjectOfType<QuestIndicator>().SendMessage("questCompleted");
+        }
+        else
+            newQuest1.GetComponent<UnityEngine.UI.Image>().sprite = exclamationMark;
+
+        if (activeQuest2.isQuestComplete())
+        {
+            newQuest2.GetComponent<UnityEngine.UI.Image>().sprite = questionMark;
+            FindObjectOfType<QuestIndicator>().SendMessage("questCompleted");
+        }
+        else
+            newQuest2.GetComponent<UnityEngine.UI.Image>().sprite = exclamationMark;
+
+        if (!activeQuest1.isQuestComplete() && !activeQuest2.isQuestComplete())
+            FindObjectOfType<QuestIndicator>().SendMessage("questAvailable");
     }
 
     public void ShowQuests()
@@ -90,12 +111,14 @@ public class QuestManager : MonoBehaviour
         questBox.SetActive(true);
         FindObjectOfType<PlayerMovementGravity>().enabled = false;
         FindObjectOfType<RotationGravity>().enabled = false;
+        FindObjectOfType<NPCInteraction>().enabled = false;
     }
 
     public void HideQuests()
     {
         UpdateButtonText();
         questBox.SetActive(false);
+        FindObjectOfType<NPCInteraction>().enabled = true;
     }
 
     public void QuestButtonOne()
@@ -114,16 +137,17 @@ public class QuestManager : MonoBehaviour
         }
         else // when it is a new quest
         {
-            activeQuest1.isNewQuest = false;
             dialogueManager.StartDialogue(activeQuest1.dialogue, false); // Set to false so quest screen doesn't show up again
             questActive = true;
 
-            if (newQuest1.activeSelf)
+            if (activeQuest1.isNewQuest)
             {
                 FindObjectOfType<QuestList>().SendMessage("addQuest", activeQuest1.objective);
             }
 
-            if(activeQuest1.questArea == "Forest")
+            activeQuest1.isNewQuest = false;
+
+            if (activeQuest1.questArea == "Forest")
             {
                 PlayerPrefs.SetString("forestTreasureName", activeQuest1.treasure);
             }
@@ -156,14 +180,15 @@ public class QuestManager : MonoBehaviour
         } 
         else // when it is a new quest
         {
-            activeQuest2.isNewQuest = false;
             dialogueManager.StartDialogue(activeQuest2.dialogue, false); // Set to false so quest screen doesn't show up again
             questActive = true;
 
-            if (newQuest2.activeSelf)
+            if (activeQuest2.isNewQuest)
             {
                 FindObjectOfType<QuestList>().SendMessage("addQuest", activeQuest2.objective);
             }
+
+            activeQuest2.isNewQuest = false;
 
             if (activeQuest2.questArea == "Forest")
             {

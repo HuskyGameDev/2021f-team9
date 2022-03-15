@@ -73,6 +73,8 @@ public class QuestList : MonoBehaviour
     {
         finalText = "";
         int index = activeQuests.IndexOf("- " + objective + ": 0/1\n");
+        Debug.Log(activeQuests[0]);
+        Debug.Log("- " + objective + ": 0/1\n");
         activeQuests[index] = "[Completed] " + objective + "\n";
 
         foreach (string name in activeQuests)
