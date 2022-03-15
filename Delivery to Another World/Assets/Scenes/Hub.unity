@@ -4705,7 +4705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870b8b22cbdfa96489f315f5d790649c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveDataObj: {fileID: 1298455855}
+  QuestManager: {fileID: 0}
   playerObj: {fileID: 198629792}
 --- !u!65 &593688245
 BoxCollider:
@@ -7863,6 +7863,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questButton1: {fileID: 369586037}
   questButton2: {fileID: 2054579321}
+  exclamationMark: {fileID: 21300000, guid: e97d8b7d6a152fd439ae0be0381247da, type: 3}
+  questionMark: {fileID: 21300000, guid: 9dbc37c8625b2074c8f7523d6cabc58e, type: 3}
 --- !u!212 &1079082713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8977,6 +8979,8 @@ MonoBehaviour:
     completionDialogue:
       name: 
       scentences: []
+  exclamationMark: {fileID: 21300000, guid: e97d8b7d6a152fd439ae0be0381247da, type: 3}
+  questionMark: {fileID: 21300000, guid: 9dbc37c8625b2074c8f7523d6cabc58e, type: 3}
 --- !u!4 &1298455857
 Transform:
   m_ObjectHideFlags: 0
@@ -13121,7 +13125,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1772603389
 RectTransform:
@@ -15089,7 +15093,7 @@ RectTransform:
   m_Children:
   - {fileID: 309375891}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15466,7 +15470,7 @@ Transform:
   - {fileID: 1771880269}
   - {fileID: 1680468454}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2136444185
 GameObject:
