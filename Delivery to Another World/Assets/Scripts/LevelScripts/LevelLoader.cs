@@ -8,8 +8,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadForest()
     {
         Debug.Log("Loading Forest");
-        //Hardcoded for playtesting
-        PlayerPrefs.SetString("treasureName", "Apple");
+        PlayerPrefs.SetString("treasureName", PlayerPrefs.GetString("forestTreasureName"));
         PlayerPrefs.SetString("world", "forest");
         SceneManager.LoadScene("Forest");
     }
@@ -18,7 +17,7 @@ public class LevelLoader : MonoBehaviour
     {
         Debug.Log("Loading Desert");
         //Hardcoded for playtesting
-        PlayerPrefs.SetString("treasureName", "FinalCactus");
+        PlayerPrefs.SetString("treasureName", PlayerPrefs.GetString("desertTreasureName"));
         PlayerPrefs.SetString("world", "desert");
         SceneManager.LoadScene("Desert");
     }
@@ -33,6 +32,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadCastle()
     {
         Debug.Log("Loading Castle");
+        PlayerPrefs.SetString("treasureName", PlayerPrefs.GetString("castleTreasureName"));
         PlayerPrefs.SetString("world", "castle");
         SceneManager.LoadScene("Castle");
     }

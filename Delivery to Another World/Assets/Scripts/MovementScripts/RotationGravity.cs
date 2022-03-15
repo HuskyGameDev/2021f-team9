@@ -6,8 +6,8 @@ public class RotationGravity : MonoBehaviour
 {
     public bool dimensionActive;
     public bool canTurn;
-    public CameraSwoosh cameraswoosh;
-
+    
+    private CameraSwoosh cameraswoosh;
     private bool stopTURNING;
     private Rigidbody body;
 

@@ -604,6 +604,8 @@ MonoBehaviour:
   - {fileID: 4865441380772066955}
   moveSpeed: 1
   isReverse: 0
+  frontAnimation: {fileID: 3419425242720556900}
+  backAnimation: {fileID: 7302638681113994696}
 --- !u!114 &3610809001998692257
 MonoBehaviour:
   m_ObjectHideFlags: 0

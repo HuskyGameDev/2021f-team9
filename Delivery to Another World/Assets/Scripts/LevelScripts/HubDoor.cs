@@ -39,10 +39,10 @@ public class HubDoor : MonoBehaviour
                 string quest1Area = questManager.GetQuest1();
                 string quest2Area = questManager.GetQuest2();
 
-                if (quest1Area.Equals("FOREST") || quest2Area.Equals("FOREST"))
+                if (quest1Area.Equals("Forest") || quest2Area.Equals("Forest"))
                     forestButton.GetComponent<Button>().interactable = true;
 
-                if (quest1Area.Equals("DESERT") || quest2Area.Equals("DESERT"))
+                if (quest1Area.Equals("Desert") || quest2Area.Equals("Desert"))
                     desertButton.GetComponent<Button>().interactable = true;
 
                 /*if (quest1Area.Equals("CASTLE") || quest2Area.Equals("CASTLE"))

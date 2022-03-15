@@ -8,7 +8,6 @@ public class LightingCode : MonoBehaviour
 
     public PostProcessVolume volume;
 
-    private bool dimensionActive;
     private bool startEffect;
     private LensDistortion dimensionEffect;
     private Vignette vignetteEffect;
@@ -27,7 +26,6 @@ public class LightingCode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
         enemies = FindObjectsOfType<EnemyMovement>();
 
         // Finds the closest enemy to the player

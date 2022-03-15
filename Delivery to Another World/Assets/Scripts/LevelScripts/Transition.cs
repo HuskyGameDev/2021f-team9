@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class Transition : MonoBehaviour
 {
-    private GameObject transitionSquare;
     private bool changeRoom;
     int count = 0; // prevents an infinite loop (just in case (PTSD))
 
     // Start is called before the first frame update
     void Start()
     {
-        transitionSquare = this.gameObject;
         changeRoom = false;
     }
 
@@ -34,17 +32,17 @@ public class Transition : MonoBehaviour
 
     private IEnumerator TransitionEffect()
     {
-        Color canvasColor = transitionSquare.GetComponent<Image>().color;
-        while (transitionSquare.GetComponent<Image>().color.a < 1)
+        Color canvasColor = GetComponent<Image>().color;
+        while (GetComponent<Image>().color.a < 1)
         {
             canvasColor.a += Time.deltaTime/2;
-            transitionSquare.GetComponent<Image>().color = canvasColor;
+            GetComponent<Image>().color = canvasColor;
         }
         changeRoom = true;
         while (canvasColor.a > 0)
         {
             canvasColor.a -= Time.deltaTime/2;
-            transitionSquare.GetComponent<Image>().color = canvasColor;
+            GetComponent<Image>().color = canvasColor;
             yield return null;
         }
     }

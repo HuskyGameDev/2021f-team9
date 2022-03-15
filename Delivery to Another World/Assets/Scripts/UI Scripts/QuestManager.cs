@@ -15,13 +15,11 @@ public class QuestManager : MonoBehaviour
     public GameObject newQuest2;
     public bool questActive;
     public GameObject questNPC;
-
     public List<Quest> quests;
 
     private Queue<Quest> incompleteQuests;
     private Quest activeQuest1;
     private Quest activeQuest2;
-
     private DialogueManager dialogueManager;
     private static QuestManager questManager;
 
@@ -37,6 +35,7 @@ public class QuestManager : MonoBehaviour
             Destroy(questManager.gameObject);
             questManager = this;
         }
+
     }
 
     private void Start()
@@ -46,35 +45,15 @@ public class QuestManager : MonoBehaviour
         incompleteQuests = new Queue<Quest>();
         questActive = false;
 
-        /*
+        
         foreach (Quest quest in quests) 
         {
-            quest.dialogue.name = this.GetComponentInParent<NPCInteraction>().dialogue.name;
-            incompleteQuests.Enqueue(quest);
-        }
-        */
-
-        //DELETE AFTER PLAYTESTING
-        for (int i = 0; i < 2; i++)
-        {
-            Quest quest = quests[i];
             quest.dialogue.name = questNPC.GetComponentInParent<NPCInteraction>().dialogue.name;
             quest.completionDialogue.name = quest.dialogue.name;
             incompleteQuests.Enqueue(quest);
         }
-        //STOP DELETE
 
         UpdateButtonText();
-
-        if (activeQuest1.isNewQuest)
-            newQuest1.SetActive(true);
-        else
-            newQuest1.SetActive(false);
-
-        if (activeQuest2.isNewQuest)
-            newQuest2.SetActive(true);
-        else
-            newQuest2.SetActive(false);
     }
 
     public void UpdateButtonText()
@@ -93,6 +72,16 @@ public class QuestManager : MonoBehaviour
 
         button1Text.text = activeQuest1.questName;
         button2Text.text = activeQuest2.questName;
+
+        if (activeQuest1.isNewQuest)
+            newQuest1.SetActive(true);
+        else
+            newQuest1.SetActive(false);
+
+        if (activeQuest2.isNewQuest)
+            newQuest2.SetActive(true);
+        else
+            newQuest2.SetActive(false);
     }
 
     public void ShowQuests()
@@ -105,60 +94,91 @@ public class QuestManager : MonoBehaviour
 
     public void HideQuests()
     {
+        UpdateButtonText();
         questBox.SetActive(false);
     }
 
     public void QuestButtonOne()
     {
-        if (activeQuest1.isQuestComplete())
+        if (activeQuest1.isQuestComplete()) // when you complete the quest and turn it in
         {
             activeQuest1.ClaimQuestReward();
 
             dialogueManager.StartDialogue(activeQuest1.completionDialogue, false);
 
-            //activeQuest1 = null;
+            FindObjectOfType<QuestList>().SendMessage("removeQuest", activeQuest1.objective);
+
+            activeQuest1 = null;
             if (activeQuest2 == null)
-                questActive = false; // this is the questActive I was referring to...
+                questActive = false;
         }
-        else
+        else // when it is a new quest
         {
             activeQuest1.isNewQuest = false;
             dialogueManager.StartDialogue(activeQuest1.dialogue, false); // Set to false so quest screen doesn't show up again
+            questActive = true;
+
+            if (newQuest1.activeSelf)
+            {
+                FindObjectOfType<QuestList>().SendMessage("addQuest", activeQuest1.objective);
+            }
+
+            if(activeQuest1.questArea == "Forest")
+            {
+                PlayerPrefs.SetString("forestTreasureName", activeQuest1.treasure);
+            }
+            else if (activeQuest1.questArea == "Desert")
+            {
+                PlayerPrefs.SetString("desertTreasureName", activeQuest1.treasure);
+            }
+            else
+            {
+                PlayerPrefs.SetString("castleTreasureName", activeQuest1.treasure);
+            }
         }
 
-        questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
-        newQuest1.SetActive(false);
-
-        // If the forest world is selected set the treasure to apple
-        PlayerPrefs.SetString("treasureName", "Apple");
-        questActive = true;
         HideQuests();
     }
 
     public void QuestButtonTwo()
     {
-        if (activeQuest2.isQuestComplete())
+        if (activeQuest2.isQuestComplete()) // when you complete the quest and turn it in
         {
             activeQuest2.ClaimQuestReward();
 
             dialogueManager.StartDialogue(activeQuest2.completionDialogue, false);
 
-            //activeQuest2 = null;
+            FindObjectOfType<QuestList>().SendMessage("removeQuest", activeQuest2.objective);
+
+            activeQuest2 = null;
             if (activeQuest1 == null)
                 questActive = false;
         } 
-        else
+        else // when it is a new quest
         {
             activeQuest2.isNewQuest = false;
             dialogueManager.StartDialogue(activeQuest2.dialogue, false); // Set to false so quest screen doesn't show up again
+            questActive = true;
+
+            if (newQuest2.activeSelf)
+            {
+                FindObjectOfType<QuestList>().SendMessage("addQuest", activeQuest2.objective);
+            }
+
+            if (activeQuest2.questArea == "Forest")
+            {
+                PlayerPrefs.SetString("forestTreasureName", activeQuest2.treasure);
+            }
+            else if (activeQuest2.questArea == "Desert")
+            {
+                PlayerPrefs.SetString("desertTreasureName", activeQuest2.treasure);
+            }
+            else
+            {
+                PlayerPrefs.SetString("castleTreasureName", activeQuest2.treasure);
+            }
         }
 
-        questActive = true; // This will overrite the questActive = false in the if statement above - Brandon
-        newQuest2.SetActive(false);
-
-        // If the desert world is selected set the treasure to final cactus
-        PlayerPrefs.SetString("treasureName", "FinalCactus");
-        questActive = true;
         HideQuests();
     }
 
@@ -186,10 +206,12 @@ public class QuestManager : MonoBehaviour
     public void CompleteQuest1()
     {
         activeQuest1.CompleteQuest();
+        FindObjectOfType<QuestList>().SendMessage("completeQuest", activeQuest1.objective);
     }
 
     public void CompleteQuest2()
     {
         activeQuest2.CompleteQuest();
+        FindObjectOfType<QuestList>().SendMessage("completeQuest", activeQuest2.objective);
     }
 }
