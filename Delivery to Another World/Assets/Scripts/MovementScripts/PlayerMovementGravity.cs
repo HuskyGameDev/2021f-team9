@@ -39,6 +39,10 @@ public class PlayerMovementGravity : MonoBehaviour
         {
             maxStamina = PlayerPrefs.GetFloat("maxStamina");
         }
+        if (PlayerPrefs.GetFloat("exhaustionRate") < exhaustionRate)
+        {
+            exhaustionRate = PlayerPrefs.GetFloat("exhaustionRate");
+        }
 
         controller = this.GetComponent<CharacterController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -112,11 +116,11 @@ public class PlayerMovementGravity : MonoBehaviour
         }
 
         //Change the direction of the player sprite
-        if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        if (Input.GetAxis("Horizontal") > 0f)
         {
             direction = false;
         }
-        else if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        else if (Input.GetAxis("Horizontal") < 0f)
         {
             direction = true;
         }

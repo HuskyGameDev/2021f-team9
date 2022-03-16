@@ -38,7 +38,6 @@ public class WorldMap : MonoBehaviour
                 children[(i * sizeOfGrid) + j].GetComponent<Image>().enabled = false;
             }
         }
-        Debug.Log("Start complete");
         //firstSpawn = false;
     }
 
@@ -77,7 +76,6 @@ public class WorldMap : MonoBehaviour
         int index = (yPos * sizeOfGrid) + xPos;
         //Debug.Log("Error = " + index);
         Vector3 position = new Vector3(children[index].transform.position.x, children[index].transform.position.y, 0f);
-        Debug.Log(position);
         Destroy(children[index].gameObject);
         if (FindObjectOfType<ProceduralGeneration>().inTreasureRoom)
         {

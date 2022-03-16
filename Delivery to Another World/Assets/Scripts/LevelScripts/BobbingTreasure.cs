@@ -9,6 +9,7 @@ public class BobbingTreasure : MonoBehaviour
     private bool direction;
     private float startTime;
     private bool wait;
+    private string treasureName;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class BobbingTreasure : MonoBehaviour
         direction = false;
         startTime = Time.time;
         wait = false;
+        treasureName = PlayerPrefs.GetString("treasureName");
     }
 
     // Update is called once per frame
@@ -49,12 +51,12 @@ public class BobbingTreasure : MonoBehaviour
     {
         if (!wait)
         {
-            StartCoroutine(GoHome(other.tag));
+            StartCoroutine(GoHome());
         }
     }
 
     // Sends the player back to the hub with the treasure.
-    IEnumerator GoHome(string treasureName)
+    IEnumerator GoHome()
     {
         wait = true;
         FindObjectOfType<PlayerMovementGravity>().enabled = false;
@@ -62,16 +64,34 @@ public class BobbingTreasure : MonoBehaviour
         FindObjectOfType<Success>().SendMessage("youWin");
 
         // Set the power ups from collecting treasures
-        if (PlayerPrefs.GetString("treasureName") == "Apple")
+        if (treasureName == "Apple")
         {
             PlayerPrefs.SetFloat("maxStamina", 200f);
             Debug.Log("Stamina increased");
-            FindObjectOfType<QuestManager>().CompleteQuest1();
         }
-        else if(PlayerPrefs.GetString("treasureName") == "FinalCactus")
+        else if (treasureName == "EpicTome")
+        {
+            PlayerPrefs.SetFloat("exhaustionRate", 50f);
+            Debug.Log("Exhaustion rate decreased");
+        }
+        else if (treasureName == "FinalCactus")
         {
             // Lower cooldown time for rotating
+        }
+        else if (treasureName == "SpecialSkull")
+        {
+
+        }
+
+        if (FindObjectOfType<QuestManager>().GetQuest1().treasure == treasureName)
+        {
+            FindObjectOfType<QuestManager>().CompleteQuest1();
+            Debug.Log("Quest 1 completed");
+        } 
+        else if (FindObjectOfType<QuestManager>().GetQuest2().treasure == treasureName)
+        {
             FindObjectOfType<QuestManager>().CompleteQuest2();
+            Debug.Log("Quest 2 completed");
         }
 
         yield return new WaitForSeconds(5f);

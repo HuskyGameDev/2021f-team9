@@ -26,8 +26,7 @@ public class SelectMap_Keyboard : MonoBehaviour
         else 
         {
             buttonBackground = GameObject.FindGameObjectsWithTag("MapButton");
-            Debug.Log(buttonBackground.Length);
-            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 251, 255);
+            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 255, 255);
         }
     }
     // Update is called once per frame
@@ -45,10 +44,10 @@ public class SelectMap_Keyboard : MonoBehaviour
                 index = 0;
             }
 
-            // Skip over non-interactable buttons
+            // Skip over non-enabled buttons
             for(int i = 0; i < buttonBackground.Length; i++)
             {
-                if (buttonBackground[index].GetComponent<Button>().interactable)
+                if (buttonBackground[index].GetComponent<Button>().enabled)
                 {
                     break;
                 }
@@ -77,10 +76,10 @@ public class SelectMap_Keyboard : MonoBehaviour
                 index = buttonBackground.Length - 1;
             }
 
-            // Skip over non-interactable buttons
+            // Skip over non-enabled buttons
             for (int i = 0; i < buttonBackground.Length; i++)
             {
-                if (buttonBackground[index].GetComponent<Button>().interactable)
+                if (buttonBackground[index].GetComponent<Button>().enabled)
                 {
                     break;
                 }

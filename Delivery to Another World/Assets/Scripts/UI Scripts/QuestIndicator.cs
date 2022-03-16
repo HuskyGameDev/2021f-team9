@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class QuestIndicator : MonoBehaviour
 {
-
-    public GameObject questButton1;
-    public GameObject questButton2;
     public Sprite exclamationMark;
     public Sprite questionMark;
 
@@ -17,19 +14,6 @@ public class QuestIndicator : MonoBehaviour
     {
         direction = false;
         startTime = Time.time;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!questButton1.activeSelf && !questButton2.activeSelf)
-        {
-            GetComponent<SpriteRenderer>().enabled = false;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().enabled = true;
-        }
     }
 
     private void FixedUpdate()
@@ -65,5 +49,15 @@ public class QuestIndicator : MonoBehaviour
     public void questCompleted()
     {
         GetComponent<SpriteRenderer>().sprite = questionMark;
+    }
+
+    public void showIndicator()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public void hideIndicator()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 }

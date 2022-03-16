@@ -7,6 +7,7 @@ public class HubDoor : MonoBehaviour
 {
     public GameObject forestButton;
     public GameObject desertButton;
+    public GameObject caveButton;
     public GameObject castleButton;
 
     GameObject map;
@@ -30,23 +31,68 @@ public class HubDoor : MonoBehaviour
                 FindObjectOfType<PlayerMovementGravity>().enabled = false;
                 FindObjectOfType<RotationGravity>().enabled = false;
 
-                forestButton.GetComponent<Button>().interactable = false;
-                desertButton.GetComponent<Button>().interactable = false;
-                // Uncomment these when cave and castle have been implemented
-                //caveButton.GetComponent<Button>().interactable = false;
-                //castleButton.GetComponent<Button>().interactable = false;
+                forestButton.GetComponent<Button>().enabled = false;
+                desertButton.GetComponent<Button>().enabled = false;
+                caveButton.GetComponent<Button>().enabled = false;
+                castleButton.GetComponent<Button>().enabled = false;
 
-                string quest1Area = questManager.GetQuest1();
-                string quest2Area = questManager.GetQuest2();
+                forestButton.GetComponent<Image>().color = Color.grey;
+                desertButton.GetComponent<Image>().color = Color.grey;
+                caveButton.GetComponent<Image>().color = Color.grey;
+                castleButton.GetComponent<Image>().color = Color.grey;
 
-                if (quest1Area.Equals("Forest") || quest2Area.Equals("Forest"))
-                    forestButton.GetComponent<Button>().interactable = true;
+                Quest quest1 = questManager.GetQuest1();
+                Quest quest2 = questManager.GetQuest2();
 
-                if (quest1Area.Equals("Desert") || quest2Area.Equals("Desert"))
-                    desertButton.GetComponent<Button>().interactable = true;
+                if (!quest1.isNewQuest && questManager.questActive)
+                {
+                    if (quest1.questArea.Equals("Forest"))
+                    {
+                        forestButton.GetComponent<Button>().enabled = true;
+                        forestButton.GetComponent<Image>().color = Color.white;
+                    }
+                    else if (quest1.questArea.Equals("Desert"))
+                    {
+                        desertButton.GetComponent<Button>().enabled = true;
+                        desertButton.GetComponent<Image>().color = Color.white;
+                    }
+                    // Uncomment these when cave and castle have been implemented
+                    /*else if (quest1.questArea.Equals("Cave"))
+                    {
+                        caveButton.GetComponent<Button>().enabled = true;
+                        caveButton.GetComponent<Image>().color = Color.white
+                    }*/
+                    /*else if (quest1.questArea.Equals("Castle"))
+                    {
+                        castleButton.GetComponent<Button>().enabled = true;
+                        castleButton.GetComponent<Image>().color = Color.white;
+                    }*/
+                }
 
-                /*if (quest1Area.Equals("CASTLE") || quest2Area.Equals("CASTLE"))
-                    castleButton.GetComponent<Button>().interactable = true;*/
+                if (!quest2.isNewQuest && questManager.questActive)
+                {
+                    if (quest2.questArea.Equals("Forest"))
+                    {
+                        forestButton.GetComponent<Button>().enabled = true;
+                        forestButton.GetComponent<Image>().color = Color.white;
+                    }
+                    else if (quest2.questArea.Equals("Desert"))
+                    {
+                        desertButton.GetComponent<Button>().enabled = true;
+                        desertButton.GetComponent<Image>().color = Color.white;
+                    }
+                    // Uncomment these when cave and castle have been implemented
+                    /*else if (quest2.questArea.Equals("Cave"))
+                    {
+                        caveButton.GetComponent<Button>().enabled = true;
+                        caveButton.GetComponent<Image>().color = Color.white;
+                    }*/
+                    /*else if (quest2.questArea.Equals("Castle"))
+                    {
+                        castleButton.GetComponent<Button>().enabled = true;
+                        castleButton.GetComponent<Image>().color = Color.white;
+                    }*/
+                }
             }
 
             if (map.activeSelf && Input.GetKeyDown(KeyCode.Escape))

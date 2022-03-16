@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988f09a0c5a39ef4ea48f8391409354a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReverse: 1
+  volume: {fileID: 0}
 --- !u!108 &8998556528389712701
 Light:
   m_ObjectHideFlags: 0
@@ -53,7 +53,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8998556528389712702}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0

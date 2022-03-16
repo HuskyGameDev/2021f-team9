@@ -25,6 +25,7 @@ public class DialogueManager : MonoBehaviour
         isQuestNPC = questNPC;
         isComplete = false;
 
+        Debug.Log(dialogueBox);
         dialogueBox.SetActive(true);
 
         Debug.Log("Starting conversation with " + dialogue.name);
@@ -47,7 +48,7 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
 
-            if (isQuestNPC) // This is being run after the dialogue after selecting a quest - Brandon
+            if (isQuestNPC)
                 ShowQuests();
             else
             {

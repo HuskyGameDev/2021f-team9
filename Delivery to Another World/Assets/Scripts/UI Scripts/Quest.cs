@@ -27,6 +27,11 @@ public class Quest
         isClaimed = true;
     }
 
+    public bool isQuestClaimed()
+    {
+        return isClaimed;
+    }
+
     public bool isQuestComplete()
     {
         return isComplete;

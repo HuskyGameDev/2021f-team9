@@ -73,8 +73,6 @@ public class QuestList : MonoBehaviour
     {
         finalText = "";
         int index = activeQuests.IndexOf("- " + objective + ": 0/1\n");
-        Debug.Log(activeQuests[0]);
-        Debug.Log("- " + objective + ": 0/1\n");
         activeQuests[index] = "[Completed] " + objective + "\n";
 
         foreach (string name in activeQuests)
@@ -83,10 +81,10 @@ public class QuestList : MonoBehaviour
         }
     }
 
-    public void removeQuest(string questName)
+    public void removeQuest(string objective)
     {
         finalText = "";
-        activeQuests.Remove(questName + "\n");
+        activeQuests.Remove("[Completed] " + objective + "\n");
 
         questCount--;
 

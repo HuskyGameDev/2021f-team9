@@ -16,7 +16,6 @@ public class LevelLoader : MonoBehaviour
     public void LoadDesert()
     {
         Debug.Log("Loading Desert");
-        //Hardcoded for playtesting
         PlayerPrefs.SetString("treasureName", PlayerPrefs.GetString("desertTreasureName"));
         PlayerPrefs.SetString("world", "desert");
         SceneManager.LoadScene("Desert");

@@ -28,7 +28,7 @@ public class DialoguePressE : MonoBehaviour
 
     public void changeToShift()
     {
-        GetComponent<Text>().text = "Press Shift While Moving";
+        GetComponent<Text>().text = "Press Left Shift While Moving";
     }
 
 }

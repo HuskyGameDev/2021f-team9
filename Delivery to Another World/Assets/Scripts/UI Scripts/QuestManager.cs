@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class QuestManager : MonoBehaviour
 {
     public GameObject questBox;
-    public UnityEngine.UIElements.Button button1;
-    public UnityEngine.UIElements.Button button2;
     public Text button1Text;
     public Text button2Text;
     public GameObject newQuest1;
@@ -30,10 +28,25 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
 
         if (questManager == null)
+        {
             questManager = this;
+
+            incompleteQuests = new Queue<Quest>();
+            questActive = false;
+
+            foreach (Quest quest in quests)
+            {
+                quest.dialogue.name = questNPC.GetComponentInParent<NPCInteraction>().dialogue.name;
+                quest.completionDialogue.name = quest.dialogue.name;
+                incompleteQuests.Enqueue(quest);
+            }
+        }
         else
         {
             quests = questManager.quests;
+            incompleteQuests = questManager.incompleteQuests;
+            activeQuest1 = questManager.activeQuest1;
+            activeQuest2 = questManager.activeQuest2;
             Destroy(questManager.gameObject);
             questManager = this;
         }
@@ -44,16 +57,6 @@ public class QuestManager : MonoBehaviour
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         questBox.SetActive(false);
-        incompleteQuests = new Queue<Quest>();
-        questActive = false;
-
-        
-        foreach (Quest quest in quests) 
-        {
-            quest.dialogue.name = questNPC.GetComponentInParent<NPCInteraction>().dialogue.name;
-            quest.completionDialogue.name = quest.dialogue.name;
-            incompleteQuests.Enqueue(quest);
-        }
 
         UpdateButtonText();
     }
@@ -103,6 +106,11 @@ public class QuestManager : MonoBehaviour
 
         if (!activeQuest1.isQuestComplete() && !activeQuest2.isQuestComplete())
             FindObjectOfType<QuestIndicator>().SendMessage("questAvailable");
+
+        if (newQuest1.activeSelf || newQuest2.activeSelf)
+            FindObjectOfType<QuestIndicator>().SendMessage("showIndicator");
+        else
+            FindObjectOfType<QuestIndicator>().SendMessage("hideIndicator");
     }
 
     public void ShowQuests()
@@ -214,18 +222,14 @@ public class QuestManager : MonoBehaviour
         FindObjectOfType<RotationGravity>().enabled = true;
     }
 
-    public string GetQuest1()
+    public Quest GetQuest1()
     {
-        if (activeQuest1 != null)
-            return activeQuest1.questArea;
-        return "";
+        return activeQuest1;
     }
 
-    public string GetQuest2()
+    public Quest GetQuest2()
     {
-        if (activeQuest2 != null)
-            return activeQuest2.questArea;
-        return "";
+        return activeQuest2;
     }
 
     public void CompleteQuest1()
