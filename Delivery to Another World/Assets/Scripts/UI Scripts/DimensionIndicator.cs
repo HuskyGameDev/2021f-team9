@@ -17,8 +17,7 @@ public class DimensionIndicator : MonoBehaviour
         dimX = new Color(0f, 0f, 1f/255f*150f); // Dark blue
     }
 
-    // Update is called once per frame
-    void Update()
+    public void showDimension()
     {
         dimensionActive = FindObjectOfType<RotationGravity>().dimensionActive;
 
@@ -32,17 +31,14 @@ public class DimensionIndicator : MonoBehaviour
             GetComponent<Text>().text = "DIMENSION X";
             GetComponent<Text>().color = dimX;
         }
-    }
 
-    public void showDimension()
-    {
         StartCoroutine(Show());
     }
 
     private IEnumerator Show()
     {
         GetComponent<Text>().enabled = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(PlayerPrefs.GetFloat("rotationCooldown"));
         GetComponent<Text>().enabled = false;
     }
 }

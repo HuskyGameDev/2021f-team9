@@ -29,12 +29,15 @@ public class PlayerMovementGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Initiate all playerprefs
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             PlayerPrefs.SetFloat("maxStamina", maxStamina);
             PlayerPrefs.SetFloat("exhaustionRate", exhaustionRate);
+            PlayerPrefs.SetFloat("rotationCooldown", 2f);
         }
 
+        // variables if player prefs had been changed
         if(PlayerPrefs.GetFloat("maxStamina") > maxStamina)
         {
             maxStamina = PlayerPrefs.GetFloat("maxStamina");

@@ -66,21 +66,25 @@ public class BobbingTreasure : MonoBehaviour
         // Set the power ups from collecting treasures
         if (treasureName == "Apple")
         {
+            // Increase max stamina
             PlayerPrefs.SetFloat("maxStamina", 200f);
             Debug.Log("Stamina increased");
         }
         else if (treasureName == "EpicTome")
         {
+            // Lower exhaustion rate
             PlayerPrefs.SetFloat("exhaustionRate", 50f);
             Debug.Log("Exhaustion rate decreased");
         }
         else if (treasureName == "FinalCactus")
         {
             // Lower cooldown time for rotating
+            PlayerPrefs.SetFloat("rotationCooldown", 1f);
+            Debug.Log("Rotation cooldown decreased");
         }
         else if (treasureName == "SpecialSkull")
         {
-
+            // Increase walking speed
         }
 
         if (FindObjectOfType<QuestManager>().GetQuest1().treasure == treasureName)

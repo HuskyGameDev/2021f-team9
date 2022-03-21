@@ -6,6 +6,7 @@ public class RotationGravity : MonoBehaviour
 {
     public bool dimensionActive;
     public bool canTurn;
+    public float rotationCooldown;
     
     private CameraSwoosh cameraswoosh;
     private bool stopTURNING;
@@ -19,12 +20,7 @@ public class RotationGravity : MonoBehaviour
         stopTURNING = true;
         body = GetComponent<Rigidbody>();
         cameraswoosh = FindObjectOfType<CameraSwoosh>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        rotationCooldown = PlayerPrefs.GetFloat("rotationCooldown");
     }
 
     void FixedUpdate()
@@ -56,7 +52,7 @@ public class RotationGravity : MonoBehaviour
     private IEnumerator Cooldown()
     {
         canTurn = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(rotationCooldown);
         canTurn = true;
     }
 
