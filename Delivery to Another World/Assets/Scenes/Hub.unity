@@ -4702,7 +4702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870b8b22cbdfa96489f315f5d790649c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestManager: {fileID: 0}
+  QuestManager: {fileID: 1298455855}
   playerObj: {fileID: 198629792}
 --- !u!65 &593688245
 BoxCollider:

@@ -12,7 +12,6 @@ public class QuestList : MonoBehaviour
     private int questCount;
     private List<string> activeQuests;
     private string finalText;
-    private static QuestList UI;
 
     private void Start()
     {

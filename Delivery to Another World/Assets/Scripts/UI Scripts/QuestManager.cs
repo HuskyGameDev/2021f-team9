@@ -57,19 +57,76 @@ public class QuestManager : MonoBehaviour
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         questBox.SetActive(false);
+        UpdateButtonText();
+
+        if (PlayerPrefs.GetInt("apple") == 1)
+        {
+            quests[0].CompleteQuest();
+        }
+
+        if (PlayerPrefs.GetInt("appleClaimed") == 1)
+        {
+            quests[0].ClaimQuestReward();
+            quests[0].isNewQuest = false;
+    
+        }
+
+        if (PlayerPrefs.GetInt("finalcactus") == 1)
+        {
+            quests[1].CompleteQuest();
+        }
+
+        if (PlayerPrefs.GetInt("finalcactusClaimed") == 1)
+        {
+            quests[1].ClaimQuestReward();
+            quests[1].isNewQuest = false;
+        }
+
+        if (PlayerPrefs.GetInt("epictome") == 1)
+        {
+            quests[2].CompleteQuest();
+        }
+
+        if (PlayerPrefs.GetInt("epictomeClaimed") == 1)
+        {
+            quests[2].ClaimQuestReward();
+            quests[2].isNewQuest = false;
+        }
+
+        if (PlayerPrefs.GetInt("specialskull") == 1)
+        {
+            quests[3].CompleteQuest();
+        }
+
+        if (PlayerPrefs.GetInt("specialskullClaimed") == 1)
+        {
+            quests[3].ClaimQuestReward();
+            quests[3].isNewQuest = false;
+        }
+
+        if (PlayerPrefs.GetInt("didYouWin") == 1)
+        {
+            quests[4].CompleteQuest();
+        }
+
+        if (PlayerPrefs.GetInt("didYouWinClaimed") == 1)
+        {
+            quests[4].ClaimQuestReward();
+            quests[4].isNewQuest = false;
+        }
 
         UpdateButtonText();
     }
 
     public void UpdateButtonText()
     {
-        if (activeQuest1 == null)
+        if (activeQuest1 == null || activeQuest1.isQuestClaimed())
         {
             if(incompleteQuests.Count > 0)
                 activeQuest1 = incompleteQuests.Dequeue();
         }
 
-        if (activeQuest2 == null)
+        if (activeQuest2 == null || activeQuest2.isQuestClaimed())
         {
             if (incompleteQuests.Count > 0)
                 activeQuest2 = incompleteQuests.Dequeue();
@@ -131,7 +188,7 @@ public class QuestManager : MonoBehaviour
 
     public void QuestButtonOne()
     {
-        if (activeQuest1.isQuestComplete()) // when you complete the quest and turn it in
+        if (activeQuest1.isQuestComplete() && !activeQuest1.isQuestClaimed()) // when you complete the quest and turn it in
         {
             activeQuest1.ClaimQuestReward();
 
@@ -174,7 +231,7 @@ public class QuestManager : MonoBehaviour
 
     public void QuestButtonTwo()
     {
-        if (activeQuest2.isQuestComplete()) // when you complete the quest and turn it in
+        if (activeQuest2.isQuestComplete() && !activeQuest2.isQuestClaimed()) // when you complete the quest and turn it in
         {
             activeQuest2.ClaimQuestReward();
 
