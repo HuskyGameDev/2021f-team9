@@ -287,11 +287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012d9eafb31e7af4c88d5e99849e7c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDragonDefeated: 0
-  isCactusFound: 0
-  ownOasisWater: 0
-  doYouOwnAPicnicBasket: 0
-  haveTheGremlinsScoldedYou: 0
+  apple: 0
+  finalcactus: 0
+  epictome: 0
+  specialskull: 0
   didYouWin: 0
 --- !u!4 &239617621
 Transform:

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Load : MonoBehaviour
 {
     public GameObject obj;
-    SaveData data;
+    QuestManager data;
     public Load(GameObject obj)
     {
         this.obj = obj;
@@ -14,7 +14,7 @@ public class Load : MonoBehaviour
 
     public void LoadSave()
     {
-        data = obj.GetComponent<SaveData>();
+        data = obj.GetComponent<QuestManager>();
         if (File.Exists(Application.persistentDataPath + "\\savedata.heheh"))
         {
             using (StreamReader reader = File.OpenText(Application.persistentDataPath + "\\savedata.heheh"))
@@ -30,55 +30,116 @@ public class Load : MonoBehaviour
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.apple = true;
+                                //data.apple = true;
+                                PlayerPrefs.SetInt("apple", 1);
+                                //data.quests[0].CompleteQuest();
+                                //FindObjectOfType<QuestIndicator>().SendMessage("questCompleted");
                             }
                             else
                             {
-                                data.apple = false;
+                                PlayerPrefs.SetInt("apple", 0);
                             }
                         }
-                        if (split[0].ToString().Equals("epictome"))
+                        if (split[0].ToString().Equals("appleClaimed"))
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.epictome = true;
+                                //data.apple = true;
+                                PlayerPrefs.SetInt("appleClaimed", 1);
+                                //data.quests[0].CompleteQuest();
+                                //FindObjectOfType<QuestIndicator>().SendMessage("questCompleted");
                             }
                             else
                             {
-                                data.epictome = false;
+                                PlayerPrefs.SetInt("appleClaimed", 0);
                             }
                         }
                         if (split[0].ToString().Equals("finalcactus"))
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.finalcactus = true;
+                                PlayerPrefs.SetInt("finalcactus", 1);
                             }
                             else
                             {
-                                data.finalcactus = false;
+                                PlayerPrefs.SetInt("finalcactus", 0);
+                            }
+                        }
+                        if (split[0].ToString().Equals("finalcactusClaimed"))
+                        {
+                            if (split[1].ToLower().Equals("true"))
+                            {
+                                PlayerPrefs.SetInt("finalcactusClaimed", 1);
+                            }
+                            else
+                            {
+                                PlayerPrefs.SetInt("finalcactusClaimed", 0);
+                            }
+                        }
+                        if (split[0].ToString().Equals("epictome"))
+                        {
+                            if (split[1].ToLower().Equals("true"))
+                            {
+                                PlayerPrefs.SetInt("epictome", 1);
+                            }
+                            else
+                            {
+                                PlayerPrefs.SetInt("epictome", 0);
+                            }
+                        }
+                        if (split[0].ToString().Equals("epictomeClaimed"))
+                        {
+                            if (split[1].ToLower().Equals("true"))
+                            {
+                                PlayerPrefs.SetInt("epictomeClaimed", 1);
+                            }
+                            else
+                            {
+                                PlayerPrefs.SetInt("epictomeClaimed", 0);
                             }
                         }
                         if (split[0].ToString().Equals("specialskull"))
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.specialskull = true;
+                                PlayerPrefs.SetInt("specialskull", 1);
                             }
                             else
                             {
-                                data.specialskull = false;
+                                PlayerPrefs.SetInt("specialskull", 0);
+                            }
+                        }
+                        if (split[0].ToString().Equals("specialskullClaimed"))
+                        {
+                            if (split[1].ToLower().Equals("true"))
+                            {
+                                PlayerPrefs.SetInt("specialskullClaimed", 1);
+                            }
+                            else
+                            {
+                                PlayerPrefs.SetInt("specialskullClaimed", 0);
                             }
                         }
                         if (split[0].ToString().Equals("didYouWin"))
                         {
                             if (split[1].ToLower().Equals("true"))
                             {
-                                data.didYouWin = true;
+                                PlayerPrefs.SetInt("didYouWin", 1);
                             }
                             else
                             {
-                                data.didYouWin = false;
+                                PlayerPrefs.SetInt("didYouWin", 0);
+                            }
+                        }
+                        if (split[0].ToString().Equals("didYouWinClaimed"))
+                        {
+                            if (split[1].ToLower().Equals("true"))
+                            {
+                                PlayerPrefs.SetInt("didYouWinClaimed", 1);
+                            }
+                            else
+                            {
+                                PlayerPrefs.SetInt("didYouWinClaimed", 0);
                             }
                         }
 
