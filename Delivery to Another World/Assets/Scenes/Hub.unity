@@ -8912,13 +8912,13 @@ MonoBehaviour:
     dialogue:
       name: 
       scentences:
-      - We need you to go get the magic apple.
-      - It should help you on your adventure when you eat it.
+      - We need you to go get the legendary magic apple of legend.
+      - "It should help you on your adventure\u2026 maybe *shrug emoji*"
     completionDialogue:
       name: 
       scentences:
       - Thank you for getting the apple!
-      - We might be able to use this to defeat Geoffry Bezas!
+      - We might be able to use this to defeat Geoffry Bezas! *cough* sorry
   - questName: A Pointy Adventure
     isNewQuest: 1
     objective: Get the magic cactus
@@ -8928,13 +8928,13 @@ MonoBehaviour:
     dialogue:
       name: 
       scentences:
-      - We need you to get a special cactus.
-      - Trust me, you're gonna need it.
+      - We need you to get the special cactus of legend.
+      - Trust me, you're gonna need it *wink*
     completionDialogue:
       name: 
       scentences:
       - Thank you for getting the cactus!
-      - We might be able to use this to defeat Geoffry Bezas!
+      - We might be able to use this to defeat Geoffry Bezas! *cough* sorry
   - questName: Knowledge
     isNewQuest: 1
     objective: Get the tome
@@ -8944,10 +8944,21 @@ MonoBehaviour:
     dialogue:
       name: 
       scentences:
-      - We need you to go get the Epic Tome. It's a magical book, not a diary!
+      - We need you to go get the Epic Tome. It's not a diary!
+      - "It\u2019s a legenDIARY!!!"
+      - "\u2026"
+      - " *softly* I don\u2019t get paid enough for this\u2026"
+      - "I actually don\u2019t get paid anything"
+      - Do you have any spare money?
     completionDialogue:
       name: 
-      scentences: []
+      scentences:
+      - Congratulations! You got the Epic Tome!
+      - Give it here, I gotta catch up on the latest Twilight book!
+      - "\u2026"
+      - ....
+      - "Oh, yeah\u2026"
+      - We might be able to use this to defeat Geoffry Bezas! *cough* sorry
   - questName: Use Your Head
     isNewQuest: 1
     objective: Get the skull
@@ -8957,10 +8968,18 @@ MonoBehaviour:
     dialogue:
       name: 
       scentences:
-      - We need you to go get the red skull. It might be Rudolph's skull! *Priceless*
+      - We need you to go get the red skull from the desert. It might be Rudolph's
+        skull! *Priceless*
+      - You might be able to fly if you manage to get it!
     completionDialogue:
       name: 
-      scentences: []
+      scentences:
+      - You got the skull!!
+      - "So\u2026 is it Rudolph\u2019s skull?"
+      - "Aww, it\u2019s not?"
+      - "I guess that makes sense\u2026 why would Rudolph be in the desert?"
+      - "I\u2019m sure we\u2019ll find a use for this skull somewhere\u2026"
+      - We might be able to use this to defeat Geoffry Bezas! *cough* sorry
   - questName: Delivery
     isNewQuest: 1
     objective: Defeat Geoffry
@@ -8973,7 +8992,15 @@ MonoBehaviour:
       - We need you to go defeat Geoffry Bezas. Because he hit you with a box...
     completionDialogue:
       name: 
-      scentences: []
+      scentences:
+      - "Wow\u2026 I didn\u2019t think you would actually win"
+      - "I mean\u2026 good job LEGENDARY thief of LEGEND"
+      - "\u2026"
+      - ....
+      - .....
+      - ......
+      - ............................................
+      - So  Uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh, Now what?
   exclamationMark: {fileID: 21300000, guid: e97d8b7d6a152fd439ae0be0381247da, type: 3}
   questionMark: {fileID: 21300000, guid: 9dbc37c8625b2074c8f7523d6cabc58e, type: 3}
 --- !u!4 &1298455857
