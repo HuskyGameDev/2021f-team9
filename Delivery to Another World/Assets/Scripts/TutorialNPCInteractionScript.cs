@@ -10,7 +10,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
     private bool rotate;
 
     public Text myText;
-    public string script;
+    public List<AudioClip> dialogue;
 
     private GameObject pm;
     private bool talking = false;
@@ -19,13 +19,18 @@ public class TutorialNPCInteractionScript : MonoBehaviour
     private bool hasTurned = false;
     private bool hasTurnedBack = false;
     private bool done = false;
-    private int[] iWillFightUnity = { 2, 3, 3, 3, 4};
+    private int[] iWillFightUnity = { 2, 3, 3, 3, 7};
+    private AudioSource source;
 
     // Start is called before the first frame updates
     void Start()
     {
         pm = GameObject.FindGameObjectWithTag("Player");
         rotate = pm.GetComponent<RotationGravity>().dimensionActive;
+        source = GetComponent<AudioSource>();
+
+        // Plays dialogue audio
+        playDialogue();
     }
 
 
@@ -56,6 +61,10 @@ public class TutorialNPCInteractionScript : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 FindObjectOfType<DialogueManager>().DisplayNextScentence();
+
+                // Plays dialogue audio
+                playDialogue();
+
                 if (iWillFightUnity[0] <= 1)
                 {
                     intro = false;
@@ -68,6 +77,7 @@ public class TutorialNPCInteractionScript : MonoBehaviour
         if (Vector3.Distance(transform.position, pm.transform.position) < 1.0f)
         {
             FindObjectOfType<DialoguePressE>().showE();
+
             if (Input.GetKeyDown(KeyCode.E) && !walkedOver && !hasTurned && !hasTurnedBack)
             {
                 if (!rotate)
@@ -77,10 +87,17 @@ public class TutorialNPCInteractionScript : MonoBehaviour
                         talking = true;
                         TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Nice job walking over to me", "You're gonna be great at this", "How about you try pressing R?" }));
                         iWillFightUnity[1]--;
+
+                        // Plays dialogue audio
+                        playDialogue();
                     }
                     else
                     {
                         FindObjectOfType<DialogueManager>().DisplayNextScentence();
+
+                        // Plays dialogue audio
+                        playDialogue();
+
                         if (iWillFightUnity[1] <= 1)
                         {
                             walkedOver = true;
@@ -103,12 +120,19 @@ public class TutorialNPCInteractionScript : MonoBehaviour
             {
                 FindObjectOfType<DialoguePressE>().changeToE();
                 talking = true;
-                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Whoa, that wasn't supposed to happen", "Ethan, did you die? Where are you?", "You were supposed to be the chosen one..." }));
+                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Hey, that wasn't supposed to happen", "Ethan, did you die? Where are you?", "You were supposed to be the chosen one..." }));
                 iWillFightUnity[2]--;
+
+                // Plays dialogue audio
+                playDialogue();
             }
             else if (Input.GetKeyDown(KeyCode.E) && talking)
             {
                 FindObjectOfType<DialogueManager>().DisplayNextScentence();
+
+                // Plays dialogue audio
+                playDialogue();
+
                 if (iWillFightUnity[2] <= 1)
                 {
                     walkedOver = false;
@@ -127,10 +151,16 @@ public class TutorialNPCInteractionScript : MonoBehaviour
                 talking = true;
                 TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Oh!", "You're back!", "Want to try sprinting? Press shift and move around" }));
                 iWillFightUnity[3]--;
+
+                // Plays dialogue audio
+                playDialogue();
             }
             else if (Input.GetKeyDown(KeyCode.E) && talking)
             {
                 FindObjectOfType<DialogueManager>().DisplayNextScentence();
+
+                // Plays dialogue audio
+                playDialogue();
 
                 if (iWillFightUnity[3] <= 1)
                 {
@@ -148,18 +178,29 @@ public class TutorialNPCInteractionScript : MonoBehaviour
             if (!talking && FindObjectOfType<PlayerMovementGravity>().isSprinting)
             {
                 talking = true;
-                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Nice Job Running!", "I bet when you ... turn invisible...? You'd be able to sprint past people and they would never know!", "Well that's all I can teach you.", "Have fun at the thieves guild!" }));
+                TriggerDialogue(new Dialogue("Sneaky Thief", new string[] { "Nice Job Running!", "I bet when you ... turn invisible...? You'd be able to sprint past people and they would never know!",
+                    "Enemies seem to have this strange red circle in front of them.", "Don't touch it, we've lost lots of good thieves to the danger circles.",
+                    "We've noticed that if you hide behind objects, the enemies can't see you.", "Well that's all I can teach you.", "Have fun at the thieves guild!" }));
                 iWillFightUnity[4]--;
                 FindObjectOfType<DialoguePressE>().changeToE();
+
+                // Plays dialogue audio
+                playDialogue();
             }
             else if (talking && Input.GetKeyDown(KeyCode.E))
             {
                 FindObjectOfType<DialogueManager>().DisplayNextScentence();
+
                 if (iWillFightUnity[4] <= 0)
                 {
                     hasTurnedBack = false;
                     done = true;
                     talking = false;
+                }
+                else
+                {
+                    // Plays dialogue audio
+                    playDialogue();
                 }
                 iWillFightUnity[4]--;
             }
@@ -177,6 +218,14 @@ public class TutorialNPCInteractionScript : MonoBehaviour
     public void TriggerDialogue(Dialogue dialogue)
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, false);
+    }
+
+    private void playDialogue()
+    {
+        // Play dialogue audio
+        source.clip = dialogue[0];
+        source.Play();
+        dialogue.RemoveAt(0);
     }
 
 }

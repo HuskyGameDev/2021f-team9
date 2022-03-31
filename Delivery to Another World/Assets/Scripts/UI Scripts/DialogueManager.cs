@@ -25,10 +25,7 @@ public class DialogueManager : MonoBehaviour
         isQuestNPC = questNPC;
         isComplete = false;
 
-        Debug.Log(dialogueBox);
         dialogueBox.SetActive(true);
-
-        Debug.Log("Starting conversation with " + dialogue.name);
 
         nameText.text = dialogue.name + ":";
 
@@ -67,7 +64,6 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         isComplete = true;
-        Debug.Log("End of conversation");
         dialogueBox.SetActive(false);
     }
 
