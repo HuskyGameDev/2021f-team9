@@ -4591,7 +4591,7 @@ GameObject:
   - component: {fileID: 753639222}
   - component: {fileID: 753639221}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: RATS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4643,7 +4643,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.71
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
