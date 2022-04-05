@@ -25,7 +25,7 @@ public class NewGameSaveOverite : MonoBehaviour
     }
 
     //This overwrites the save file and goes to the Hub
-    void TaskOnClick()
+    public void TaskOnClick()
     {
         PlayerPrefs.SetInt("apple", 0);
         PlayerPrefs.SetInt("appleClaimed", 0);

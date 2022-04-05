@@ -24,6 +24,7 @@ TagManager:
   - SpecialSkull
   - Quest
   - MapButton
+  - MenuButton
   layers:
   - Default
   - TransparentFX
