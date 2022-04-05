@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectMenu_Keyboard : MonoBehaviour
 {
@@ -22,9 +23,9 @@ public class SelectMenu_Keyboard : MonoBehaviour
         arrows[1] = arrow2;
         arrows[2] = arrow3;
 
-        arrows[0].GetComponent<SpriteRenderer>().enabled = false;
-        arrows[1].GetComponent<SpriteRenderer>().enabled = true;
-        arrows[2].GetComponent<SpriteRenderer>().enabled = false;
+        arrows[0].GetComponent<Image>().enabled = false;
+        arrows[1].GetComponent<Image>().enabled = true;
+        arrows[2].GetComponent<Image>().enabled = false;
     }
 
     // Update is called once per frame
@@ -32,14 +33,14 @@ public class SelectMenu_Keyboard : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) && index + 1 < buttons.Length)
         {
-            arrows[index++].GetComponent<SpriteRenderer>().enabled = false;
-            arrows[index].GetComponent<SpriteRenderer>().enabled = true;
+            arrows[index++].GetComponent<Image>().enabled = false;
+            arrows[index].GetComponent<Image>().enabled = true;
 
         }
         if (Input.GetKeyDown(KeyCode.W) && index - 1 >= 0)
         {
-            arrows[index--].GetComponent<SpriteRenderer>().enabled = false;
-            arrows[index].GetComponent<SpriteRenderer>().enabled = true;
+            arrows[index--].GetComponent<Image>().enabled = false;
+            arrows[index].GetComponent<Image>().enabled = true;
 
         }
         if (Input.GetKeyDown(KeyCode.E))
