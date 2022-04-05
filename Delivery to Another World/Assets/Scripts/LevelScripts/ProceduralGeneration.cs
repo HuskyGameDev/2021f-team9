@@ -95,11 +95,11 @@ public class ProceduralGeneration : MonoBehaviour
         //roomsSpawned++;
     }
 
-    // Update is called once per frame
+    /* Update is called once per frame
     void Update()
     {
         
-    }
+    }*/
 
     // Spawns in a specific prefab
     // input: index = which prefab to spawn in
