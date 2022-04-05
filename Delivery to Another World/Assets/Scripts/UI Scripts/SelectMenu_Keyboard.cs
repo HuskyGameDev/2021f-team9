@@ -60,6 +60,9 @@ public class SelectMenu_Keyboard : MonoBehaviour
             else if (index == 2)
             {
                 //Quit
+                #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+                #endif
                 Application.Quit();
             }
         }
