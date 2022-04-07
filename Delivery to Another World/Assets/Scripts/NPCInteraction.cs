@@ -16,10 +16,12 @@ public class NPCInteraction : MonoBehaviour
     public string script;
     public Dialogue dialogue;
     public bool questNPC;
+    public List<AudioClip> dialogueAudio;
 
     //private StreamReader reader;
     private StreamReader alternate;
     private GameObject player;
+    private AudioSource source;
 
     // Start is called before the first frame updates
     void Start()
@@ -27,6 +29,7 @@ public class NPCInteraction : MonoBehaviour
         //reader = new StreamReader("Assets/Dialogue/" + script + ".txt");
         //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
         player = GameObject.FindGameObjectWithTag("Player");
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,10 +52,16 @@ public class NPCInteraction : MonoBehaviour
                     //this.enabled = false;
 
                     TriggerDialogue();
+
+                    // Plays dialogue audio
+                    playDialogue();
                 }
                 else
                 {
                     FindObjectOfType<DialogueManager>().DisplayNextScentence();
+
+                    // Plays dialogue audio
+                    playDialogue();
                 }
                 
                 //line = reader.ReadLine();
@@ -84,5 +93,13 @@ public class NPCInteraction : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, questNPC);
+    }
+
+    private void playDialogue()
+    {
+        // Play dialogue audio
+        source.clip = dialogueAudio[0];
+        source.Play();
+        dialogueAudio.RemoveAt(0);
     }
 }

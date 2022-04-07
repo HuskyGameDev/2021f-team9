@@ -13250,7 +13250,7 @@ Transform:
   - {fileID: 723320841}
   - {fileID: 934986127}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &411116902
 GameObject:
@@ -15104,7 +15104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &593688248
 MeshFilter:
@@ -16063,6 +16063,133 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736394338}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &740864820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 740864822}
+  - component: {fileID: 740864821}
+  m_Layer: 0
+  m_Name: MusicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &740864821
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740864820}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6ef58773e9f1c3247b58b0af7b51ac34, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &740864822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740864820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744964468
 GameObject:
   m_ObjectHideFlags: 0
@@ -29397,11 +29524,17 @@ MonoBehaviour:
       scentences:
       - We need you to go get the legendary magic apple of legend.
       - "It should help you on your adventure\u2026 maybe *shrug emoji*"
+    dialogueAudio:
+    - {fileID: 8300000, guid: 0d6236e64285a4b4b90df131985daaaa, type: 3}
+    - {fileID: 8300000, guid: f28bdc4ffbbf96541b650340752a3512, type: 3}
     completionDialogue:
       name: 
       scentences:
       - Thank you for getting the apple!
       - We might be able to use this to defeat Geoffry Bezas! *cough* sorry
+    completionAudio:
+    - {fileID: 8300000, guid: 74adf5dd10c54964690bbb58b6b1849e, type: 3}
+    - {fileID: 8300000, guid: 1768961bd20c5484bbb4ebf29d27db85, type: 3}
   - questName: A Pointy Adventure
     isNewQuest: 1
     objective: Get the magic cactus
@@ -29413,11 +29546,17 @@ MonoBehaviour:
       scentences:
       - We need you to get the special cactus of legend.
       - Trust me, you're gonna need it *wink*
+    dialogueAudio:
+    - {fileID: 8300000, guid: 79dfa02dc10faa4418bcabf6f52d8bf3, type: 3}
+    - {fileID: 8300000, guid: 0aa28acd2a8a77248978762fc131fbfa, type: 3}
     completionDialogue:
       name: 
       scentences:
       - Thank you for getting the cactus!
       - We might be able to use this to defeat Geoffry Bezas! *cough* sorry
+    completionAudio:
+    - {fileID: 8300000, guid: d67151fb8ee27b94486896919eb12c73, type: 3}
+    - {fileID: 8300000, guid: 1768961bd20c5484bbb4ebf29d27db85, type: 3}
   - questName: Knowledge
     isNewQuest: 1
     objective: Get the tome
@@ -29433,6 +29572,13 @@ MonoBehaviour:
       - " *softly* I don\u2019t get paid enough for this\u2026"
       - "I actually don\u2019t get paid anything"
       - Do you have any spare money?
+    dialogueAudio:
+    - {fileID: 8300000, guid: 74ff6a104b842864c8a79831531bd52b, type: 3}
+    - {fileID: 8300000, guid: 60b08cae2f4564943afa2499ee32a754, type: 3}
+    - {fileID: 8300000, guid: 94b47833192d338438a284a96f88a0e8, type: 3}
+    - {fileID: 8300000, guid: fb5be892154b5ff4a922011ccf951129, type: 3}
+    - {fileID: 8300000, guid: c3136e1519ad0c9479bc58bbea9dfd89, type: 3}
+    - {fileID: 8300000, guid: bb071be39235368409d5cdd507f37239, type: 3}
     completionDialogue:
       name: 
       scentences:
@@ -29442,6 +29588,13 @@ MonoBehaviour:
       - ....
       - "Oh, yeah\u2026"
       - We might be able to use this to defeat Geoffry Bezas! *cough* sorry
+    completionAudio:
+    - {fileID: 8300000, guid: dd231ab5f3ddf5542a3239a171c26209, type: 3}
+    - {fileID: 8300000, guid: 68d0e8b5ebdbc314087ec83b37b1e651, type: 3}
+    - {fileID: 8300000, guid: 94b47833192d338438a284a96f88a0e8, type: 3}
+    - {fileID: 8300000, guid: 94b47833192d338438a284a96f88a0e8, type: 3}
+    - {fileID: 8300000, guid: c2b41a355d0b5de40bb782ed778eb7a1, type: 3}
+    - {fileID: 8300000, guid: 1768961bd20c5484bbb4ebf29d27db85, type: 3}
   - questName: Use Your Head
     isNewQuest: 1
     objective: Get the skull
@@ -29454,6 +29607,9 @@ MonoBehaviour:
       - We need you to go get the red skull from the desert. It might be Rudolph's
         skull! *Priceless*
       - You might be able to fly if you manage to get it!
+    dialogueAudio:
+    - {fileID: 8300000, guid: c7da35388bc3fa243bf687b8ec1a0305, type: 3}
+    - {fileID: 8300000, guid: 6c267573742de3c46b9362cf7fdc26d1, type: 3}
     completionDialogue:
       name: 
       scentences:
@@ -29463,6 +29619,13 @@ MonoBehaviour:
       - "I guess that makes sense\u2026 why would Rudolph be in the desert?"
       - "I\u2019m sure we\u2019ll find a use for this skull somewhere\u2026"
       - We might be able to use this to defeat Geoffry Bezas! *cough* sorry
+    completionAudio:
+    - {fileID: 8300000, guid: f9ac474731fa975498f0b298a96fa649, type: 3}
+    - {fileID: 8300000, guid: de2abe17837c86647ba3a2a7235fe689, type: 3}
+    - {fileID: 8300000, guid: 3578e6bf551edd84c9729da4062b0417, type: 3}
+    - {fileID: 8300000, guid: 930cd594b3c482340820d9247600990d, type: 3}
+    - {fileID: 8300000, guid: bd0dbb8e775f2404aaa8b703a820e355, type: 3}
+    - {fileID: 8300000, guid: 1768961bd20c5484bbb4ebf29d27db85, type: 3}
   - questName: Delivery
     isNewQuest: 1
     objective: Defeat Geoffry
@@ -29473,6 +29636,8 @@ MonoBehaviour:
       name: 
       scentences:
       - We need you to go defeat Geoffry Bezas. Because he hit you with a box...
+    dialogueAudio:
+    - {fileID: 8300000, guid: 15764a8eb5a823749847966702b81f17, type: 3}
     completionDialogue:
       name: 
       scentences:
@@ -29484,6 +29649,15 @@ MonoBehaviour:
       - ......
       - ............................................
       - So  Uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh, Now what?
+    completionAudio:
+    - {fileID: 8300000, guid: 54e429209ce3c96448badd220e157ba1, type: 3}
+    - {fileID: 8300000, guid: 32484fbcda955a144a96724169874a19, type: 3}
+    - {fileID: 8300000, guid: 94b47833192d338438a284a96f88a0e8, type: 3}
+    - {fileID: 8300000, guid: 94b47833192d338438a284a96f88a0e8, type: 3}
+    - {fileID: 8300000, guid: 94b47833192d338438a284a96f88a0e8, type: 3}
+    - {fileID: 8300000, guid: 94b47833192d338438a284a96f88a0e8, type: 3}
+    - {fileID: 8300000, guid: 94b47833192d338438a284a96f88a0e8, type: 3}
+    - {fileID: 8300000, guid: 1e91264c1b4a9cb4aa6ee6e1618e19a9, type: 3}
   exclamationMark: {fileID: 21300000, guid: e97d8b7d6a152fd439ae0be0381247da, type: 3}
   questionMark: {fileID: 21300000, guid: 9dbc37c8625b2074c8f7523d6cabc58e, type: 3}
 --- !u!4 &1298455857
@@ -29498,7 +29672,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304858057
 GameObject:
@@ -30399,6 +30573,7 @@ GameObject:
   - component: {fileID: 1435206891}
   - component: {fileID: 1435206895}
   - component: {fileID: 1435206893}
+  - component: {fileID: 1435206896}
   m_Layer: 0
   m_Name: Quest_NPC
   m_TagString: Interactables
@@ -30460,7 +30635,7 @@ Transform:
   m_Children:
   - {fileID: 1079082711}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1435206893
 BoxCollider:
@@ -30500,10 +30675,112 @@ MonoBehaviour:
   dialogue:
     name: Brenden
     scentences:
-    - Hello there. Nice to finally meet the legendary thief of our world.
-    - I have a couple quests for you to complete.
+    - OH MY OMG!! IS THAT YOU?? THE LEGENDARY THIEF OF LEGEND! Nice to finally meet
+      the legendary thief of our legendary world.
+    - "Hey, do you think you can complete a couple quests for us? You know, since
+      you\u2019re the legendary thief of legend and all."
     - Come talk to me when you've completed them.
   questNPC: 1
+  dialogueAudio:
+  - {fileID: 8300000, guid: 5f3ecaf2934aaa3428981402e276da20, type: 3}
+  - {fileID: 8300000, guid: 62076c2d4b914f849ac3fc6e5e0754e2, type: 3}
+  - {fileID: 8300000, guid: 4a0c8f8e96fb5214d9328100fe9f3752, type: 3}
+--- !u!82 &1435206896
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435206890}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1438543087
 GameObject:
   m_ObjectHideFlags: 0
@@ -33843,7 +34120,7 @@ RectTransform:
   - {fileID: 268785709}
   - {fileID: 1748440689}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -35309,7 +35586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036516969
 GameObject:
@@ -36042,7 +36319,7 @@ RectTransform:
   m_Children:
   - {fileID: 309375891}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -36421,7 +36698,7 @@ Transform:
   - {fileID: 1835473929}
   - {fileID: 412302063}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2136444185
 GameObject:
@@ -37922,7 +38199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120698390849757055, guid: 3b052528412300f4ba3cc87b0a00c216, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6120698390849757055, guid: 3b052528412300f4ba3cc87b0a00c216, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38194,6 +38471,10 @@ PrefabInstance:
     - target: {fileID: 7919911708522661189, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919911708796581523, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}

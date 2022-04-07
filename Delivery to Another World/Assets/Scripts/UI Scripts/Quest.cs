@@ -15,7 +15,9 @@ public class Quest
     private bool isClaimed = false;
 
     public Dialogue dialogue;
+    public List<AudioClip> dialogueAudio;
     public Dialogue completionDialogue;
+    public List<AudioClip> completionAudio;
 
     public void CompleteQuest()
     {
