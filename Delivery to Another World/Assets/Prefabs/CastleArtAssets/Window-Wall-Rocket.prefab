@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 3864685080846820029}
   - component: {fileID: 3864685080846820030}
   - component: {fileID: 3864685080846820031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Window-Wall-Rocket
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

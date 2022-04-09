@@ -3338,6 +3338,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NorthDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 7632752609567191868, guid: 4294e16c253462542b9e2682bc98a321, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf8ee2fa5d56cc244932ba9744e70227, type: 2}
+    - target: {fileID: 8095763243785502453, guid: 4294e16c253462542b9e2682bc98a321, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf8ee2fa5d56cc244932ba9744e70227, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4294e16c253462542b9e2682bc98a321, type: 3}
 --- !u!4 &6202909544910044636 stripped
@@ -3776,6 +3784,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EastDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 3120532716586139579, guid: 362e7aba62afdf84bb4146bf028dc7d6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf8ee2fa5d56cc244932ba9744e70227, type: 2}
+    - target: {fileID: 4903756394344204140, guid: 362e7aba62afdf84bb4146bf028dc7d6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf8ee2fa5d56cc244932ba9744e70227, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 362e7aba62afdf84bb4146bf028dc7d6, type: 3}
 --- !u!4 &4931144321321065345 stripped
@@ -4784,6 +4800,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2866758467906792758, guid: 2bb6eb2a6e52549428d0fe61c024ea6e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf8ee2fa5d56cc244932ba9744e70227, type: 2}
+    - target: {fileID: 6399846194577545925, guid: 2bb6eb2a6e52549428d0fe61c024ea6e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf8ee2fa5d56cc244932ba9744e70227, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bb6eb2a6e52549428d0fe61c024ea6e, type: 3}
 --- !u!4 &8383937997703214021 stripped
@@ -4846,6 +4870,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WestDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 5289282325329324924, guid: d72c6e03068cfd44db8050749273c06f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf8ee2fa5d56cc244932ba9744e70227, type: 2}
+    - target: {fileID: 9196578718463465100, guid: d72c6e03068cfd44db8050749273c06f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf8ee2fa5d56cc244932ba9744e70227, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72c6e03068cfd44db8050749273c06f, type: 3}
 --- !u!4 &8378522512869259000 stripped
