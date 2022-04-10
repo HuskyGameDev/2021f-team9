@@ -192,6 +192,7 @@ public class QuestManager : MonoBehaviour
         {
             activeQuest1.ClaimQuestReward();
 
+            FindObjectOfType<NPCInteraction>().dialogueAudio.AddRange(activeQuest1.completionAudio);
             dialogueManager.StartDialogue(activeQuest1.completionDialogue, false);
 
             FindObjectOfType<QuestList>().SendMessage("removeQuest", activeQuest1.objective);
@@ -202,6 +203,7 @@ public class QuestManager : MonoBehaviour
         }
         else // when it is a new quest
         {
+            FindObjectOfType<NPCInteraction>().dialogueAudio.AddRange(activeQuest1.dialogueAudio);
             dialogueManager.StartDialogue(activeQuest1.dialogue, false); // Set to false so quest screen doesn't show up again
             questActive = true;
 
@@ -226,6 +228,7 @@ public class QuestManager : MonoBehaviour
             }
         }
 
+        FindObjectOfType<NPCInteraction>().SendMessage("playDialogue");
         HideQuests();
     }
 
@@ -235,6 +238,7 @@ public class QuestManager : MonoBehaviour
         {
             activeQuest2.ClaimQuestReward();
 
+            FindObjectOfType<NPCInteraction>().dialogueAudio.AddRange(activeQuest2.completionAudio);
             dialogueManager.StartDialogue(activeQuest2.completionDialogue, false);
 
             FindObjectOfType<QuestList>().SendMessage("removeQuest", activeQuest2.objective);
@@ -245,6 +249,7 @@ public class QuestManager : MonoBehaviour
         } 
         else // when it is a new quest
         {
+            FindObjectOfType<NPCInteraction>().dialogueAudio.AddRange(activeQuest2.dialogueAudio);
             dialogueManager.StartDialogue(activeQuest2.dialogue, false); // Set to false so quest screen doesn't show up again
             questActive = true;
 
@@ -269,6 +274,7 @@ public class QuestManager : MonoBehaviour
             }
         }
 
+        FindObjectOfType<NPCInteraction>().SendMessage("playDialogue");
         HideQuests();
     }
 

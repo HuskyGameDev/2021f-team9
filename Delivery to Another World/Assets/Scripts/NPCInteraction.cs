@@ -54,14 +54,21 @@ public class NPCInteraction : MonoBehaviour
                     TriggerDialogue();
 
                     // Plays dialogue audio
-                    playDialogue();
+                    if (dialogueAudio.Count > 0)
+                    {
+                        playDialogue();
+                    }
                 }
                 else
                 {
                     FindObjectOfType<DialogueManager>().DisplayNextScentence();
 
                     // Plays dialogue audio
-                    playDialogue();
+                    if (dialogueAudio.Count > 0)
+                    {
+                        playDialogue();
+                    }
+
                 }
                 
                 //line = reader.ReadLine();
@@ -95,7 +102,7 @@ public class NPCInteraction : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, questNPC);
     }
 
-    private void playDialogue()
+    public void playDialogue()
     {
         // Play dialogue audio
         source.clip = dialogueAudio[0];
