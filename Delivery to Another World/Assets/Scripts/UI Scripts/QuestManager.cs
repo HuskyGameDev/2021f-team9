@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
+using Image = UnityEngine.UI.Image;
 
 public class QuestManager : MonoBehaviour
 {
     public GameObject questBox;
-    public Text button1Text;
-    public Text button2Text;
     public GameObject newQuest1;
     public GameObject newQuest2;
     public bool questActive;
@@ -16,6 +15,14 @@ public class QuestManager : MonoBehaviour
     public List<Quest> quests;
     public Sprite exclamationMark;
     public Sprite questionMark;
+
+    public GameObject button1;
+    public GameObject button2;
+    public Sprite appleADay;
+    public Sprite pointyAdventure;
+    public Sprite knowledge;
+    public Sprite useYourHead;
+    public Sprite delivery;
 
     private Queue<Quest> incompleteQuests;
     private Quest activeQuest1;
@@ -122,7 +129,7 @@ public class QuestManager : MonoBehaviour
     {
         if (activeQuest1 == null || activeQuest1.isQuestClaimed())
         {
-            if(incompleteQuests.Count > 0)
+            if (incompleteQuests.Count > 0)
                 activeQuest1 = incompleteQuests.Dequeue();
         }
 
@@ -132,8 +139,46 @@ public class QuestManager : MonoBehaviour
                 activeQuest2 = incompleteQuests.Dequeue();
         }
 
-        button1Text.text = activeQuest1.questName;
-        button2Text.text = activeQuest2.questName;
+        switch (activeQuest1.questName)
+        {
+            case "An Apple a Day":
+                button1.GetComponent<Image>().sprite = appleADay;
+                break;
+            case "A Pointy Adventure":
+                button1.GetComponent<Image>().sprite = pointyAdventure;
+                break;
+            case "Knowledge":
+                button1.GetComponent<Image>().sprite = knowledge;
+                break;
+            case "Use Your Head":
+                button1.GetComponent<Image>().sprite = useYourHead;
+                break;
+            case "Delivery":
+                button1.GetComponent<Image>().sprite = delivery;
+                break;
+            default:
+                break;
+        }
+        switch (activeQuest2.questName)
+        {
+            case "An Apple a Day":
+                button2.GetComponent<Image>().sprite = appleADay;
+                break;
+            case "A Pointy Adventure":
+                button2.GetComponent<Image>().sprite = pointyAdventure;
+                break;
+            case "Knowledge":
+                button2.GetComponent<Image>().sprite = knowledge;
+                break;
+            case "Use Your Head":
+                button2.GetComponent<Image>().sprite = useYourHead;
+                break;
+            case "Delivery":
+                button2.GetComponent<Image>().sprite = delivery;
+                break;
+            default:
+                break;
+        }
 
         if (activeQuest1.isNewQuest || activeQuest1.isQuestComplete())
             newQuest1.SetActive(true);

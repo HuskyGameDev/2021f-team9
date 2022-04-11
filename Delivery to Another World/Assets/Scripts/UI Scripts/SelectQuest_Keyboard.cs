@@ -12,36 +12,42 @@ using System.Collections;
 //DO NOT UPDATE THIS CODE BRANDON OR ETHAN THIS IS A PLACEHOLDER SO I DIDN'T ACCIDENTALLY BREAK THE GAME
 public class SelectQuest_Keyboard : MonoBehaviour 
 {
-    public bool run;
+
+    private GameObject[] buttons;
+
+    public GameObject arrow1;
+    public GameObject arrow2;
+    public GameObject arrow3;
+    private GameObject[] arrows = { null, null, null };
 
     private GameObject[] buttonBackground;
     private int index = 1;
 
     private void Start()
     {
-        if (!run)
-        {
-            this.enabled = false;
-        }
-        else 
-        {
-            buttonBackground = GameObject.FindGameObjectsWithTag("Quest");
-            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 251, 255);
-        }
+            buttons = GameObject.FindGameObjectsWithTag("Quest");
+            arrows[0] = arrow1;
+            arrows[1] = arrow2;
+            arrows[2] = arrow3;
+
+            arrows[0].GetComponent<Image>().enabled = false;
+            arrows[1].GetComponent<Image>().enabled = true;
+            arrows[2].GetComponent<Image>().enabled = false;
+
     }
     // Update is called once per frame
     void Update()
     {
         //Player wants to traverse down through the list
-        if(Input.GetKeyDown(KeyCode.S) && index+1 < buttonBackground.Length){
-            buttonBackground[index++].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 251, 255);
+        if (Input.GetKeyDown(KeyCode.S) && index + 1 < buttons.Length)
+        {
+            arrows[index++].GetComponent<Image>().enabled = false;
+            arrows[index].GetComponent<Image>().enabled = true;
         }
-        //Player wants to traverse up through the list
         if (Input.GetKeyDown(KeyCode.W) && index - 1 >= 0)
         {
-            buttonBackground[index--].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 251, 255);
+            arrows[index--].GetComponent<Image>().enabled = false;
+            arrows[index].GetComponent<Image>().enabled = true;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
