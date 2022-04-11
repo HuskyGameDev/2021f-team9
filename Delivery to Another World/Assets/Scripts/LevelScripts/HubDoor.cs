@@ -94,11 +94,6 @@ public class HubDoor : MonoBehaviour
                     }*/
                 }
             }
-
-            if (map.activeSelf && Input.GetKeyDown(KeyCode.Escape))
-            {
-                ExitMap();
-            }
         }
     }
 

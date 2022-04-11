@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject map;
+    public GameObject settingsMenu;
     public GameObject pauseMenu;
 
     private void Start()
@@ -14,17 +15,28 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!pauseMenu.activeSelf && !map.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                pauseMenu.SetActive(true);
+                if (!pauseMenu.activeSelf)
+                    pauseMenu.SetActive(true);
+                else
+                    pauseMenu.SetActive(false);
             }
-            else if (pauseMenu.activeSelf)
-            {
-                pauseMenu.SetActive(false);
-            }
-        }
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+    }
+
+    public void OpenSettings()
+    {
+        settingsMenu.SetActive(true);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame()
