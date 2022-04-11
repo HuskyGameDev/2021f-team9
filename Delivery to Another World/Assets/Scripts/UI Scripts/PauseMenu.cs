@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenSettings()
     {
+        pauseMenu.SetActive(false);
         settingsMenu.SetActive(true);
     }
 

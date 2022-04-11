@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public GameObject pauseMenu;
     public GameObject settingsMenu;
     public Slider slider;
 
     private void Start()
     {
-        settingsMenu = this.gameObject;
         settingsMenu.SetActive(false);
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
     }
@@ -20,5 +20,11 @@ public class SettingsMenu : MonoBehaviour
         float newVolume = slider.value;
         AudioListener.volume = newVolume;
         PlayerPrefs.SetFloat("volume", newVolume);
+    }
+
+    public void exitMenu()
+    {
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 }
