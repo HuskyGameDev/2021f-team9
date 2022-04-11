@@ -7,7 +7,7 @@ public class HubDoor : MonoBehaviour
 {
     public GameObject forestButton;
     public GameObject desertButton;
-    public GameObject caveButton;
+    //public GameObject caveButton;
     public GameObject castleButton;
 
     GameObject map;
@@ -33,13 +33,13 @@ public class HubDoor : MonoBehaviour
 
                 forestButton.GetComponent<Button>().enabled = false;
                 desertButton.GetComponent<Button>().enabled = false;
-                caveButton.GetComponent<Button>().enabled = false;
+                //caveButton.GetComponent<Button>().enabled = false;
                 castleButton.GetComponent<Button>().enabled = false;
 
-                forestButton.GetComponent<Image>().color = Color.grey;
-                desertButton.GetComponent<Image>().color = Color.grey;
-                caveButton.GetComponent<Image>().color = Color.grey;
-                castleButton.GetComponent<Image>().color = Color.grey;
+                forestButton.GetComponent<Image>().color = new Color32(255, 0, 94, 100);
+                desertButton.GetComponent<Image>().color = new Color32(255, 0, 94, 100);
+                //caveButton.GetComponent<Image>().color = Color.grey;
+                castleButton.GetComponent<Image>().color = new Color32(255, 0, 94, 100);
 
                 Quest quest1 = questManager.GetQuest1();
                 Quest quest2 = questManager.GetQuest2();
@@ -49,12 +49,12 @@ public class HubDoor : MonoBehaviour
                     if (quest1.questArea.Equals("Forest"))
                     {
                         forestButton.GetComponent<Button>().enabled = true;
-                        forestButton.GetComponent<Image>().color = Color.white;
+                        forestButton.GetComponent<Image>().color = new Color32(255, 0, 94, 255);
                     }
                     else if (quest1.questArea.Equals("Desert"))
                     {
                         desertButton.GetComponent<Button>().enabled = true;
-                        desertButton.GetComponent<Image>().color = Color.white;
+                        desertButton.GetComponent<Image>().color = new Color32(255, 0, 94, 255);
                     }
                     // Uncomment these when cave and castle have been implemented
                     /*else if (quest1.questArea.Equals("Cave"))
@@ -74,12 +74,12 @@ public class HubDoor : MonoBehaviour
                     if (quest2.questArea.Equals("Forest"))
                     {
                         forestButton.GetComponent<Button>().enabled = true;
-                        forestButton.GetComponent<Image>().color = Color.white;
+                        forestButton.GetComponent<Image>().color = new Color32(255, 0, 94, 255);
                     }
                     else if (quest2.questArea.Equals("Desert"))
                     {
                         desertButton.GetComponent<Button>().enabled = true;
-                        desertButton.GetComponent<Image>().color = Color.white;
+                        desertButton.GetComponent<Image>().color = new Color32(255, 0, 94, 255);
                     }
                     // Uncomment these when cave and castle have been implemented
                     /*else if (quest2.questArea.Equals("Cave"))
@@ -87,11 +87,11 @@ public class HubDoor : MonoBehaviour
                         caveButton.GetComponent<Button>().enabled = true;
                         caveButton.GetComponent<Image>().color = Color.white;
                     }*/
-                    /*else if (quest2.questArea.Equals("Castle"))
+                    else if (quest2.questArea.Equals("Castle"))
                     {
                         castleButton.GetComponent<Button>().enabled = true;
-                        castleButton.GetComponent<Image>().color = Color.white;
-                    }*/
+                        castleButton.GetComponent<Image>().color = new Color32(255, 0, 94, 255);
+                    }
                 }
             }
         }

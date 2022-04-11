@@ -26,6 +26,7 @@ public class SelectMap_Keyboard : MonoBehaviour
         else 
         {
             buttonBackground = GameObject.FindGameObjectsWithTag("MapButton");
+            // Sets the first button to be selected
             buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 255, 255);
         }
     }
@@ -35,8 +36,8 @@ public class SelectMap_Keyboard : MonoBehaviour
         //Player wants to traverse down through the list
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
         {
-            // Set previously selected button to white and move index to next location
-            buttonBackground[index++].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            // Set previously selected button to default color and move index to next location
+            buttonBackground[index++].GetComponent<Image>().color = new Color32(255, 0, 94, 255);
 
             // If the end of the list is reached, send pointer back to the start of the list
             if (index >= buttonBackground.Length)
@@ -61,14 +62,14 @@ public class SelectMap_Keyboard : MonoBehaviour
             }
 
             // Set newly selected button to blue
-            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 251, 255);
+            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 255, 255);
         }
 
         //Player wants to traverse up through the list
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W))
         {
-            // Set previously selected button to white and move index to next location
-            buttonBackground[index--].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            // Set previously selected button to default color and move index to next location
+            buttonBackground[index--].GetComponent<Image>().color = new Color32(255, 0, 94, 255);
 
             // If the start of the list is reached, send pointer to the back of the list
             if (index < 0)
@@ -93,7 +94,7 @@ public class SelectMap_Keyboard : MonoBehaviour
             }
 
             // Set newly selected button to blue
-            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 251, 255);
+            buttonBackground[index].GetComponent<Image>().color = new Color32(131, 255, 255, 255);
         }
 
         // Load the scene of the selected world
