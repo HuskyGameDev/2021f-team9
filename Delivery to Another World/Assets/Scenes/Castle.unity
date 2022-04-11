@@ -522,43 +522,43 @@ PrefabInstance:
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: treasureRoomImage
       value: 
-      objectReference: {fileID: 6124760169264745027, guid: c281b64eb157f164ea8e2e35333e0a08, type: 3}
+      objectReference: {fileID: 5969651136912741699, guid: 6c72e65702c637b45a1258d06dc53ebc, type: 3}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.size
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[0]
       value: 
-      objectReference: {fileID: 8610950150643425613, guid: bbf480c7859cb4c4b8b083f7a5c21a47, type: 3}
+      objectReference: {fileID: 9051765645961743253, guid: 33d428dfa3aecb14fbeaa6fe02e91580, type: 3}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[1]
       value: 
-      objectReference: {fileID: 8823006506617384045, guid: 9cb71c5cc83d9c64f8a65c038650063f, type: 3}
+      objectReference: {fileID: 1381905890354340820, guid: 14d26382cc932c7469ca831c9ff4612a, type: 3}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[2]
       value: 
-      objectReference: {fileID: 316262182825945354, guid: 7684bcf5953d9c44eba92460c2347642, type: 3}
+      objectReference: {fileID: 7216277099075542198, guid: dcf7e4cb5b8de56448365fb01106c82d, type: 3}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[3]
       value: 
-      objectReference: {fileID: 6792578573777746117, guid: 8203d4117526c5e40adda7a8f4d04346, type: 3}
+      objectReference: {fileID: 1133837741757125311, guid: 66533e3489a601849854700473fb445f, type: 3}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[4]
       value: 
-      objectReference: {fileID: 1136982724746368308, guid: 4bb106c5569d76b4691084853da4ae81, type: 3}
+      objectReference: {fileID: 5072131168734593249, guid: 8c6b89c877b9369439cb6f207643766d, type: 3}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[5]
       value: 
-      objectReference: {fileID: 6366727096261889213, guid: efb6f790452296047ae7c99588b7fafe, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[6]
       value: 
-      objectReference: {fileID: 8801250321904356218, guid: 74e972c67092d344f9cc5da8b40c4656, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 3304433251373470429, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
       propertyPath: roomImages.Array.data[7]
       value: 
-      objectReference: {fileID: 6625886386900798202, guid: 70d5d3b54edba1742aa0632fff438fec, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d890b4c611487e14db7a8c1c70b01b36, type: 3}
 --- !u!1 &1877729956
