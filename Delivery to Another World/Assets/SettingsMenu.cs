@@ -12,7 +12,9 @@ public class SettingsMenu : MonoBehaviour
     private void Start()
     {
         settingsMenu.SetActive(false);
-        AudioListener.volume = PlayerPrefs.GetFloat("volume");
+        float volume = PlayerPrefs.GetFloat("volume");
+        AudioListener.volume = volume;
+        slider.value = volume;
     }
 
     public void changeVolume()

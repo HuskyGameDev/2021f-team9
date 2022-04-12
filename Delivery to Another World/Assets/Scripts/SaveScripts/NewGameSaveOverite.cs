@@ -12,7 +12,7 @@ public class NewGameSaveOverite : MonoBehaviour
     //Awake is called on instantion
     private void Awake()
     {
-    
+        PlayerPrefs.SetFloat("volume", 50);
     }
 
     //Awake is called once the script is called
