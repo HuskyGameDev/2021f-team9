@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossButtonInteraction : MonoBehaviour
+public class BossRoomButtonInteraction : MonoBehaviour
 {
 
-    public GameObject player;
+    private GameObject player = GameObject.FindGameObjectWithTag("Player");
     public BossRoomButtons bossManager;
 
     // Update is called once per frame

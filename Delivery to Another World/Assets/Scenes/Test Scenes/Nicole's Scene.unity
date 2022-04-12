@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &48734345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8833129366926981517, guid: f6c3aa2afffcfbf459e3513f958a42de, type: 3}
-  m_PrefabInstance: {fileID: 1099943405}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &204858944 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7919911708522661188, guid: e7f55c93773040745b2226e6c2d3a2a0, type: 3}
@@ -382,7 +377,6 @@ GameObject:
   m_Component:
   - component: {fileID: 302885179}
   - component: {fileID: 302885178}
-  - component: {fileID: 302885180}
   - component: {fileID: 302885177}
   m_Layer: 0
   m_Name: Button1
@@ -469,19 +463,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &302885180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302885176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2cb323f1875d84e9d7f00caaf5dfd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 48734345}
 --- !u!1 &610152824
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +662,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2145209435}
     m_Modifications:
+    - target: {fileID: 777750526454383103, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777750526454383103, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2032794224322645318, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -460.34
@@ -791,6 +780,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6212367305057355063, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559593426989618623, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559593426989618623, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559593426989618623, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -986,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2cb323f1875d84e9d7f00caaf5dfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 48734345}
+  bossManager: {fileID: 263177432}
 --- !u!1 &1201229601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8508127197167944073, guid: 76705e9e9cd6d5640852e1f3d8f1e980, type: 3}
@@ -1205,7 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2cb323f1875d84e9d7f00caaf5dfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 48734345}
+  bossManager: {fileID: 263177432}
 --- !u!1001 &1677224654
 PrefabInstance:
   m_ObjectHideFlags: 0
