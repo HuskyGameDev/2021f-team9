@@ -1599,7 +1599,6 @@ GameObject:
   - component: {fileID: 8996359542600766625}
   - component: {fileID: 8996359542600766636}
   - component: {fileID: 8996359542600766627}
-  - component: {fileID: 8996359542600766626}
   - component: {fileID: 4544807014784629762}
   m_Layer: 0
   m_Name: GEOFFRY
@@ -1674,20 +1673,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8996359542600766626
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996359542600766624}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &4544807014784629762
 MonoBehaviour:
   m_ObjectHideFlags: 0
