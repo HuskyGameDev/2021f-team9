@@ -7,26 +7,35 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject settingsMenu;
     public GameObject pauseMenu;
+    private GameObject player;
 
     private void Start()
     {
         pauseMenu.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-            if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!pauseMenu.activeSelf)
             {
-                if (!pauseMenu.activeSelf)
-                    pauseMenu.SetActive(true);
-                else
-                    pauseMenu.SetActive(false);
+                pauseMenu.SetActive(true);
+                DisablePlayer();
             }
+            else
+            {
+                pauseMenu.SetActive(false);
+                EnablePlayer();
+            }
+        }
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
+        EnablePlayer();
     }
 
     public void OpenSettings()
@@ -43,5 +52,17 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void DisablePlayer()
+    {
+        player.GetComponent<PlayerMovementGravity>().enabled = false;
+        player.GetComponent<RotationGravity>().enabled = false;
+    }
+
+    public void EnablePlayer()
+    {
+        player.GetComponent<PlayerMovementGravity>().enabled = true;
+        player.GetComponent<RotationGravity>().enabled = true;
     }
 }
