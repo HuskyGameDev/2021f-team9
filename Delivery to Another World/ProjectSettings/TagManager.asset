@@ -25,6 +25,7 @@ TagManager:
   - Quest
   - MapButton
   - MenuButton
+  - PauseButton
   layers:
   - Default
   - TransparentFX
