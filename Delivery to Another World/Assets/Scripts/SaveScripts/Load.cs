@@ -146,7 +146,11 @@ public class Load : MonoBehaviour
                     }
                 }
             }
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Hub");
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Hub");
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
+        }
     }
 }
