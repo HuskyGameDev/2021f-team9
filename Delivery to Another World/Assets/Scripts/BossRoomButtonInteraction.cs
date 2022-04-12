@@ -5,9 +5,13 @@ using UnityEngine;
 public class BossRoomButtonInteraction : MonoBehaviour
 {
 
-    private GameObject player = GameObject.FindGameObjectWithTag("Player");
+    private GameObject player;
     public BossRoomButtons bossManager;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     // Update is called once per frame
     void Update()
     {
