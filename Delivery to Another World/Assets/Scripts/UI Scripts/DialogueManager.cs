@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, bool questNPC)
     {
+        FindObjectOfType<PauseMenu>().enabled = false;
+
         isQuestNPC = questNPC;
         isComplete = false;
 
@@ -63,6 +65,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        FindObjectOfType<PauseMenu>().enabled = true;
         isComplete = true;
         dialogueBox.SetActive(false);
     }

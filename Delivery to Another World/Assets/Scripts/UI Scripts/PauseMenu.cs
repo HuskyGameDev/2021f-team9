@@ -19,7 +19,12 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!pauseMenu.activeSelf)
+            if (settingsMenu.activeSelf)
+            {
+                settingsMenu.SetActive(false);
+                pauseMenu.SetActive(true);
+            }
+            else if (!pauseMenu.activeSelf)
             {
                 pauseMenu.SetActive(true);
                 DisablePlayer();
@@ -51,18 +56,31 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        // Players (like me) will think this is for exiting the pause menu, not exiting the game.
+        //Application.Quit();
+        pauseMenu.SetActive(false);
+        EnablePlayer();
     }
 
     public void DisablePlayer()
     {
         player.GetComponent<PlayerMovementGravity>().enabled = false;
         player.GetComponent<RotationGravity>().enabled = false;
+        // Need to disable enemies too
+        if (SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "Desert" || SceneManager.GetActiveScene().name == "Castle")
+        {
+            FindObjectOfType<EnemyMovement>().enabled = false;
+        }
     }
 
     public void EnablePlayer()
     {
         player.GetComponent<PlayerMovementGravity>().enabled = true;
         player.GetComponent<RotationGravity>().enabled = true;
+        // Need to enable enemies too
+        if (SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "Desert" || SceneManager.GetActiveScene().name == "Castle")
+        {
+            FindObjectOfType<EnemyMovement>().enabled = true;
+        }
     }
 }

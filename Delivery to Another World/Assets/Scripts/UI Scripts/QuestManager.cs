@@ -23,6 +23,9 @@ public class QuestManager : MonoBehaviour
     public Sprite knowledge;
     public Sprite useYourHead;
     public Sprite delivery;
+    public List<Sprite> treasures;
+    public Image quest1treasure;
+    public Image quest2treasure;
 
     private Queue<Quest> incompleteQuests;
     private Quest activeQuest1;
@@ -143,18 +146,23 @@ public class QuestManager : MonoBehaviour
         {
             case "An Apple a Day":
                 button1.GetComponent<Image>().sprite = appleADay;
+                quest1treasure.sprite = treasures[0];
                 break;
             case "A Pointy Adventure":
                 button1.GetComponent<Image>().sprite = pointyAdventure;
+                quest1treasure.sprite = treasures[1];
                 break;
             case "Knowledge":
                 button1.GetComponent<Image>().sprite = knowledge;
+                quest1treasure.sprite = treasures[2];
                 break;
             case "Use Your Head":
                 button1.GetComponent<Image>().sprite = useYourHead;
+                quest1treasure.sprite = treasures[3];
                 break;
             case "Delivery":
                 button1.GetComponent<Image>().sprite = delivery;
+                quest1treasure.sprite = treasures[4];
                 break;
             default:
                 break;
@@ -163,18 +171,23 @@ public class QuestManager : MonoBehaviour
         {
             case "An Apple a Day":
                 button2.GetComponent<Image>().sprite = appleADay;
+                quest2treasure.sprite = treasures[0];
                 break;
             case "A Pointy Adventure":
                 button2.GetComponent<Image>().sprite = pointyAdventure;
+                quest2treasure.sprite = treasures[1];
                 break;
             case "Knowledge":
                 button2.GetComponent<Image>().sprite = knowledge;
+                quest2treasure.sprite = treasures[2];
                 break;
             case "Use Your Head":
                 button2.GetComponent<Image>().sprite = useYourHead;
+                quest2treasure.sprite = treasures[3];
                 break;
             case "Delivery":
                 button2.GetComponent<Image>().sprite = delivery;
+                quest2treasure.sprite = treasures[4];
                 break;
             default:
                 break;
@@ -222,6 +235,8 @@ public class QuestManager : MonoBehaviour
         FindObjectOfType<PlayerMovementGravity>().enabled = false;
         FindObjectOfType<RotationGravity>().enabled = false;
         FindObjectOfType<NPCInteraction>().enabled = false;
+        // Prevents the pause menu from popping up when you try to exit selecting a quest.
+        FindObjectOfType<PauseMenu>().enabled = false;
     }
 
     public void HideQuests()
@@ -229,6 +244,8 @@ public class QuestManager : MonoBehaviour
         UpdateButtonText();
         questBox.SetActive(false);
         FindObjectOfType<NPCInteraction>().enabled = true;
+        // Re-enables the pause menu
+        FindObjectOfType<PauseMenu>().enabled = true;
     }
 
     public void QuestButtonOne()

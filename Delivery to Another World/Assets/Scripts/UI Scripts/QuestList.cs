@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuestList : MonoBehaviour
 {
@@ -49,6 +50,11 @@ public class QuestList : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             questList.SetActive(!questList.activeSelf);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            questList.SetActive(false);
         }
 
         questListText.GetComponent<Text>().text = finalText;

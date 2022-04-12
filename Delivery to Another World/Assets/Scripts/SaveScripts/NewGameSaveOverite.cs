@@ -12,7 +12,7 @@ public class NewGameSaveOverite : MonoBehaviour
     //Awake is called on instantion
     private void Awake()
     {
-        PlayerPrefs.SetFloat("volume", 50);
+        //PlayerPrefs.SetFloat("volume", 50);
     }
 
     //Awake is called once the script is called
@@ -38,6 +38,7 @@ public class NewGameSaveOverite : MonoBehaviour
         PlayerPrefs.SetInt("didYouWin", 0);
         PlayerPrefs.SetInt("didYouWinClaimed", 0);
         File.Delete(Application.persistentDataPath + "\\savedata.heheh");
+        PlayerPrefs.SetFloat("volume", 0.5f);
         SceneManager.LoadScene("Tutorial");
         //SceneManager.LoadScene("Hub");
     }

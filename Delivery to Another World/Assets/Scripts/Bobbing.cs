@@ -5,7 +5,10 @@ using UnityEngine;
 public class Bobbing : MonoBehaviour
 {
 
+    public float maxY;
+    public float minY;
     public float delay;
+    public float speed;
 
     private bool direction;
     private float startTime;
@@ -20,23 +23,23 @@ public class Bobbing : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float t = (Time.time - startTime) / 1f;
+        float t = (Time.time - startTime) / speed;
 
         if (direction)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.SmoothStep(0.6f, 1f, t), transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.SmoothStep(minY, maxY, t), transform.localPosition.z);
         }
         else
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.SmoothStep(1f, 0.6f, t), transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.SmoothStep(maxY, minY, t), transform.localPosition.z);
         }
 
-        if (transform.localPosition.y == 1f)
+        if (transform.localPosition.y == maxY)
         {
             direction = false;
             startTime = Time.time;
         }
-        else if (transform.localPosition.y == 0.6f)
+        else if (transform.localPosition.y == minY)
         {
             direction = true;
             startTime = Time.time;
