@@ -69,7 +69,10 @@ public class PauseMenu : MonoBehaviour
         // Need to disable enemies too
         if (SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "Desert" || SceneManager.GetActiveScene().name == "Castle")
         {
-            FindObjectOfType<EnemyMovement>().enabled = false;
+            foreach (EnemyMovement enemy in FindObjectsOfType<EnemyMovement>())
+            {
+                enemy.enabled = false;
+            }
         }
     }
 
@@ -80,7 +83,10 @@ public class PauseMenu : MonoBehaviour
         // Need to enable enemies too
         if (SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "Desert" || SceneManager.GetActiveScene().name == "Castle")
         {
-            FindObjectOfType<EnemyMovement>().enabled = true;
+            foreach (EnemyMovement enemy in FindObjectsOfType<EnemyMovement>())
+            {
+                enemy.enabled = true;
+            }
         }
     }
 }
