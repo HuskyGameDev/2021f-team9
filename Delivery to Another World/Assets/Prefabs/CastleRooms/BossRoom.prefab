@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6705448494657695291}
+  - component: {fileID: 7107078889163887894}
   m_Layer: 0
   m_Name: Buttons
   m_TagString: Untagged
@@ -33,6 +34,21 @@ Transform:
   m_Father: {fileID: 790075137807011778}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7107078889163887894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918305567481272052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66dd5facee9078a4898e75eb3b654b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button1: {fileID: 6742285820102822685}
+  button2: {fileID: 3609003084379376196}
+  button3: {fileID: 5311791851722778071}
 --- !u!1 &2778112462406763239
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,9 +107,10 @@ GameObject:
   - component: {fileID: 1950549387418793769}
   - component: {fileID: 5040470821073211793}
   - component: {fileID: 53961882237879178}
+  - component: {fileID: 5177581828248288323}
   m_Layer: 0
   m_Name: Button2
-  m_TagString: Untagged
+  m_TagString: Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +123,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3609003084379376196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 25, y: 0.38, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6705448494657695291}
   m_RootOrder: 1
@@ -152,7 +169,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8999094951c35bd4195f1fd4a5cbaa1e, type: 3}
   m_Color: {r: 0.37254903, g: 0.8039216, b: 0.89411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -175,7 +192,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2cb323f1875d84e9d7f00caaf5dfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossManager: {fileID: 4544807014784629762}
+  bossManager: {fileID: 7107078889163887894}
+  isRotated: 0
+--- !u!65 &5177581828248288323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3609003084379376196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5108435294557938923
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,9 +380,10 @@ GameObject:
   - component: {fileID: 4701063704656270495}
   - component: {fileID: 5040741680904479790}
   - component: {fileID: 2559615464912559223}
+  - component: {fileID: 447109466991572958}
   m_Layer: 0
   m_Name: Button3
-  m_TagString: Untagged
+  m_TagString: Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,8 +396,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5311791851722778071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -20, y: 0.39, z: 20}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6705448494657695291}
   m_RootOrder: 2
@@ -410,7 +442,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8999094951c35bd4195f1fd4a5cbaa1e, type: 3}
   m_Color: {r: 0.37254903, g: 0.8039216, b: 0.89411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -433,7 +465,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2cb323f1875d84e9d7f00caaf5dfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossManager: {fileID: 4544807014784629762}
+  bossManager: {fileID: 7107078889163887894}
+  isRotated: 0
+--- !u!65 &447109466991572958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311791851722778071}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6455495443386957867
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,9 +531,10 @@ GameObject:
   - component: {fileID: 8170171832181454162}
   - component: {fileID: 2674455083875015719}
   - component: {fileID: 4771337279551491172}
+  - component: {fileID: 5384691239681435752}
   m_Layer: 0
   m_Name: Button1
-  m_TagString: Untagged
+  m_TagString: Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,13 +546,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6742285820102822685}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: 0, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -25, y: 0.38, z: -5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6705448494657695291}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!212 &2674455083875015719
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -546,7 +593,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8999094951c35bd4195f1fd4a5cbaa1e, type: 3}
   m_Color: {r: 0.37254903, g: 0.8039216, b: 0.89411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -569,7 +616,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2cb323f1875d84e9d7f00caaf5dfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossManager: {fileID: 4544807014784629762}
+  bossManager: {fileID: 7107078889163887894}
+  isRotated: 1
+--- !u!65 &5384691239681435752
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742285820102822685}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5000001, y: 0.5, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8996359541351707841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,7 +1660,6 @@ GameObject:
   - component: {fileID: 8996359542600766625}
   - component: {fileID: 8996359542600766636}
   - component: {fileID: 8996359542600766627}
-  - component: {fileID: 4544807014784629762}
   m_Layer: 0
   m_Name: GEOFFRY
   m_TagString: Untagged
@@ -1673,21 +1733,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4544807014784629762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996359542600766624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66dd5facee9078a4898e75eb3b654b84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button1: {fileID: 6742285820102822685}
-  button2: {fileID: 3609003084379376196}
-  button3: {fileID: 5311791851722778071}
 --- !u!1 &8996359542605821886
 GameObject:
   m_ObjectHideFlags: 0

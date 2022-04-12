@@ -27,6 +27,7 @@ public class BossRoomButtons : MonoBehaviour
         {
             allButtonsClicked = true;
             //Cutscene
+            Debug.Log("All buttons pressed.");
         }
     }
 }
