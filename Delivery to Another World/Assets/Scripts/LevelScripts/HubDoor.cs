@@ -22,7 +22,7 @@ public class HubDoor : MonoBehaviour
     }
     void Update()
     {
-        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f)
+        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f && questManager.questActive)
         {
             if (!map.activeSelf && Input.GetKeyDown(KeyCode.E))
             {
@@ -62,11 +62,11 @@ public class HubDoor : MonoBehaviour
                         caveButton.GetComponent<Button>().enabled = true;
                         caveButton.GetComponent<Image>().color = Color.white
                     }*/
-                    /*else if (quest1.questArea.Equals("Castle"))
+                    else if (quest1.questArea.Equals("Castle"))
                     {
                         castleButton.GetComponent<Button>().enabled = true;
-                        castleButton.GetComponent<Image>().color = Color.white;
-                    }*/
+                        castleButton.GetComponent<Image>().color = new Color32(255, 0, 94, 255);
+                    }
                 }
 
                 if (!quest2.isNewQuest && questManager.questActive)

@@ -57,6 +57,7 @@ public class QuestManager : MonoBehaviour
             incompleteQuests = questManager.incompleteQuests;
             activeQuest1 = questManager.activeQuest1;
             activeQuest2 = questManager.activeQuest2;
+            questActive = questManager.questActive;
             Destroy(questManager.gameObject);
             questManager = this;
         }
