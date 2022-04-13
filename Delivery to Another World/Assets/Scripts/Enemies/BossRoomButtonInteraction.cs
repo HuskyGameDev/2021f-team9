@@ -7,6 +7,7 @@ public class BossRoomButtonInteraction : MonoBehaviour
 
     private GameObject player;
     public BossRoomButtons bossManager;
+    public bool isRotated;
 
     private void Start()
     {
@@ -20,7 +21,29 @@ public class BossRoomButtonInteraction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 bossManager.pressedNextButton();
-                GetComponent<SpriteRenderer>().enabled = false;
+                Destroy(gameObject); //Disabling the sprite renderer didn't work? Destroying does, idk
+            }
+        }
+        if (isRotated)
+        {
+            if (!FindObjectOfType<RotationGravity>().dimensionActive)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else if (FindObjectOfType<RotationGravity>().dimensionActive)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+        else
+        {
+            if (!FindObjectOfType<RotationGravity>().dimensionActive)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else if (FindObjectOfType<RotationGravity>().dimensionActive)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
