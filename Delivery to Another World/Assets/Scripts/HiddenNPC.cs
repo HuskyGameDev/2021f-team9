@@ -12,17 +12,31 @@ public class HiddenNPC : MonoBehaviour
     public AudioSource source;
 
     private GameObject player;
+    private bool dialogueStarted;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerMovementGravity>().gameObject;
+        player = GameObject.FindGameObjectWithTag("Player");
+        dialogueStarted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 1f && Input.GetKeyDown(KeyCode.E))
+        //Debug.Log(Vector3.Distance(transform.localPosition, player.transform.position));
+
+        if (dialogueStarted && Input.GetKeyDown(KeyCode.E))
+        {
+            dialogueManager.DisplayNextScentence();
+
+            if (dialogueAudio.Count > 0)
+            {
+                playDialogue();
+            }
+        }
+
+        if (Vector3.Distance(transform.localPosition, player.transform.position) < 1f && Input.GetKeyDown(KeyCode.E) && !dialogueStarted)
         {
             if (dialogueManager.IsDialogueCompleted())
             {
@@ -35,16 +49,18 @@ public class HiddenNPC : MonoBehaviour
                 {
                     playDialogue();
                 }
-            }
-            else
-            {
-                dialogueManager.DisplayNextScentence();
 
-                if (dialogueAudio.Count > 0)
-                {
-                    playDialogue();
-                }
+                dialogueStarted = true;
             }
+        }
+
+        if (Vector3.Distance(transform.position, player.transform.position) < 1f)
+        {
+            FindObjectOfType<Escript>().SendMessage("showSign");
+        }
+        else
+        {
+            FindObjectOfType<Escript>().SendMessage("hideSign");
         }
     }
 
