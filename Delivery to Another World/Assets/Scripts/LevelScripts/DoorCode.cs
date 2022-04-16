@@ -60,7 +60,7 @@ public class DoorCode : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E) && !stopDuplicates)
+        if (Input.GetKeyDown(KeyCode.E) && !stopDuplicates && other.CompareTag("Player"))
         {
             stopDuplicates = true;
             if (direction == "NORTH")

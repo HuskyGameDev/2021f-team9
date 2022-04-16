@@ -692,7 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: difficulty
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: lastRoomPrefab
@@ -700,12 +700,12 @@ PrefabInstance:
       objectReference: {fileID: 6455495443386957867, guid: 3b2291e35352a2a4eaf8f99569b55cb9, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1661066203129557797, guid: 99043969819895045bf63cc8d0630619, type: 3}
+      objectReference: {fileID: 4746542873250192508, guid: 3c828c5361f676e4080d120f649bf732, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[1]
       value: 
@@ -713,11 +713,11 @@ PrefabInstance:
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 1279170236722083857, guid: fe0f41a49ab59c247bb301c114c59c78, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 2421448258275257460, guid: d59e5862bb22d014b8c0ad93a85e1d82, type: 3}
+      objectReference: {fileID: 831201885113140634, guid: 1a7163374e89c154994e72a4ba45e211, type: 3}
     - target: {fileID: 8658396495638143999, guid: bfd78e78748a4184695c18bb9f76098d, type: 3}
       propertyPath: prefabs.Array.data[4]
       value: 

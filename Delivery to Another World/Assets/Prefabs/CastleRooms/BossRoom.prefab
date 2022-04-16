@@ -1985,6 +1985,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 790075137807011778}
     m_Modifications:
+    - target: {fileID: 2358689254361745698, guid: 362e7aba62afdf84bb4146bf028dc7d6, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2358689254361745700, guid: 362e7aba62afdf84bb4146bf028dc7d6, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2063,6 +2067,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 790075137807011778}
     m_Modifications:
+    - target: {fileID: 1192598427257174088, guid: 2bb6eb2a6e52549428d0fe61c024ea6e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1192598427257174093, guid: 2bb6eb2a6e52549428d0fe61c024ea6e, type: 3}
       propertyPath: m_Name
       value: SouthDoor
@@ -2197,6 +2205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NorthDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 3657036829372788580, guid: 4294e16c253462542b9e2682bc98a321, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5163731759432795982, guid: 4294e16c253462542b9e2682bc98a321, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3
@@ -2219,6 +2231,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 790075137807011778}
     m_Modifications:
+    - target: {fileID: 1194354498574876712, guid: d72c6e03068cfd44db8050749273c06f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1194354498574876714, guid: d72c6e03068cfd44db8050749273c06f, type: 3}
       propertyPath: m_RootOrder
       value: 5
