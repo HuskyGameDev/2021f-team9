@@ -63,7 +63,6 @@ public class SelectMenu_Keyboard : MonoBehaviour
                 {
                     //New Game
                     FindObjectOfType<NewGameSaveOverite>().TaskOnClick();
-                    SceneManager.LoadScene("Tutorial");
                 }
                 else if (index == 1 && File.Exists(Application.persistentDataPath + "\\savedata.heheh"))
                 {

@@ -12,6 +12,7 @@ public class Transition : MonoBehaviour
     void Start()
     {
         changeRoom = false;
+        transition();
     }
 
     // fades screen to black when transitioning between rooms

@@ -43,7 +43,7 @@ public class NewGameSaveOverite : MonoBehaviour
         PlayerPrefs.SetInt("desertGremlin", 0);
         PlayerPrefs.SetInt("castleGremlin", 0);
         PlayerPrefs.SetInt("enableJ", 0);
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Video");
         //SceneManager.LoadScene("Hub");
     }
     
