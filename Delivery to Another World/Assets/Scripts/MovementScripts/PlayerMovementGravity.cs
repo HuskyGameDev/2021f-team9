@@ -108,7 +108,7 @@ public class PlayerMovementGravity : MonoBehaviour
         {
             playerSpeed = runningSpeed;
         }
-        else if (Input.GetKey(KeyCode.J))
+        else if (Input.GetKey(KeyCode.J) && PlayerPrefs.GetInt("enableJ") == 1)
         {
             playerSpeed = 200.0f;
         }

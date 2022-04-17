@@ -17,8 +17,11 @@ public class HiddenButton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        FindObjectOfType<Escript>().wait = true;
-        FindObjectOfType<Escript>().SendMessage("showSign");
+        if (other.CompareTag("Player"))
+        {
+            FindObjectOfType<Escript>().wait = true;
+            FindObjectOfType<Escript>().SendMessage("showSign");
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -39,8 +42,11 @@ public class HiddenButton : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        FindObjectOfType<Escript>().wait = false;
-        FindObjectOfType<Escript>().SendMessage("hideSign");
-        stopDuplicates = false;
+        if (other.CompareTag("Player"))
+        {
+            FindObjectOfType<Escript>().wait = false;
+            FindObjectOfType<Escript>().SendMessage("hideSign");
+            stopDuplicates = false;
+        }
     }
 }

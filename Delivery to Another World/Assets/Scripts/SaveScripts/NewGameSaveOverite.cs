@@ -39,6 +39,10 @@ public class NewGameSaveOverite : MonoBehaviour
         PlayerPrefs.SetInt("didYouWinClaimed", 0);
         File.Delete(Application.persistentDataPath + "\\savedata.heheh");
         PlayerPrefs.SetFloat("volume", 0.5f);
+        PlayerPrefs.SetInt("forestGremlin", 0);
+        PlayerPrefs.SetInt("desertGremlin", 0);
+        PlayerPrefs.SetInt("castleGremlin", 0);
+        PlayerPrefs.SetInt("enableJ", 0);
         SceneManager.LoadScene("Tutorial");
         //SceneManager.LoadScene("Hub");
     }

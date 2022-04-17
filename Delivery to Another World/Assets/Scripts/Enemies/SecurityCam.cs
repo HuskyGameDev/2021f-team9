@@ -28,28 +28,28 @@ public class SecurityCam : MonoBehaviour
         {
             if (!reverse)
             {
-                lights.eulerAngles = new Vector3(lights.eulerAngles.x, Mathf.Lerp(lights.eulerAngles.y, 130f, Time.deltaTime / speed), lights.eulerAngles.z);
-                if (lights.eulerAngles.y <= 131f)
+                lights.localEulerAngles = new Vector3(lights.localEulerAngles.x, Mathf.Lerp(lights.localEulerAngles.y, 130f, Time.deltaTime / speed), lights.localEulerAngles.z);
+                if (lights.localEulerAngles.y <= 131f)
                 {
                     reverse = true;
                     StartCoroutine(Pause());
                 }
 
-                if (lights.eulerAngles.y < 180f)
+                if (lights.localEulerAngles.y < 180f)
                 {
                     glow.material = camGlowReverse;
                 }
             }
             else
             {
-                lights.eulerAngles = new Vector3(lights.eulerAngles.x, Mathf.Lerp(lights.eulerAngles.y, 230f, Time.deltaTime / speed), lights.eulerAngles.z);
+                lights.localEulerAngles = new Vector3(lights.localEulerAngles.x, Mathf.Lerp(lights.localEulerAngles.y, 230f, Time.deltaTime / speed), lights.localEulerAngles.z);
                 if (lights.eulerAngles.y >= 229f)
                 {
                     reverse = false;
                     StartCoroutine(Pause());
                 }
 
-                if (lights.eulerAngles.y > 180f)
+                if (lights.localEulerAngles.y > 180f)
                 {
                     glow.material = camGlow;
                 }
