@@ -83,4 +83,9 @@ public class RotationGravity : MonoBehaviour
         this.GetComponent<PlayerMovementGravity>().enabled = true;
         body.constraints = RigidbodyConstraints.None;
     }
+
+    public void Flipper()
+    {
+        StartCoroutine(Flip());
+    }
 }
