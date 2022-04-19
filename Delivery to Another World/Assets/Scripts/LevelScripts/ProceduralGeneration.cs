@@ -19,7 +19,7 @@ public class ProceduralGeneration : MonoBehaviour
     private GameObject currentPrefab;
     private int roomsSpawned;
     private roomCoordinate[] coordinatesVisited;
-    private roomCoordinate currentRoom;
+    public roomCoordinate currentRoom;
     private bool roomExists;
     private GameObject northDoor;
     private GameObject eastDoor;
@@ -32,7 +32,7 @@ public class ProceduralGeneration : MonoBehaviour
     private int algorithmZ;
     private string treasureName;
 
-    struct roomCoordinate
+    public struct roomCoordinate
     {
         public int x;
         public int y;

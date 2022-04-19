@@ -55,6 +55,7 @@ public class WorldMap : MonoBehaviour
             {
                 childrens[i].enabled = true;
             }
+            locationIndicator.transform.position = children[(FindObjectOfType<ProceduralGeneration>().currentRoom.y * sizeOfGrid) + FindObjectOfType<ProceduralGeneration>().currentRoom.x].transform.position;
         }
         
         if (Input.GetKeyUp(KeyCode.Tab))
@@ -90,6 +91,5 @@ public class WorldMap : MonoBehaviour
         children[index].rectTransform.sizeDelta = new Vector2(sizeOfSquares, sizeOfSquares);
         children[index].transform.SetParent(gameObject.transform);
         children[index].GetComponent<Image>().enabled = false;
-        locationIndicator.transform.position = position;
     }
 }
