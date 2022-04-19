@@ -35,6 +35,7 @@ public class PlayerMovementGravity : MonoBehaviour
             PlayerPrefs.SetFloat("maxStamina", maxStamina);
             PlayerPrefs.SetFloat("exhaustionRate", exhaustionRate);
             PlayerPrefs.SetFloat("rotationCooldown", 2f);
+            PlayerPrefs.SetFloat("walkingSpeed", 1f);
         }
 
         // variables if player prefs had been changed
@@ -45,6 +46,11 @@ public class PlayerMovementGravity : MonoBehaviour
         if (PlayerPrefs.GetFloat("exhaustionRate") < exhaustionRate)
         {
             exhaustionRate = PlayerPrefs.GetFloat("exhaustionRate");
+        }
+        if (PlayerPrefs.GetInt("walkingSpeed") == 2)
+        {
+            walkingSpeed = 3f * PlayerPrefs.GetFloat("walkingSpeed");
+            runningSpeed = 10f * PlayerPrefs.GetFloat("walkingSpeed");
         }
 
         controller = this.GetComponent<CharacterController>();

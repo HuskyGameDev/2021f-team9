@@ -28325,7 +28325,7 @@ MonoBehaviour:
   treasureRenderer: {fileID: 266241793}
   spotLight: {fileID: 610301291}
   particles: {fileID: 24551579}
-  treasureNum: 2
+  treasureNum: 3
 --- !u!1001 &1160104325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34053,7 +34053,7 @@ MonoBehaviour:
   treasureRenderer: {fileID: 1464131348}
   spotLight: {fileID: 143301213}
   particles: {fileID: 148988755}
-  treasureNum: 3
+  treasureNum: 2
 --- !u!1 &1862357798
 GameObject:
   m_ObjectHideFlags: 0

@@ -84,7 +84,8 @@ public class BobbingTreasure : MonoBehaviour
         }
         else if (treasureName == "SpecialSkull")
         {
-            // Increase walking speed
+            PlayerPrefs.SetInt("walkingSpeed", 2);
+            Debug.Log("Walking speed increased");
         }
 
         if (FindObjectOfType<QuestManager>().GetQuest1().treasure == treasureName)
