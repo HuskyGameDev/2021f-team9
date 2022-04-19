@@ -21,11 +21,13 @@ public class WorldMap : MonoBehaviour
     {
         //firstSpawn = true;
         sizeOfGrid = FindObjectOfType<ProceduralGeneration>().difficulty;
-        sizeOfSquares = 850 / sizeOfGrid;
+        //sizeOfSquares = 850 / sizeOfGrid;
+        sizeOfSquares = (int)(GetComponentInParent<Canvas>().scaleFactor * 850f) / sizeOfGrid;
         children = new Image[sizeOfGrid * sizeOfGrid];
         locationIndicator.rectTransform.sizeDelta = new Vector2(sizeOfSquares/2, sizeOfSquares/2);
 
-        int offset = 450 - (sizeOfSquares / 2);
+        //int offset = 450 - (sizeOfSquares / 2);
+        int offset = (int)(GetComponentInParent<Canvas>().scaleFactor * 450f) - (sizeOfSquares / 2);
 
         for (int i = 0; i < sizeOfGrid; i++)
         {

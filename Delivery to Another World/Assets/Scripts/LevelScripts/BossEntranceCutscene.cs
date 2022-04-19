@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BossEntranceCutscene : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public GameObject playerWaypoint;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         DisablePlayer();
-
+        MoveCamera();
     }
 
     private void DisablePlayer()
@@ -24,6 +24,8 @@ public class BossEntranceCutscene : MonoBehaviour
         }
 
         player.GetComponent<RotationGravity>().enabled = false;
+
+        StartCoroutine(MovePlayer());
     }
 
     private void EnablePlayer()
@@ -39,7 +41,7 @@ public class BossEntranceCutscene : MonoBehaviour
 
     private void MoveCamera()
     {
-
+        Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, 7.45f, 23f);
     }
 
     private IEnumerator MovePlayer()
