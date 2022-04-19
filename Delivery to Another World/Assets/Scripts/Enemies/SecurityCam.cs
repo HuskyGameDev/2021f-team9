@@ -43,7 +43,7 @@ public class SecurityCam : MonoBehaviour
             else
             {
                 lights.localEulerAngles = new Vector3(lights.localEulerAngles.x, Mathf.Lerp(lights.localEulerAngles.y, 230f, Time.deltaTime / speed), lights.localEulerAngles.z);
-                if (lights.eulerAngles.y >= 229f)
+                if (lights.localEulerAngles.y >= 229f)
                 {
                     reverse = false;
                     StartCoroutine(Pause());
