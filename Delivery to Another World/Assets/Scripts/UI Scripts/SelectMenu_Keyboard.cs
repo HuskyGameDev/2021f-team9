@@ -30,6 +30,16 @@ public class SelectMenu_Keyboard : MonoBehaviour
         arrows[1].GetComponent<Image>().enabled = false;
         arrows[2].GetComponent<Image>().enabled = false;
         arrows[3].GetComponent<Image>().enabled = false;
+
+        //Make load transparent there is no save file
+        if (!File.Exists(Application.persistentDataPath + "\\savedata.heheh"))
+        {
+            Image image = buttons[1].GetComponent<Image>();
+            Color tempColor = image.color;
+            tempColor.a = .5f;
+            image.color = tempColor;
+            //What? Why does it work like this?
+        }
     }
 
     // Update is called once per frame
@@ -67,7 +77,10 @@ public class SelectMenu_Keyboard : MonoBehaviour
                 else if (index == 1 && File.Exists(Application.persistentDataPath + "\\savedata.heheh"))
                 {
                     //Load Game
-                    FindObjectOfType<Load>().LoadSave();
+                    if (File.Exists(Application.persistentDataPath + "\\savedata.heheh")) // Only load if there is a save file
+                    {
+                        FindObjectOfType<Load>().LoadSave();
+                    }
                 }
                 else if (index == 2)
                 {
