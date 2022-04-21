@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SelectPause_Keyboard : MonoBehaviour
 {
-    private GameObject[] buttons;
+    //private GameObject[] buttons;
 
     public GameObject pauseMenuObject;
     public GameObject arrow1;
@@ -22,7 +22,7 @@ public class SelectPause_Keyboard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttons = GameObject.FindGameObjectsWithTag("PauseButton");
+        //buttons = GameObject.FindGameObjectsWithTag("PauseButton");
         arrows[0] = arrow1;
         arrows[1] = arrow2;
         arrows[2] = arrow3;
@@ -41,7 +41,7 @@ public class SelectPause_Keyboard : MonoBehaviour
     {
         if (pauseMenuObject.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.S) && index + 1 < buttons.Length)
+            if (Input.GetKeyDown(KeyCode.S) && index + 1 < 4)
             {
                 arrows[index++].GetComponent<Image>().enabled = false;
                 arrows[index].GetComponent<Image>().enabled = true;
