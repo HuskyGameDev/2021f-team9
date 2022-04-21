@@ -13,7 +13,8 @@ public class SelectMenu_Keyboard : MonoBehaviour
     public GameObject arrow2;
     public GameObject arrow3;
     public GameObject arrow4;
-    private GameObject[] arrows = { null, null, null, null};
+    public GameObject arrow5;
+    private GameObject[] arrows = { null, null, null, null, null};
 
     private int index = 0;
 
@@ -25,11 +26,13 @@ public class SelectMenu_Keyboard : MonoBehaviour
         arrows[1] = arrow2;
         arrows[2] = arrow3;
         arrows[3] = arrow4;
+        arrows[4] = arrow5;
 
         arrows[0].GetComponent<Image>().enabled = true;
         arrows[1].GetComponent<Image>().enabled = false;
         arrows[2].GetComponent<Image>().enabled = false;
         arrows[3].GetComponent<Image>().enabled = false;
+        arrows[4].GetComponent<Image>().enabled = false;
 
         //Make load transparent there is no save file
         if (!File.Exists(Application.persistentDataPath + "\\savedata.heheh"))
@@ -94,6 +97,10 @@ public class SelectMenu_Keyboard : MonoBehaviour
                 {
                     //Open volume settings
                     FindObjectOfType<SettingsMenu>().settingsMenu.SetActive(true);
+                }
+                else if (index == 4)
+                {
+                    SceneManager.LoadScene("Credits");
                 }
             }
         }
