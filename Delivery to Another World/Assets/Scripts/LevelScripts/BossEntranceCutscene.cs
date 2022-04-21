@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossEntranceCutscene : MonoBehaviour
 {
     private GameObject player;
     public GameObject playerWaypoint;
+    private Vector3 cameraPosition;
+    private bool cameraBack;
+    public MeshRenderer GeoffryLeftEye;
+    public MeshRenderer GeoffryRightEye;
+    public GameObject DialogueBox;
+    public Text dialogueText;
+    [TextArea(3, 10)]
+    public string[] dialogue;
+    private int index;
+    public GameObject Geoffry;
+    public Light Vision;
+    public GameObject DetectionZone;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        DisablePlayer();
-        MoveCamera();
+        cameraPosition = Camera.main.transform.localPosition;
+        cameraBack = false;
+        index = 0;
     }
 
-    private void DisablePlayer()
+    public void DisablePlayer()
     {
         player.GetComponent<PlayerMovementGravity>().enabled = false;
 
@@ -24,38 +38,80 @@ public class BossEntranceCutscene : MonoBehaviour
         }
 
         player.GetComponent<RotationGravity>().enabled = false;
-
-        StartCoroutine(MovePlayer());
     }
 
-    private void EnablePlayer()
+    public void EnablePlayer()
     {
         player.GetComponent<PlayerMovementGravity>().enabled = true;
         player.GetComponent<RotationGravity>().enabled = true;
     }
 
-    private void ControlPlayer()
+    public void ControlPlayer()
     {
-       
+        player.transform.position = playerWaypoint.transform.position;
     }
 
-    private void MoveCamera()
+    public void MoveCamera()
     {
-        Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, 7.45f, 23f);
+        StartCoroutine(CameraMovement());
     }
 
-    private IEnumerator MovePlayer()
+    public void Awaken()
     {
-        Vector3 startingPos = transform.position;
-        Vector3 finalPos = transform.position + (transform.forward * 5);
+        GeoffryLeftEye.enabled = true;
+        GeoffryRightEye.enabled = true;
+    }
+
+    public void PlayBossDialogue()
+    {
+        DialogueBox.SetActive(true);
+        dialogueText.text = dialogue[index++];
+    }
+
+    public void HideDialogue()
+    {
+        DialogueBox.SetActive(false);
+    }
+
+    public void BossActivate()
+    {
+        Geoffry.GetComponent<BossVision>().enabled = true;
+        Vision.enabled = true;
+        DetectionZone.SetActive(true);
+    }
+
+    private IEnumerator CameraMovement()
+    {
+        Vector3 startingPos = Camera.main.transform.localPosition;
+        //Vector3 finalPos = transform.position + (transform.forward * 5);
+        Vector3 finalPos = new Vector3(Camera.main.transform.localPosition.x, 7.45f, 23f);
         float elapsedTime = 0;
         float time = 1;
+        float startTime = Time.time;
 
-        while (elapsedTime < time)
+        // Move the camera back to the player
+        if (cameraBack)
         {
-            player.transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            while (elapsedTime < time)
+            {
+                elapsedTime = Time.time - startTime;
+                Camera.main.transform.localPosition = Vector3.Lerp(startingPos, cameraPosition, (elapsedTime / time));
+                //elapsedTime += Time.deltaTime;
+                cameraBack = false;
+                yield return null;
+            }
+        }
+        // Move the camera to GEOFFRY
+        else
+        {
+            while (elapsedTime < time)
+            {
+                elapsedTime = Time.time - startTime;
+                Camera.main.transform.localPosition = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
+                //elapsedTime += Time.deltaTime;
+                cameraBack = true;
+                yield return null;
+            }
         }
     }
 }

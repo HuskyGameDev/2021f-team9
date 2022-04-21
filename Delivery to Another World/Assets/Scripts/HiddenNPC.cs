@@ -102,7 +102,7 @@ public class HiddenNPC : MonoBehaviour
             }
 
             dialogueCount++;
-            Debug.Log(dialogueCount);
+            //Debug.Log(dialogueCount);
         }
         
         // When initially talking to the NPC

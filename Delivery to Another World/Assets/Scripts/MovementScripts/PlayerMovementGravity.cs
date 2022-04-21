@@ -38,8 +38,10 @@ public class PlayerMovementGravity : MonoBehaviour
             PlayerPrefs.SetFloat("walkingSpeed", 1f);
         }
 
+        PlayerPrefs.SetString("world", SceneManager.GetActiveScene().name.ToLower());
+
         // variables if player prefs had been changed
-        if(PlayerPrefs.GetFloat("maxStamina") > maxStamina)
+        if (PlayerPrefs.GetFloat("maxStamina") > maxStamina)
         {
             maxStamina = PlayerPrefs.GetFloat("maxStamina");
         }

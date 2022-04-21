@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossRoomButtons : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BossRoomButtons : MonoBehaviour
     public GameObject button1;
     public GameObject button2;
     public GameObject button3;
+    public GameObject box;
 
     bool oneButtonClicked = false;
     bool twoButtonClicked = false;
@@ -27,7 +29,17 @@ public class BossRoomButtons : MonoBehaviour
         {
             allButtonsClicked = true;
             //Cutscene
+            Camera.main.transform.LookAt(GameObject.FindGameObjectWithTag("GEOFFRY").transform);
+            box.SetActive(true);
+            // Roll credits
+            StartCoroutine(WaitForCredits());
             Debug.Log("All buttons pressed.");
         }
+    }
+
+    private IEnumerator WaitForCredits()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Credits");
     }
 }

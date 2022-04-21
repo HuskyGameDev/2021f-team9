@@ -16,14 +16,7 @@ public class BossRoomButtonInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < 1.0f)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                bossManager.pressedNextButton();
-                Destroy(gameObject); //Disabling the sprite renderer didn't work? Destroying does, idk
-            }
-        }
+        
         if (isRotated)
         {
             if (!FindObjectOfType<RotationGravity>().dimensionActive)
@@ -33,6 +26,15 @@ public class BossRoomButtonInteraction : MonoBehaviour
             else if (FindObjectOfType<RotationGravity>().dimensionActive)
             {
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
+
+                if (Vector3.Distance(transform.position, player.transform.position) < 1.0f)
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        bossManager.pressedNextButton();
+                        Destroy(gameObject); //Disabling the sprite renderer didn't work? Destroying does, idk
+                    }
+                }
             }
         }
         else
@@ -40,6 +42,15 @@ public class BossRoomButtonInteraction : MonoBehaviour
             if (!FindObjectOfType<RotationGravity>().dimensionActive)
             {
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
+
+                if (Vector3.Distance(transform.position, player.transform.position) < 1.0f)
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        bossManager.pressedNextButton();
+                        Destroy(gameObject); //Disabling the sprite renderer didn't work? Destroying does, idk
+                    }
+                }
             }
             else if (FindObjectOfType<RotationGravity>().dimensionActive)
             {

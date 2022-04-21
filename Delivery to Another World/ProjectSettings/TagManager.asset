@@ -26,6 +26,7 @@ TagManager:
   - MapButton
   - MenuButton
   - PauseButton
+  - GEOFFRY
   layers:
   - Default
   - TransparentFX
