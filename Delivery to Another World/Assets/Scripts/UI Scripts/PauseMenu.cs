@@ -56,10 +56,13 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        // Players (like me) will think this is for exiting the pause menu, not exiting the game.
-        //Application.Quit();
-        pauseMenu.SetActive(false);
-        EnablePlayer();
+        //Quit
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
+        //pauseMenu.SetActive(false);
+        //EnablePlayer();
     }
 
     public void DisablePlayer()

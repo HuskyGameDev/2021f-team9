@@ -36,13 +36,13 @@ public class BossDetectionZone : MonoBehaviour
         xDirectionRay[4] = -0.5f / Mathf.Sqrt(Mathf.Pow(-2f, 2f));
         zDirectionRay[4] = 5f / Mathf.Sqrt(Mathf.Pow(5f, 2f));*/
 
-        xDirectionRay[1] = 1f;
+        xDirectionRay[1] = .3f;
         zDirectionRay[1] = 1f;
-        xDirectionRay[2] = -1f;
+        xDirectionRay[2] = -.3f;
         zDirectionRay[2] = 1f;
-        xDirectionRay[3] = 1f / Mathf.Sqrt(Mathf.Pow(-2f, 2f));
+        xDirectionRay[3] = .3f / Mathf.Sqrt(Mathf.Pow(-2f, 2f));
         zDirectionRay[3] = 1f;
-        xDirectionRay[4] = -1f / Mathf.Sqrt(Mathf.Pow(-2f, 2f));
+        xDirectionRay[4] = -.3f / Mathf.Sqrt(Mathf.Pow(-2f, 2f));
         zDirectionRay[4] = 1f;
 
         Vector3[] ray = new Vector3[5];

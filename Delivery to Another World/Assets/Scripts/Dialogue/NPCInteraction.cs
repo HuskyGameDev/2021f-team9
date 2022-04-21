@@ -12,22 +12,16 @@ using System.IO;
  */
 public class NPCInteraction : MonoBehaviour
 {
-    public Text myText;
-    public string script;
     public Dialogue dialogue;
     public bool questNPC;
     public List<AudioClip> dialogueAudio;
 
-    //private StreamReader reader;
-    private StreamReader alternate;
     private GameObject player;
     private AudioSource source;
 
     // Start is called before the first frame updates
     void Start()
     {
-        //reader = new StreamReader("Assets/Dialogue/" + script + ".txt");
-        //alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
         player = GameObject.FindGameObjectWithTag("Player");
         source = GetComponent<AudioSource>();
     }
@@ -91,7 +85,6 @@ public class NPCInteraction : MonoBehaviour
         }
         else
         {
-            alternate = new StreamReader("Assets/Dialogue/AlternateDimension.txt");
             GetComponent<MeshRenderer>().enabled = true;
         }
 
