@@ -10,6 +10,8 @@ public class BossRoomButtons : MonoBehaviour
     public GameObject button2;
     public GameObject button3;
     public GameObject box;
+    public Light Vision;
+    public GameObject detectionZone;
 
     bool oneButtonClicked = false;
     bool twoButtonClicked = false;
@@ -32,6 +34,8 @@ public class BossRoomButtons : MonoBehaviour
             Camera.main.transform.LookAt(GameObject.FindGameObjectWithTag("GEOFFRY").transform);
             box.SetActive(true);
             // Roll credits
+            Vision.enabled = false;
+            detectionZone.SetActive(false);
             StartCoroutine(WaitForCredits());
             Debug.Log("All buttons pressed.");
         }
@@ -39,7 +43,7 @@ public class BossRoomButtons : MonoBehaviour
 
     private IEnumerator WaitForCredits()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("Credits");
     }
 }

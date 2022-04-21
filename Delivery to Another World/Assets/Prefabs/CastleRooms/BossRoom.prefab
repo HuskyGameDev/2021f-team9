@@ -50,6 +50,8 @@ MonoBehaviour:
   button2: {fileID: 3609003084379376196}
   button3: {fileID: 5311791851722778071}
   box: {fileID: 8996359541515902859}
+  Vision: {fileID: 8996359541351707843}
+  detectionZone: {fileID: 3027072616910420570}
 --- !u!1 &2778112462406763239
 GameObject:
   m_ObjectHideFlags: 0

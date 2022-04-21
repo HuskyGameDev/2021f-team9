@@ -29,6 +29,7 @@ public class BossRoomButtonInteraction : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, player.transform.position) < 1.0f)
                 {
+                    FindObjectOfType<Escript>().SendMessage("showSign");
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         bossManager.pressedNextButton();
@@ -45,6 +46,7 @@ public class BossRoomButtonInteraction : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, player.transform.position) < 1.0f)
                 {
+                    FindObjectOfType<Escript>().SendMessage("showSign");
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         bossManager.pressedNextButton();
