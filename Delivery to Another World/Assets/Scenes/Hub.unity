@@ -37222,6 +37222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26811d18568177240b94b6e173d041d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1925297019}
+  - {fileID: 2348307617511211358}
+  - {fileID: 938646690}
   arrow1: {fileID: 2105278812}
   arrow2: {fileID: 1865091053}
   arrow3: {fileID: 1061111592}
