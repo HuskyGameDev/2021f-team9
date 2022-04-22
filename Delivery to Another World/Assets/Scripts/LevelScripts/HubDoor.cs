@@ -26,6 +26,7 @@ public class HubDoor : MonoBehaviour
         {
             if (!map.activeSelf && Input.GetKeyDown(KeyCode.E))
             {
+
                 map.SetActive(true);
 
                 FindObjectOfType<PlayerMovementGravity>().enabled = false;
@@ -44,7 +45,7 @@ public class HubDoor : MonoBehaviour
                 Quest quest1 = questManager.GetQuest1();
                 Quest quest2 = questManager.GetQuest2();
 
-                if (!quest1.isNewQuest && questManager.questActive)
+                if (!quest1.isNewQuest && !quest1.isQuestComplete() && questManager.questActive)
                 {
                     if (quest1.questArea.Equals("Forest"))
                     {
@@ -69,7 +70,7 @@ public class HubDoor : MonoBehaviour
                     }
                 }
 
-                if (!quest2.isNewQuest && questManager.questActive)
+                if (!quest2.isNewQuest && !quest2.isQuestComplete() && questManager.questActive)
                 {
                     if (quest2.questArea.Equals("Forest"))
                     {
