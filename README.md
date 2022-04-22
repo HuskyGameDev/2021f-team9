@@ -10,24 +10,24 @@ everyone else, and everyone else invisible to him. Ethan will go on quests for t
 guild, stealing items that will help him on his way to get your revenge on the king of the 
 land who reminds him a little too much of the CEO of Amazon from our world...
 
-Game Controls:
-WASD to move
-Mouse to interact with buttons
-Left Shift to sprint
-R to rotate 
-E to interact
-Tab to see map
-Escape to pause
+Game Controls: <br />
+WASD to move <br />
+Mouse to interact with buttons <br />
+Left Shift to sprint <br />
+R to rotate <br />
+E to interact <br />
+Tab to see map <br />
+Escape to pause <br />
 
-Installation:
-Make sure to unzip the entire file
+Installation: <br />
+Make sure to unzip the entire file <br />
 
-Team Members:
-Ethan Wright - Team Leader, Artist, Programmer, Voice Actor
-Brandon Hosang - Artist, Programmer, Voice Actor
-Nicole Wiszowaty - Artist, Programmer
-Rachel Hartrick - Artist, Programmer, Voice Actor
-Brayden Coyer - Programmer, 3D Designer
-Rowdy Vyverberg - SFX Designer, Voice Actor
-Sage Moser - Music Designer
-Ethan Fournier - Manager, Distracter, Pizza Eater
+Team Members: <br />
+Ethan Wright - Team Leader, Artist, Programmer, Voice Actor <br />
+Brandon Hosang - Artist, Programmer, Voice Actor <br />
+Nicole Wiszowaty - Artist, Programmer <br />
+Rachel Hartrick - Artist, Programmer, Voice Actor <br />
+Brayden Coyer - Programmer, 3D Designer <br />
+Rowdy Vyverberg - SFX Designer, Voice Actor <br />
+Sage Moser - Music Designer <br />
+Ethan Fournier - Manager, Distracter, Pizza Eater <br />
