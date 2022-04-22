@@ -23,10 +23,11 @@ Installation:
 Make sure to unzip the entire file
 
 Team Members:
-Ethan Wright - Team Leader, Artist, Programmer
-Brandon Hosang - Artist, Programmer
+Ethan Wright - Team Leader, Artist, Programmer, Voice Actor
+Brandon Hosang - Artist, Programmer, Voice Actor
 Nicole Wiszowaty - Artist, Programmer
-Rachel Hartrick - Artist Programmer
-Rowdy Vyverberg - SFX Designer
+Rachel Hartrick - Artist, Programmer, Voice Actor
+Brayden Coyer - Programmer, 3D Designer
+Rowdy Vyverberg - SFX Designer, Voice Actor
 Sage Moser - Music Designer
 Ethan Fournier - Manager, Distracter, Pizza Eater
