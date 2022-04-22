@@ -49,6 +49,11 @@ public class BossEntranceCutscene : MonoBehaviour
     public void ControlPlayer()
     {
         player.transform.position = playerWaypoint.transform.position;
+
+        if (player.transform.position != playerWaypoint.transform.position)
+        {
+            player.transform.position = playerWaypoint.transform.position;
+        }
     }
 
     public void MoveCamera()

@@ -13,7 +13,7 @@ using System.Collections;
 public class SelectQuest_Keyboard : MonoBehaviour 
 {
 
-    private GameObject[] buttons;
+    public GameObject[] buttons;
 
     public GameObject arrow1;
     public GameObject arrow2;
@@ -22,6 +22,8 @@ public class SelectQuest_Keyboard : MonoBehaviour
 
     private GameObject[] buttonBackground;
     private int index = 1;
+    private QuestManager questManager;
+    private bool[] buttonActive = { true, true, true };
 
     private void Start()
     {
@@ -38,15 +40,61 @@ public class SelectQuest_Keyboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        questManager = FindObjectOfType<QuestManager>();
+
+        if (!questManager.GetQuest1().isNewQuest && questManager.GetQuest1().questArea == questManager.GetQuest2().questArea)
+        {
+            buttonActive[2] = false;
+            buttons[2].GetComponent<Image>().color = new Color32(255, 0, 94, 100);
+        }
+        else if (!questManager.GetQuest2().isNewQuest && questManager.GetQuest1().questArea == questManager.GetQuest2().questArea)
+        {
+            buttonActive[1] = false;
+            buttons[1].GetComponent<Image>().color = new Color32(255, 0, 94, 100);
+        }
+        else
+        {
+            buttonActive[1] = true;
+            buttonActive[2] = true;
+            buttons[1].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            buttons[2].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+
         //Player wants to traverse down through the list
         if (Input.GetKeyDown(KeyCode.S) && index + 1 < buttons.Length)
         {
             arrows[index++].GetComponent<Image>().enabled = false;
+
+            if (!buttonActive[index])
+            {
+                if (index + 1 < buttons.Length)
+                {
+                    index++;
+                }
+                else
+                {
+                    index--;
+                }
+            }
+
             arrows[index].GetComponent<Image>().enabled = true;
         }
         if (Input.GetKeyDown(KeyCode.W) && index - 1 >= 0)
         {
             arrows[index--].GetComponent<Image>().enabled = false;
+
+            if (!buttonActive[index])
+            {
+                if (index - 1 >= 0)
+                {
+                    index--;
+                }
+                else
+                {
+                    index++;
+                }
+            }
+
             arrows[index].GetComponent<Image>().enabled = true;
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -54,14 +102,23 @@ public class SelectQuest_Keyboard : MonoBehaviour
             if(index == 0)
             {
                 FindObjectOfType<QuestManager>().ExitQuestScreen();
+                arrows[index].GetComponent<Image>().enabled = false;
+                index = 0;
+                arrows[index].GetComponent<Image>().enabled = true;
             }
             else if(index == 1)
             {
                 FindObjectOfType<QuestManager>().QuestButtonOne();
+                arrows[index].GetComponent<Image>().enabled = false;
+                index = 0;
+                arrows[index].GetComponent<Image>().enabled = true;
             }
             else if (index == 2)
             {
                 FindObjectOfType<QuestManager>().QuestButtonTwo();
+                arrows[index].GetComponent<Image>().enabled = false;
+                index = 0;
+                arrows[index].GetComponent<Image>().enabled = true;
             }
         }
     }

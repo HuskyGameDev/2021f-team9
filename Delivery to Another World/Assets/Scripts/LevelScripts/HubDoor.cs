@@ -18,10 +18,11 @@ public class HubDoor : MonoBehaviour
         map = GameObject.FindGameObjectWithTag("Map");
         map.SetActive(false);
         FindObjectOfType<Transition>().SendMessage("transition");
-        questManager = FindObjectOfType<QuestManager>();
+        
     }
     void Update()
     {
+        questManager = FindObjectOfType<QuestManager>();
         if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 1.0f && questManager.questActive)
         {
             if (!map.activeSelf && Input.GetKeyDown(KeyCode.E))
