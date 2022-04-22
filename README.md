@@ -30,4 +30,4 @@ Rachel Hartrick - Artist, Programmer, Voice Actor <br />
 Brayden Coyer - Programmer, 3D Designer <br />
 Rowdy Vyverberg - SFX Designer, Voice Actor <br />
 Sage Moser - Music Designer <br />
-Ethan Fournier - Manager, Distracter, Pizza Eater <br />
+Ethan Fournier - Manager, Distractor, Pizza Eater <br />
