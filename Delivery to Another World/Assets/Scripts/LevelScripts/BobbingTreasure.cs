@@ -84,7 +84,7 @@ public class BobbingTreasure : MonoBehaviour
         }
         else if (treasureName == "SpecialSkull")
         {
-            PlayerPrefs.SetInt("walkingSpeed", 2);
+            PlayerPrefs.SetFloat("walkingSpeed", 2f);
             Debug.Log("Walking speed increased");
         }
 

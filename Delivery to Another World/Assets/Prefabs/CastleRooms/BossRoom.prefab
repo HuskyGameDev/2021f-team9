@@ -6814,6 +6814,10 @@ PrefabInstance:
       propertyPath: m_SpotAngle
       value: 68.07338
       objectReference: {fileID: 0}
+    - target: {fileID: 3742752420484325689, guid: 0f3b8c16ae388d749983c81d31f6ae0b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99cade22ca8189b47b708439518536b0, type: 2}
     - target: {fileID: 3742752420484325694, guid: 0f3b8c16ae388d749983c81d31f6ae0b, type: 3}
       propertyPath: m_Name
       value: Light-Window-Wall (1)

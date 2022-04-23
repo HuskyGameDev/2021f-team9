@@ -20232,6 +20232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window-Wall-Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 3864685080846820030, guid: 9f55e11756a96be469951b0c96cbf0d1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99cade22ca8189b47b708439518536b0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f55e11756a96be469951b0c96cbf0d1, type: 3}
 --- !u!1 &6726551983432655250 stripped
