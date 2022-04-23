@@ -1,0 +1,2 @@
+Unzip all files from "Delivery to Another World.zip" to one location.
+Run Executable.
