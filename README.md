@@ -12,10 +12,10 @@ land who reminds him a little too much of the CEO of Amazon from our world...
 
 Game Controls: <br />
 WASD to move <br />
-Mouse to interact with buttons <br />
 Left Shift to sprint <br />
 R to rotate <br />
 E to interact <br />
+Q to show/hide quests <br />
 Tab to see map <br />
 Escape to pause <br />
 
